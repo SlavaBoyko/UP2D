@@ -10,6 +10,8 @@ subroutine time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge)
   real(kind=pr) :: t1
   integer :: it=0
 
+write(*,*) "hallo slava und tommy"
+
   if (FD_2nd) write (*,*) "!!! ATTENTION; RUNNING IN REDUCED ACCURACY MODE"
   t1 = MPI_wtime()
 
