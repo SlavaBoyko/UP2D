@@ -1,0 +1,977 @@
+ *************************************************
+ *** info: reading params from dipole/dipole.ini
+ *************************************************
+ read Resolution::nx = 256      
+ read Resolution::ny = 256      
+ read Time::nt = 9999999 (THIS IS THE DEFAULT VALUE!)  
+ read Time::Tmax = 0.500 
+ read Time::CFL = 0.100 
+ read Time::iMethod = RK2
+ read Time::dt_fixed = 0.00  
+ read Time::dt_max = 0.00     (THIS IS THE DEFAULT VALUE!)  
+ read ReynoldsNumber::nu = 0.250E-01 
+ read InitialCondition::inicond = dipole
+ read Dealiasing::iDealias = 1        
+ read Penalization::iMask = none
+ read Penalization::eps = 0.100 
+ read Geometry::xl = 4.00  
+ read Geometry::yl = 4.00  
+ read Saving::tsave = 0.100 
+ read Saving::itsave = 99999    
+ read Saving::tdrag = 0.500E-01 
+ read Saving::iSaveVorticity = 1        
+ read Saving::iSaveVelocity = 1        
+ read Saving::iSavePressure = 1        
+ read Saving::iSaveMask = 1        
+ read Sponge::iSpongeType = none
+ read Sponge::use_sponge = 0        
+ read Sponge::eps_sponge = 0.100E-01 
+ read MeanFlow::iMeanFlow = constant
+ read MeanFlow::ux_mean = 1.00  
+ read MeanFlow::uy_mean = 0.00  
+ *** information: entering StartSimulation
+ *** information: allocated memory
+ fftw wrapper: nthreads=           2
+ FFT testing error=  3.43600115176938700E-027
+ FFT testing error=  1.52854849562725651E-014
+ *** information: did fft_initialize
+ dealiase_mask is set...
+ *** information: entering time_step
+ hallo slava und tommy
+inicond=dipole max field divergence   1.7809E-15
+Initialization done, looping now.
+time=  0.0000E+00 Tmax=  5.0000E-01 it= 0 nt=  9999999
+time left:  0d  0h  1m 42s dt=  1.31E-04s t=  0.66E-03
+time left:  0d  0h  1m 37s dt=  1.32E-04s t=  0.13E-02
+time left:  0d  0h  1m 34s dt=  1.33E-04s t=  0.20E-02
+time left:  0d  0h  1m 36s dt=  1.34E-04s t=  0.27E-02
+time left:  0d  0h  1m 35s dt=  1.35E-04s t=  0.33E-02
+time left:  0d  0h  1m 33s dt=  1.36E-04s t=  0.40E-02
+time left:  0d  0h  1m 32s dt=  1.37E-04s t=  0.47E-02
+time left:  0d  0h  1m 31s dt=  1.38E-04s t=  0.54E-02
+time left:  0d  0h  1m 30s dt=  1.39E-04s t=  0.61E-02
+time left:  0d  0h  1m 29s dt=  1.41E-04s t=  0.68E-02
+time left:  0d  0h  1m 28s dt=  1.42E-04s t=  0.75E-02
+time left:  0d  0h  1m 27s dt=  1.43E-04s t=  0.82E-02
+time left:  0d  0h  1m 26s dt=  1.44E-04s t=  0.89E-02
+time left:  0d  0h  1m 26s dt=  1.45E-04s t=  0.96E-02
+time left:  0d  0h  1m 25s dt=  1.47E-04s t=  0.10E-01
+time left:  0d  0h  1m 24s dt=  1.48E-04s t=  0.11E-01
+time left:  0d  0h  1m 24s dt=  1.49E-04s t=  0.12E-01
+time left:  0d  0h  1m 23s dt=  1.51E-04s t=  0.13E-01
+time left:  0d  0h  1m 23s dt=  1.52E-04s t=  0.13E-01
+time left:  0d  0h  1m 22s dt=  1.53E-04s t=  0.14E-01
+time left:  0d  0h  1m 21s dt=  1.55E-04s t=  0.15E-01
+time left:  0d  0h  1m 21s dt=  1.56E-04s t=  0.16E-01
+time left:  0d  0h  1m 20s dt=  1.57E-04s t=  0.16E-01
+time left:  0d  0h  1m 20s dt=  1.58E-04s t=  0.17E-01
+time left:  0d  0h  1m 20s dt=  1.60E-04s t=  0.18E-01
+time left:  0d  0h  1m 20s dt=  1.61E-04s t=  0.19E-01
+time left:  0d  0h  1m 20s dt=  1.63E-04s t=  0.20E-01
+time left:  0d  0h  1m 19s dt=  1.64E-04s t=  0.20E-01
+time left:  0d  0h  1m 19s dt=  1.65E-04s t=  0.21E-01
+time left:  0d  0h  1m 19s dt=  1.66E-04s t=  0.22E-01
+time left:  0d  0h  1m 19s dt=  1.67E-04s t=  0.23E-01
+time left:  0d  0h  1m 19s dt=  1.68E-04s t=  0.24E-01
+time left:  0d  0h  1m 19s dt=  1.70E-04s t=  0.25E-01
+time left:  0d  0h  1m 18s dt=  1.71E-04s t=  0.25E-01
+time left:  0d  0h  1m 18s dt=  1.72E-04s t=  0.26E-01
+time left:  0d  0h  1m 18s dt=  1.74E-04s t=  0.27E-01
+time left:  0d  0h  1m 18s dt=  1.75E-04s t=  0.28E-01
+time left:  0d  0h  1m 18s dt=  1.76E-04s t=  0.29E-01
+time left:  0d  0h  1m 17s dt=  1.77E-04s t=  0.30E-01
+time left:  0d  0h  1m 17s dt=  1.78E-04s t=  0.31E-01
+time left:  0d  0h  1m 17s dt=  1.79E-04s t=  0.32E-01
+time left:  0d  0h  1m 16s dt=  1.80E-04s t=  0.33E-01
+time left:  0d  0h  1m 16s dt=  1.82E-04s t=  0.33E-01
+time left:  0d  0h  1m 16s dt=  1.83E-04s t=  0.34E-01
+time left:  0d  0h  1m 16s dt=  1.85E-04s t=  0.35E-01
+time left:  0d  0h  1m 15s dt=  1.86E-04s t=  0.36E-01
+time left:  0d  0h  1m 15s dt=  1.87E-04s t=  0.37E-01
+time left:  0d  0h  1m 15s dt=  1.88E-04s t=  0.38E-01
+time left:  0d  0h  1m 14s dt=  1.89E-04s t=  0.39E-01
+time left:  0d  0h  1m 14s dt=  1.90E-04s t=  0.40E-01
+time left:  0d  0h  1m 14s dt=  1.91E-04s t=  0.41E-01
+time left:  0d  0h  1m 13s dt=  1.93E-04s t=  0.42E-01
+time left:  0d  0h  1m 13s dt=  1.94E-04s t=  0.43E-01
+time left:  0d  0h  1m 13s dt=  1.95E-04s t=  0.44E-01
+time left:  0d  0h  1m 12s dt=  1.97E-04s t=  0.45E-01
+time left:  0d  0h  1m 12s dt=  1.98E-04s t=  0.46E-01
+time left:  0d  0h  1m 11s dt=  1.99E-04s t=  0.47E-01
+time left:  0d  0h  1m 11s dt=  2.00E-04s t=  0.48E-01
+time left:  0d  0h  1m 11s dt=  2.02E-04s t=  0.49E-01
+time left:  0d  0h  1m 11s dt=  2.03E-04s t=  0.50E-01
+time left:  0d  0h  1m 10s dt=  2.05E-04s t=  0.51E-01
+time left:  0d  0h  1m 10s dt=  2.06E-04s t=  0.52E-01
+time left:  0d  0h  1m 10s dt=  2.07E-04s t=  0.53E-01
+time left:  0d  0h  1m  9s dt=  2.08E-04s t=  0.54E-01
+time left:  0d  0h  1m  9s dt=  2.10E-04s t=  0.55E-01
+time left:  0d  0h  1m  8s dt=  2.11E-04s t=  0.56E-01
+time left:  0d  0h  1m  8s dt=  2.13E-04s t=  0.57E-01
+time left:  0d  0h  1m  7s dt=  2.14E-04s t=  0.58E-01
+time left:  0d  0h  1m  6s dt=  2.16E-04s t=  0.59E-01
+time left:  0d  0h  1m  6s dt=  2.17E-04s t=  0.60E-01
+time left:  0d  0h  1m  5s dt=  2.19E-04s t=  0.61E-01
+time left:  0d  0h  1m  5s dt=  2.20E-04s t=  0.62E-01
+time left:  0d  0h  1m  4s dt=  2.22E-04s t=  0.63E-01
+time left:  0d  0h  1m  4s dt=  2.24E-04s t=  0.65E-01
+time left:  0d  0h  1m  3s dt=  2.25E-04s t=  0.66E-01
+time left:  0d  0h  1m  3s dt=  2.27E-04s t=  0.67E-01
+time left:  0d  0h  1m  2s dt=  2.28E-04s t=  0.68E-01
+time left:  0d  0h  1m  2s dt=  2.30E-04s t=  0.69E-01
+time left:  0d  0h  1m  2s dt=  2.32E-04s t=  0.70E-01
+time left:  0d  0h  1m  1s dt=  2.34E-04s t=  0.71E-01
+time left:  0d  0h  1m  1s dt=  2.35E-04s t=  0.73E-01
+time left:  0d  0h  1m  0s dt=  2.37E-04s t=  0.74E-01
+time left:  0d  0h  1m  0s dt=  2.38E-04s t=  0.75E-01
+time left:  0d  0h  0m 59s dt=  2.40E-04s t=  0.76E-01
+time left:  0d  0h  0m 59s dt=  2.42E-04s t=  0.77E-01
+time left:  0d  0h  0m 58s dt=  2.44E-04s t=  0.79E-01
+time left:  0d  0h  0m 58s dt=  2.46E-04s t=  0.80E-01
+time left:  0d  0h  0m 57s dt=  2.48E-04s t=  0.81E-01
+time left:  0d  0h  0m 57s dt=  2.50E-04s t=  0.82E-01
+time left:  0d  0h  0m 57s dt=  2.52E-04s t=  0.83E-01
+time left:  0d  0h  0m 56s dt=  2.54E-04s t=  0.85E-01
+time left:  0d  0h  0m 56s dt=  2.56E-04s t=  0.86E-01
+time left:  0d  0h  0m 56s dt=  2.58E-04s t=  0.87E-01
+time left:  0d  0h  0m 55s dt=  2.60E-04s t=  0.89E-01
+time left:  0d  0h  0m 55s dt=  2.62E-04s t=  0.90E-01
+time left:  0d  0h  0m 55s dt=  2.64E-04s t=  0.91E-01
+time left:  0d  0h  0m 54s dt=  2.66E-04s t=  0.93E-01
+time left:  0d  0h  0m 54s dt=  2.69E-04s t=  0.94E-01
+time left:  0d  0h  0m 54s dt=  2.71E-04s t=  0.95E-01
+time left:  0d  0h  0m 53s dt=  2.73E-04s t=  0.97E-01
+time left:  0d  0h  0m 53s dt=  2.75E-04s t=  0.98E-01
+time left:  0d  0h  0m 52s dt=  2.78E-04s t=  0.99E-01
+Saving. time=  1.0000E-01 vormax=  7.8658E+01 fname=000010                                                                          
+time left:  0d  0h  0m 52s dt=  2.80E-04s t=  0.10    
+time left:  0d  0h  0m 52s dt=  2.82E-04s t=  0.10    
+time left:  0d  0h  0m 52s dt=  2.84E-04s t=  0.10    
+time left:  0d  0h  0m 51s dt=  2.87E-04s t=  0.10    
+time left:  0d  0h  0m 51s dt=  2.89E-04s t=  0.11    
+time left:  0d  0h  0m 50s dt=  2.92E-04s t=  0.11    
+time left:  0d  0h  0m 50s dt=  2.94E-04s t=  0.11    
+time left:  0d  0h  0m 50s dt=  2.97E-04s t=  0.11    
+time left:  0d  0h  0m 49s dt=  2.99E-04s t=  0.11    
+time left:  0d  0h  0m 49s dt=  3.02E-04s t=  0.11    
+time left:  0d  0h  0m 49s dt=  3.05E-04s t=  0.12    
+time left:  0d  0h  0m 48s dt=  3.07E-04s t=  0.12    
+time left:  0d  0h  0m 48s dt=  3.10E-04s t=  0.12    
+time left:  0d  0h  0m 47s dt=  3.13E-04s t=  0.12    
+time left:  0d  0h  0m 47s dt=  3.16E-04s t=  0.12    
+time left:  0d  0h  0m 47s dt=  3.19E-04s t=  0.12    
+time left:  0d  0h  0m 46s dt=  3.21E-04s t=  0.12    
+time left:  0d  0h  0m 46s dt=  3.24E-04s t=  0.13    
+time left:  0d  0h  0m 45s dt=  3.27E-04s t=  0.13    
+time left:  0d  0h  0m 45s dt=  3.30E-04s t=  0.13    
+time left:  0d  0h  0m 45s dt=  3.33E-04s t=  0.13    
+time left:  0d  0h  0m 44s dt=  3.36E-04s t=  0.13    
+time left:  0d  0h  0m 44s dt=  3.39E-04s t=  0.13    
+time left:  0d  0h  0m 43s dt=  3.42E-04s t=  0.14    
+time left:  0d  0h  0m 43s dt=  3.46E-04s t=  0.14    
+time left:  0d  0h  0m 43s dt=  3.49E-04s t=  0.14    
+time left:  0d  0h  0m 42s dt=  3.52E-04s t=  0.14    
+time left:  0d  0h  0m 42s dt=  3.55E-04s t=  0.14    
+time left:  0d  0h  0m 41s dt=  3.58E-04s t=  0.14    
+time left:  0d  0h  0m 41s dt=  3.62E-04s t=  0.15    
+time left:  0d  0h  0m 41s dt=  3.65E-04s t=  0.15    
+time left:  0d  0h  0m 40s dt=  3.68E-04s t=  0.15    
+time left:  0d  0h  0m 40s dt=  3.72E-04s t=  0.15    
+time left:  0d  0h  0m 39s dt=  3.75E-04s t=  0.15    
+time left:  0d  0h  0m 39s dt=  3.79E-04s t=  0.16    
+time left:  0d  0h  0m 38s dt=  3.82E-04s t=  0.16    
+time left:  0d  0h  0m 38s dt=  3.86E-04s t=  0.16    
+time left:  0d  0h  0m 38s dt=  3.89E-04s t=  0.16    
+time left:  0d  0h  0m 37s dt=  3.93E-04s t=  0.16    
+time left:  0d  0h  0m 37s dt=  3.97E-04s t=  0.17    
+time left:  0d  0h  0m 36s dt=  4.00E-04s t=  0.17    
+time left:  0d  0h  0m 36s dt=  4.04E-04s t=  0.17    
+time left:  0d  0h  0m 36s dt=  4.08E-04s t=  0.17    
+time left:  0d  0h  0m 35s dt=  4.12E-04s t=  0.17    
+time left:  0d  0h  0m 35s dt=  4.16E-04s t=  0.18    
+time left:  0d  0h  0m 34s dt=  4.19E-04s t=  0.18    
+time left:  0d  0h  0m 34s dt=  4.24E-04s t=  0.18    
+time left:  0d  0h  0m 33s dt=  4.27E-04s t=  0.18    
+time left:  0d  0h  0m 33s dt=  4.31E-04s t=  0.18    
+time left:  0d  0h  0m 33s dt=  4.35E-04s t=  0.19    
+time left:  0d  0h  0m 32s dt=  4.40E-04s t=  0.19    
+time left:  0d  0h  0m 32s dt=  4.44E-04s t=  0.19    
+time left:  0d  0h  0m 31s dt=  4.47E-04s t=  0.19    
+time left:  0d  0h  0m 31s dt=  4.52E-04s t=  0.20    
+time left:  0d  0h  0m 30s dt=  4.56E-04s t=  0.20    
+time left:  0d  0h  0m 30s dt=  4.60E-04s t=  0.20    
+Saving. time=  2.0000E-01 vormax=  3.2776E+01 fname=000020                                                                          
+time left:  0d  0h  0m 30s dt=  4.64E-04s t=  0.20    
+time left:  0d  0h  0m 29s dt=  4.68E-04s t=  0.20    
+time left:  0d  0h  0m 29s dt=  4.72E-04s t=  0.21    
+time left:  0d  0h  0m 29s dt=  4.77E-04s t=  0.21    
+time left:  0d  0h  0m 28s dt=  4.81E-04s t=  0.21    
+time left:  0d  0h  0m 28s dt=  4.85E-04s t=  0.21    
+time left:  0d  0h  0m 27s dt=  4.90E-04s t=  0.22    
+time left:  0d  0h  0m 27s dt=  4.94E-04s t=  0.22    
+time left:  0d  0h  0m 27s dt=  4.98E-04s t=  0.22    
+time left:  0d  0h  0m 26s dt=  5.03E-04s t=  0.22    
+time left:  0d  0h  0m 26s dt=  5.08E-04s t=  0.23    
+time left:  0d  0h  0m 26s dt=  5.12E-04s t=  0.23    
+time left:  0d  0h  0m 25s dt=  5.17E-04s t=  0.23    
+time left:  0d  0h  0m 25s dt=  5.21E-04s t=  0.23    
+time left:  0d  0h  0m 24s dt=  5.26E-04s t=  0.24    
+time left:  0d  0h  0m 24s dt=  5.31E-04s t=  0.24    
+time left:  0d  0h  0m 24s dt=  5.35E-04s t=  0.24    
+time left:  0d  0h  0m 23s dt=  5.40E-04s t=  0.24    
+time left:  0d  0h  0m 23s dt=  5.45E-04s t=  0.25    
+time left:  0d  0h  0m 22s dt=  5.49E-04s t=  0.25    
+time left:  0d  0h  0m 22s dt=  5.53E-04s t=  0.25    
+time left:  0d  0h  0m 22s dt=  5.58E-04s t=  0.25    
+time left:  0d  0h  0m 21s dt=  5.63E-04s t=  0.26    
+time left:  0d  0h  0m 21s dt=  5.68E-04s t=  0.26    
+time left:  0d  0h  0m 21s dt=  5.72E-04s t=  0.26    
+time left:  0d  0h  0m 20s dt=  5.78E-04s t=  0.27    
+time left:  0d  0h  0m 20s dt=  5.82E-04s t=  0.27    
+time left:  0d  0h  0m 20s dt=  5.87E-04s t=  0.27    
+time left:  0d  0h  0m 19s dt=  5.92E-04s t=  0.28    
+time left:  0d  0h  0m 19s dt=  5.97E-04s t=  0.28    
+time left:  0d  0h  0m 18s dt=  6.02E-04s t=  0.28    
+time left:  0d  0h  0m 18s dt=  6.07E-04s t=  0.28    
+time left:  0d  0h  0m 18s dt=  6.12E-04s t=  0.29    
+time left:  0d  0h  0m 17s dt=  6.17E-04s t=  0.29    
+time left:  0d  0h  0m 17s dt=  6.22E-04s t=  0.29    
+time left:  0d  0h  0m 17s dt=  6.27E-04s t=  0.30    
+time left:  0d  0h  0m 16s dt=  6.32E-04s t=  0.30    
+Saving. time=  3.0000E-01 vormax=  1.7235E+01 fname=000030                                                                          
+time left:  0d  0h  0m 16s dt=  6.36E-04s t=  0.30    
+time left:  0d  0h  0m 16s dt=  6.41E-04s t=  0.31    
+time left:  0d  0h  0m 15s dt=  6.46E-04s t=  0.31    
+time left:  0d  0h  0m 15s dt=  6.51E-04s t=  0.31    
+time left:  0d  0h  0m 15s dt=  6.56E-04s t=  0.32    
+time left:  0d  0h  0m 14s dt=  6.62E-04s t=  0.32    
+time left:  0d  0h  0m 14s dt=  6.66E-04s t=  0.32    
+time left:  0d  0h  0m 14s dt=  6.71E-04s t=  0.33    
+time left:  0d  0h  0m 13s dt=  6.77E-04s t=  0.33    
+time left:  0d  0h  0m 13s dt=  6.82E-04s t=  0.33    
+time left:  0d  0h  0m 13s dt=  6.87E-04s t=  0.34    
+time left:  0d  0h  0m 12s dt=  6.92E-04s t=  0.34    
+time left:  0d  0h  0m 12s dt=  6.97E-04s t=  0.34    
+time left:  0d  0h  0m 11s dt=  7.02E-04s t=  0.35    
+time left:  0d  0h  0m 11s dt=  7.07E-04s t=  0.35    
+time left:  0d  0h  0m 11s dt=  7.12E-04s t=  0.35    
+time left:  0d  0h  0m 11s dt=  7.17E-04s t=  0.36    
+time left:  0d  0h  0m 10s dt=  7.22E-04s t=  0.36    
+time left:  0d  0h  0m 10s dt=  7.27E-04s t=  0.36    
+time left:  0d  0h  0m 10s dt=  7.32E-04s t=  0.37    
+time left:  0d  0h  0m  9s dt=  7.37E-04s t=  0.37    
+time left:  0d  0h  0m  9s dt=  7.42E-04s t=  0.37    
+time left:  0d  0h  0m  9s dt=  7.47E-04s t=  0.38    
+time left:  0d  0h  0m  8s dt=  7.52E-04s t=  0.38    
+time left:  0d  0h  0m  8s dt=  7.57E-04s t=  0.39    
+time left:  0d  0h  0m  8s dt=  7.62E-04s t=  0.39    
+time left:  0d  0h  0m  7s dt=  7.67E-04s t=  0.39    
+time left:  0d  0h  0m  7s dt=  7.72E-04s t=  0.40    
+Saving. time=  4.0000E-01 vormax=  1.0559E+01 fname=000040                                                                          
+time left:  0d  0h  0m  7s dt=  7.76E-04s t=  0.40    
+time left:  0d  0h  0m  6s dt=  7.81E-04s t=  0.40    
+time left:  0d  0h  0m  6s dt=  7.86E-04s t=  0.41    
+time left:  0d  0h  0m  6s dt=  7.91E-04s t=  0.41    
+time left:  0d  0h  0m  5s dt=  7.96E-04s t=  0.42    
+time left:  0d  0h  0m  5s dt=  8.01E-04s t=  0.42    
+time left:  0d  0h  0m  5s dt=  8.06E-04s t=  0.42    
+time left:  0d  0h  0m  4s dt=  8.11E-04s t=  0.43    
+time left:  0d  0h  0m  4s dt=  8.16E-04s t=  0.43    
+time left:  0d  0h  0m  4s dt=  8.21E-04s t=  0.44    
+time left:  0d  0h  0m  4s dt=  8.25E-04s t=  0.44    
+time left:  0d  0h  0m  3s dt=  8.30E-04s t=  0.44    
+time left:  0d  0h  0m  3s dt=  8.35E-04s t=  0.45    
+time left:  0d  0h  0m  3s dt=  8.39E-04s t=  0.45    
+time left:  0d  0h  0m  2s dt=  8.44E-04s t=  0.46    
+time left:  0d  0h  0m  2s dt=  8.49E-04s t=  0.46    
+time left:  0d  0h  0m  2s dt=  8.53E-04s t=  0.47    
+time left:  0d  0h  0m  2s dt=  8.58E-04s t=  0.47    
+time left:  0d  0h  0m  1s dt=  8.63E-04s t=  0.47    
+time left:  0d  0h  0m  1s dt=  8.67E-04s t=  0.48    
+time left:  0d  0h  0m  1s dt=  8.72E-04s t=  0.48    
+time left:  0d  0h  0m  0s dt=  8.77E-04s t=  0.49    
+time left:  0d  0h  0m  0s dt=  8.81E-04s t=  0.49    
+time left:  0d  0h  0m  0s dt=  8.86E-04s t=  0.50    
+Saving. time=  5.0000E-01 vormax=  7.1340E+00 fname=000050                                                                          
+time left:  0d  0h  0m  0s dt=  7.75E-04s t=  0.50    
+ Loop done.
+============================
+run done, analyzing data now
+============================
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues mask_000010.h5  %
+ analyzing file mask_000010.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file mask_000010.h5
+dsetname=mask
+nx= 256 ny= 256 time=  0.1000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   0.000     min=   0.000     mean=   0.000    
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1.00000000E-01  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys mask_000010.key ./dipole/mask_000010.ref  %
+present  : time= 1.00000000E-01 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+reference: time= 1.00000000E-01 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  mask_000010.key ./dipole/mask_000010.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues mask_000020.h5  %
+ analyzing file mask_000020.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file mask_000020.h5
+dsetname=mask
+nx= 256 ny= 256 time=  0.2000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   0.000     min=   0.000     mean=   0.000    
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2.00000000E-01  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys mask_000020.key ./dipole/mask_000020.ref  %
+present  : time= 2.00000000E-01 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+reference: time= 2.00000000E-01 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  mask_000020.key ./dipole/mask_000020.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues mask_000030.h5  %
+ analyzing file mask_000030.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file mask_000030.h5
+dsetname=mask
+nx= 256 ny= 256 time=  0.3000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   0.000     min=   0.000     mean=   0.000    
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3.00000000E-01  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys mask_000030.key ./dipole/mask_000030.ref  %
+present  : time= 3.00000000E-01 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+reference: time= 3.00000000E-01 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  mask_000030.key ./dipole/mask_000030.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues mask_000040.h5  %
+ analyzing file mask_000040.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file mask_000040.h5
+dsetname=mask
+nx= 256 ny= 256 time=  0.4000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   0.000     min=   0.000     mean=   0.000    
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4.00000000E-01  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys mask_000040.key ./dipole/mask_000040.ref  %
+present  : time= 4.00000000E-01 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+reference: time= 4.00000000E-01 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  mask_000040.key ./dipole/mask_000040.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues mask_000050.h5  %
+ analyzing file mask_000050.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file mask_000050.h5
+dsetname=mask
+nx= 256 ny= 256 time=  0.5000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   0.000     min=   0.000     mean=   0.000    
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5.00000000E-01  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00  0.00000000E+00
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys mask_000050.key ./dipole/mask_000050.ref  %
+present  : time= 5.00000000E-01 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+reference: time= 5.00000000E-01 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  mask_000050.key ./dipole/mask_000050.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues p_000010.h5  %
+ analyzing file p_000010.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file p_000010.h5
+dsetname=p
+nx= 256 ny= 256 time=  0.1000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   6.771     min=  -9.971     mean= -0.7349E-10
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1.00000000E-01  6.77095413E+00 -9.97057533E+00 -7.34860445E-11  1.63872935E-01  3.00518299E-03
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys p_000010.key ./dipole/p_000010.ref  %
+present  : time= 1.00000000E-01 max= 6.77095413E+00 min=-9.97057533E+00 sum=-7.34860445E-11 sum**2= 1.63872935E-01 q= 3.00518299E-03
+reference: time= 1.00000000E-01 max= 6.77095413E+00 min=-9.97057533E+00 sum=-7.40218139E-11 sum**2= 1.63872935E-01 q= 3.00518299E-03
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 5.35769400E-13 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  p_000010.key ./dipole/p_000010.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues p_000020.h5  %
+ analyzing file p_000020.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file p_000020.h5
+dsetname=p
+nx= 256 ny= 256 time=  0.2000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   1.781     min=  -3.922     mean= -0.4848E-11
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2.00000000E-01  1.78129530E+00 -3.92192054E+00 -4.84758848E-12  3.20150427E-02  1.71349964E-03
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys p_000020.key ./dipole/p_000020.ref  %
+present  : time= 2.00000000E-01 max= 1.78129530E+00 min=-3.92192054E+00 sum=-4.84758848E-12 sum**2= 3.20150427E-02 q= 1.71349964E-03
+reference: time= 2.00000000E-01 max= 1.78129530E+00 min=-3.92192054E+00 sum=-5.16373229E-12 sum**2= 3.20150427E-02 q= 1.71349964E-03
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 3.16143810E-13 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  p_000020.key ./dipole/p_000020.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues p_000030.h5  %
+ analyzing file p_000030.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file p_000030.h5
+dsetname=p
+nx= 256 ny= 256 time=  0.3000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=  0.7626     min=  -2.056     mean= -0.1443E-10
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3.00000000E-01  7.62598276E-01 -2.05609941E+00 -1.44315418E-11  1.25312767E-02  1.07448620E-03
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys p_000030.key ./dipole/p_000030.ref  %
+present  : time= 3.00000000E-01 max= 7.62598276E-01 min=-2.05609941E+00 sum=-1.44315418E-11 sum**2= 1.25312767E-02 q= 1.07448620E-03
+reference: time= 3.00000000E-01 max= 7.62598276E-01 min=-2.05609941E+00 sum=-1.26120894E-11 sum**2= 1.25312767E-02 q= 1.07448621E-03
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 1.81945240E-12 sum**2= 0.00000000E+00 q= 9.30677366E-09
+ OKAY...
+:) Happy, this looks okay!  p_000030.key ./dipole/p_000030.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues p_000040.h5  %
+ analyzing file p_000040.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file p_000040.h5
+dsetname=p
+nx= 256 ny= 256 time=  0.4000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=  0.4365     min=  -1.295     mean=  0.1758E-10
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4.00000000E-01  4.36465740E-01 -1.29519510E+00  1.75831814E-11  6.86304083E-03  7.57410172E-04
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys p_000040.key ./dipole/p_000040.ref  %
+present  : time= 4.00000000E-01 max= 4.36465740E-01 min=-1.29519510E+00 sum= 1.75831814E-11 sum**2= 6.86304083E-03 q= 7.57410172E-04
+reference: time= 4.00000000E-01 max= 4.36465740E-01 min=-1.29519510E+00 sum= 1.86738021E-11 sum**2= 6.86304083E-03 q= 7.57410177E-04
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 1.09062070E-12 sum**2= 0.00000000E+00 q= 6.60144283E-09
+ OKAY...
+:) Happy, this looks okay!  p_000040.key ./dipole/p_000040.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues p_000050.h5  %
+ analyzing file p_000050.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file p_000050.h5
+dsetname=p
+nx= 256 ny= 256 time=  0.5000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=  0.3362     min= -0.9104     mean= -0.6571E-12
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5.00000000E-01  3.36215466E-01 -9.10429835E-01 -6.57122143E-13  4.44628417E-03  5.76458705E-04
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys p_000050.key ./dipole/p_000050.ref  %
+present  : time= 5.00000000E-01 max= 3.36215466E-01 min=-9.10429835E-01 sum=-6.57122143E-13 sum**2= 4.44628417E-03 q= 5.76458705E-04
+reference: time= 5.00000000E-01 max= 3.36215466E-01 min=-9.10429835E-01 sum=-2.77053987E-13 sum**2= 4.44628417E-03 q= 5.76458707E-04
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 3.80068156E-13 sum**2= 0.00000000E+00 q= 3.46945925E-09
+ OKAY...
+:) Happy, this looks okay!  p_000050.key ./dipole/p_000050.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues ux_000010.h5  %
+ analyzing file ux_000010.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file ux_000010.h5
+dsetname=ux
+nx= 256 ny= 256 time=  0.1000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   5.595     min= -0.8338     mean=   1.000    
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1.00000000E-01  5.59460831E+00 -8.33848417E-01  1.00000000E+00  1.04051580E+00  3.98437500E+00
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys ux_000010.key ./dipole/ux_000010.ref  %
+present  : time= 1.00000000E-01 max= 5.59460831E+00 min=-8.33848417E-01 sum= 1.00000000E+00 sum**2= 1.04051580E+00 q= 3.98437500E+00
+reference: time= 1.00000000E-01 max= 5.59460831E+00 min=-8.33848417E-01 sum= 1.00000000E+00 sum**2= 1.04051580E+00 q= 3.98437500E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  ux_000010.key ./dipole/ux_000010.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues ux_000020.h5  %
+ analyzing file ux_000020.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file ux_000020.h5
+dsetname=ux
+nx= 256 ny= 256 time=  0.2000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   3.389     min=  0.2235     mean=   1.000    
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2.00000000E-01  3.38850451E+00  2.23485783E-01  1.00000000E+00  1.01567370E+00  3.98437500E+00
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys ux_000020.key ./dipole/ux_000020.ref  %
+present  : time= 2.00000000E-01 max= 3.38850451E+00 min= 2.23485783E-01 sum= 1.00000000E+00 sum**2= 1.01567370E+00 q= 3.98437500E+00
+reference: time= 2.00000000E-01 max= 3.38850451E+00 min= 2.23485783E-01 sum= 1.00000000E+00 sum**2= 1.01567370E+00 q= 3.98437500E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  ux_000020.key ./dipole/ux_000020.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues ux_000030.h5  %
+ analyzing file ux_000030.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file ux_000030.h5
+dsetname=ux
+nx= 256 ny= 256 time=  0.3000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   2.468     min=  0.4408     mean=   1.000    
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3.00000000E-01  2.46765041E+00  4.40814942E-01  1.00000000E+00  1.00846660E+00  3.98437500E+00
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys ux_000030.key ./dipole/ux_000030.ref  %
+present  : time= 3.00000000E-01 max= 2.46765041E+00 min= 4.40814942E-01 sum= 1.00000000E+00 sum**2= 1.00846660E+00 q= 3.98437500E+00
+reference: time= 3.00000000E-01 max= 2.46765041E+00 min= 4.40814942E-01 sum= 1.00000000E+00 sum**2= 1.00846660E+00 q= 3.98437500E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  ux_000030.key ./dipole/ux_000030.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues ux_000040.h5  %
+ analyzing file ux_000040.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file ux_000040.h5
+dsetname=ux
+nx= 256 ny= 256 time=  0.4000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   2.013     min=  0.5326     mean=   1.000    
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4.00000000E-01  2.01261163E+00  5.32565296E-01  1.00000000E+00  1.00541783E+00  3.98437500E+00
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys ux_000040.key ./dipole/ux_000040.ref  %
+present  : time= 4.00000000E-01 max= 2.01261163E+00 min= 5.32565296E-01 sum= 1.00000000E+00 sum**2= 1.00541783E+00 q= 3.98437500E+00
+reference: time= 4.00000000E-01 max= 2.01261163E+00 min= 5.32565296E-01 sum= 1.00000000E+00 sum**2= 1.00541783E+00 q= 3.98437500E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  ux_000040.key ./dipole/ux_000040.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues ux_000050.h5  %
+ analyzing file ux_000050.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file ux_000050.h5
+dsetname=ux
+nx= 256 ny= 256 time=  0.5000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   1.753     min=  0.6057     mean=   1.000    
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5.00000000E-01  1.75302565E+00  6.05681062E-01  1.00000000E+00  1.00381142E+00  3.98437500E+00
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys ux_000050.key ./dipole/ux_000050.ref  %
+present  : time= 5.00000000E-01 max= 1.75302565E+00 min= 6.05681062E-01 sum= 1.00000000E+00 sum**2= 1.00381142E+00 q= 3.98437500E+00
+reference: time= 5.00000000E-01 max= 1.75302565E+00 min= 6.05681062E-01 sum= 1.00000000E+00 sum**2= 1.00381142E+00 q= 3.98437500E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+ OKAY...
+:) Happy, this looks okay!  ux_000050.key ./dipole/ux_000050.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues uy_000010.h5  %
+ analyzing file uy_000010.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file uy_000010.h5
+dsetname=uy
+nx= 256 ny= 256 time=  0.1000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   1.806     min=  -1.806     mean=  0.1346E-13
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1.00000000E-01  1.80579436E+00 -1.80579436E+00  1.34562500E-14  1.67740135E-02 -5.65382431E-13
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys uy_000010.key ./dipole/uy_000010.ref  %
+present  : time= 1.00000000E-01 max= 1.80579436E+00 min=-1.80579436E+00 sum= 1.34562500E-14 sum**2= 1.67740135E-02 q=-5.65382431E-13
+reference: time= 1.00000000E-01 max= 1.80579436E+00 min=-1.80579436E+00 sum= 4.09741685E-15 sum**2= 1.67740135E-02 q=-6.02869900E-13
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 9.35883315E-15 sum**2= 0.00000000E+00 q= 3.74874690E-14
+ OKAY...
+:) Happy, this looks okay!  uy_000010.key ./dipole/uy_000010.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues uy_000020.h5  %
+ analyzing file uy_000020.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file uy_000020.h5
+dsetname=uy
+nx= 256 ny= 256 time=  0.2000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=  0.9796     min= -0.9796     mean=  0.2011E-12
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2.00000000E-01  9.79637682E-01 -9.79637682E-01  2.01104541E-13  8.13751843E-03 -3.21362695E-12
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys uy_000020.key ./dipole/uy_000020.ref  %
+present  : time= 2.00000000E-01 max= 9.79637682E-01 min=-9.79637682E-01 sum= 2.01104541E-13 sum**2= 8.13751843E-03 q=-3.21362695E-12
+reference: time= 2.00000000E-01 max= 9.79637682E-01 min=-9.79637682E-01 sum= 6.93889390E-18 sum**2= 8.13751843E-03 q=-4.19941368E-12
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 2.01097602E-13 sum**2= 0.00000000E+00 q= 9.85786730E-13
+ OKAY...
+:) Happy, this looks okay!  uy_000020.key ./dipole/uy_000020.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues uy_000030.h5  %
+ analyzing file uy_000030.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file uy_000030.h5
+dsetname=uy
+nx= 256 ny= 256 time=  0.3000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=  0.6525     min= -0.6525     mean=  0.2777E-13
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3.00000000E-01  6.52465224E-01 -6.52465224E-01  2.77711881E-14  4.89020733E-03 -1.69031989E-12
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys uy_000030.key ./dipole/uy_000030.ref  %
+present  : time= 3.00000000E-01 max= 6.52465224E-01 min=-6.52465224E-01 sum= 2.77711881E-14 sum**2= 4.89020733E-03 q=-1.69031989E-12
+reference: time= 3.00000000E-01 max= 6.52465224E-01 min=-6.52465224E-01 sum=-1.57486871E-14 sum**2= 4.89020733E-03 q=-1.84588906E-12
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 4.35198752E-14 sum**2= 0.00000000E+00 q= 1.55569170E-13
+ OKAY...
+:) Happy, this looks okay!  uy_000030.key ./dipole/uy_000030.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues uy_000040.h5  %
+ analyzing file uy_000040.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file uy_000040.h5
+dsetname=uy
+nx= 256 ny= 256 time=  0.4000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=  0.4823     min= -0.4823     mean= -0.8546E-14
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4.00000000E-01  4.82324809E-01 -4.82324809E-01 -8.54644047E-15  3.31625224E-03  3.72980875E-12
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys uy_000040.key ./dipole/uy_000040.ref  %
+present  : time= 4.00000000E-01 max= 4.82324809E-01 min=-4.82324809E-01 sum=-8.54644047E-15 sum**2= 3.31625224E-03 q= 3.72980875E-12
+reference: time= 4.00000000E-01 max= 4.82324809E-01 min=-4.82324809E-01 sum=-1.51126941E-14 sum**2= 3.31625224E-03 q= 3.74270619E-12
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 6.56625363E-15 sum**2= 0.00000000E+00 q= 1.28974400E-14
+ OKAY...
+:) Happy, this looks okay!  uy_000040.key ./dipole/uy_000040.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues uy_000050.h5  %
+ analyzing file uy_000050.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file uy_000050.h5
+dsetname=uy
+nx= 256 ny= 256 time=  0.5000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=  0.3803     min= -0.3803     mean= -0.2709E-13
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5.00000000E-01  3.80308598E-01 -3.80308598E-01 -2.70920439E-14  2.42481890E-03  2.42259706E-12
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys uy_000050.key ./dipole/uy_000050.ref  %
+present  : time= 5.00000000E-01 max= 3.80308598E-01 min=-3.80308598E-01 sum=-2.70920439E-14 sum**2= 2.42481890E-03 q= 2.42259706E-12
+reference: time= 5.00000000E-01 max= 3.80308598E-01 min=-3.80308598E-01 sum= 6.99440506E-15 sum**2= 2.42481890E-03 q= 2.64895129E-12
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 3.40864490E-14 sum**2= 0.00000000E+00 q= 2.26354230E-13
+ OKAY...
+:) Happy, this looks okay!  uy_000050.key ./dipole/uy_000050.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues vor_000010.h5  %
+ analyzing file vor_000010.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file vor_000010.h5
+dsetname=vor
+nx= 256 ny= 256 time=  0.1000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   78.66     min=  -78.66     mean= -0.1115E-12
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1.00000000E-01  7.86575546E+01 -7.86575546E+01 -1.11543654E-13  1.26895158E+01  1.27869533E-08
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys vor_000010.key ./dipole/vor_000010.ref  %
+present  : time= 1.00000000E-01 max= 7.86575546E+01 min=-7.86575546E+01 sum=-1.11543654E-13 sum**2= 1.26895158E+01 q= 1.27869533E-08
+reference: time= 1.00000000E-01 max= 7.86575546E+01 min=-7.86575546E+01 sum= 1.25984292E-15 sum**2= 1.26895158E+01 q= 1.27874405E-08
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 1.12803497E-13 sum**2= 0.00000000E+00 q= 4.87200000E-13
+ OKAY...
+:) Happy, this looks okay!  vor_000010.key ./dipole/vor_000010.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues vor_000020.h5  %
+ analyzing file vor_000020.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file vor_000020.h5
+dsetname=vor
+nx= 256 ny= 256 time=  0.2000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   32.78     min=  -32.78     mean= -0.1529E-11
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2.00000000E-01  3.27756271E+01 -3.27756271E+01 -1.52920562E-12  3.30264106E+00 -1.54167686E-09
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys vor_000020.key ./dipole/vor_000020.ref  %
+present  : time= 2.00000000E-01 max= 3.27756271E+01 min=-3.27756271E+01 sum=-1.52920562E-12 sum**2= 3.30264106E+00 q=-1.54167686E-09
+reference: time= 2.00000000E-01 max= 3.27756271E+01 min=-3.27756271E+01 sum= 3.83730329E-16 sum**2= 3.30264106E+00 q=-1.53566574E-09
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 1.52958935E-12 sum**2= 0.00000000E+00 q= 6.01112000E-12
+ OKAY...
+:) Happy, this looks okay!  vor_000020.key ./dipole/vor_000020.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues vor_000030.h5  %
+ analyzing file vor_000030.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file vor_000030.h5
+dsetname=vor
+nx= 256 ny= 256 time=  0.3000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   17.24     min=  -17.24     mean= -0.6171E-12
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3.00000000E-01  1.72352295E+01 -1.72352295E+01 -6.17083575E-13  1.29821712E+00 -5.96950180E-10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys vor_000030.key ./dipole/vor_000030.ref  %
+present  : time= 3.00000000E-01 max= 1.72352295E+01 min=-1.72352295E+01 sum=-6.17083575E-13 sum**2= 1.29821712E+00 q=-5.96950180E-10
+reference: time= 3.00000000E-01 max= 1.72352295E+01 min=-1.72352295E+01 sum=-3.58705395E-13 sum**2= 1.29821712E+00 q=-5.96210593E-10
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 2.58378180E-13 sum**2= 0.00000000E+00 q= 7.39587000E-13
+ OKAY...
+:) Happy, this looks okay!  vor_000030.key ./dipole/vor_000030.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues vor_000040.h5  %
+ analyzing file vor_000040.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file vor_000040.h5
+dsetname=vor
+nx= 256 ny= 256 time=  0.4000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   10.56     min=  -10.56     mean= -0.5042E-13
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4.00000000E-01  1.05592566E+01 -1.05592566E+01 -5.04212208E-14  6.52854632E-01  2.28556507E-10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys vor_000040.key ./dipole/vor_000040.ref  %
+present  : time= 4.00000000E-01 max= 1.05592566E+01 min=-1.05592566E+01 sum=-5.04212208E-14 sum**2= 6.52854632E-01 q= 2.28556507E-10
+reference: time= 4.00000000E-01 max= 1.05592566E+01 min=-1.05592566E+01 sum=-4.49461826E-13 sum**2= 6.52854632E-01 q= 2.27439680E-10
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 3.99040605E-13 sum**2= 0.00000000E+00 q= 1.11682700E-12
+ OKAY...
+:) Happy, this looks okay!  vor_000040.key ./dipole/vor_000040.ref
+ 
+ 
+--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --keyvalues vor_000050.h5  %
+ analyzing file vor_000050.h5 for keyvalues
+         256         256
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reading from file vor_000050.h5
+dsetname=vor
+nx= 256 ny= 256 time=  0.5000     viscosity=      0.2500E-01
+xl=   4.000     yl=   4.000    
+max=   7.134     min=  -7.134     mean= -0.2845E-12
+Done reading file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5.00000000E-01  7.13385248E+00 -7.13385248E+00 -2.84459621E-13  3.80324742E-01  1.73835741E-10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~ UP2D is running in postprocessing mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CALL: ./UP2D  -p --compare-keys vor_000050.key ./dipole/vor_000050.ref  %
+present  : time= 5.00000000E-01 max= 7.13385248E+00 min=-7.13385248E+00 sum=-2.84459621E-13 sum**2= 3.80324742E-01 q= 1.73835741E-10
+reference: time= 5.00000000E-01 max= 7.13385248E+00 min=-7.13385248E+00 sum=-9.42961404E-16 sum**2= 3.80324742E-01 q= 1.73503859E-10
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 2.83516660E-13 sum**2= 0.00000000E+00 q= 3.31882000E-13
+ OKAY...
+:) Happy, this looks okay!  vor_000050.key ./dipole/vor_000050.ref
+ 
+ 
+	happy tests: 	 25
+	sad tests: 	 0

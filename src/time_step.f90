@@ -10,8 +10,6 @@ subroutine time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge)
   real(kind=pr) :: t1
   integer :: it=0
 
-write(*,*) "hallo slava und tommy"
-
   if (FD_2nd) write (*,*) "!!! ATTENTION; RUNNING IN REDUCED ACCURACY MODE"
   t1 = MPI_wtime()
 
@@ -32,6 +30,7 @@ write(*,*) "hallo slava und tommy"
     !-- Actual time step
     !----------------------------------------------------------------
     call RK2 (time, dt1, it, u, uk, pk, vort, nlk, mask, us, mask_sponge)
+    call RK2_solid (dt1)
     ! Advance in time
     time = time + dt1
     it = it + 1

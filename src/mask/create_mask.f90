@@ -12,17 +12,19 @@ subroutine create_mask (time, mask, us)
   us   = 0.d0
 
   select case (iMask)
-  case('cylinder')
-    call cylinder(mask, us)
-  case('ellipse')
-    call ellipse(mask, us)
-  case('moving_cylinder')
-    call moving_cylinder(time, mask, us)
-  case('none')
-    mask = 0.d0
-  case default
-    write (*,*) "mask not defnd", iMask
-    stop
+    case('cylinder')
+      call cylinder(mask, us)
+    case('ellipse')
+      call ellipse(mask, us)
+    case('free_ellipse')
+      call free_ellipse(time, mask, us)
+    case('moving_cylinder')
+      call moving_cylinder(time, mask, us)
+    case('none')
+      mask = 0.d0
+    case default
+      write (*,*) "mask not defnd", iMask
+      stop
   end select
 
   !$omp parallel do private(iy)
@@ -87,6 +89,48 @@ subroutine ellipse(mask, us)
   enddo
   !$omp end parallel do
 end subroutine ellipse
+
+!===============================================================================
+
+subroutine free_ellipse(time, mask, us)
+  use vars
+  implicit none
+  real(kind=pr),intent(in) :: time
+  real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
+  real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us
+  integer :: ix,iy
+  real(kind=pr)::R,R0,x,y
+
+  !gravitational acceleration constant
+  g = -9.81
+
+  !Initialization of start position
+  if (time == 0.d0) then
+    solid_position(1) =  xl/2.d0
+    solid_position(2) =  yl/2.d0
+  endif
+
+  x0 = solid_position(1)
+  y0 = solid_position(2)
+
+  !$omp parallel do private(ix,iy,R,x,y)
+  do ix=0,nx-1
+    do iy=0,ny-1
+      x = dble(ix)*dx-x0
+      y = dble(iy)*dy-y0
+
+      R = (x/0.5d0)**2  +  (y/0.1d0)**2
+      if (R<= 1.d0) then
+        mask(ix,iy) = 1.d0
+        ! update the solid velocity
+        us(ix,iy,1) = solid_velocity(1)
+        us(ix,iy,2) = solid_velocity(2)
+      endif
+
+    enddo
+  enddo
+  !$omp end parallel do
+end subroutine free_ellipse
 
 !===============================================================================
 

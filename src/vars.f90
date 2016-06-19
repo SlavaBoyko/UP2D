@@ -9,7 +9,7 @@ module vars
 
   real(kind=pr), save :: xl,yl,dx,dy,x0,y0
   real(kind=pr), save :: Tmax, CFL, tsave, tdrag, dt_fixed=0.d0, dt_max=0.d0, tsave_first=0.d0
-  real(kind=pr), save :: nu, eps, pi, tstart
+  real(kind=pr), save :: nu, eps, pi, tstart, g
   real(kind=pr), save :: ux_mean, uy_mean
   integer, save :: itsave
   character(len=strlen),save :: intelligent_dt = "yes"
@@ -27,6 +27,12 @@ module vars
 
   ! memory
   real(kind=pr), dimension(:,:), allocatable, save :: dealiase
+
+  ! solid
+  ! rigid solid with one center of gravity (cg). Parameters of cg:
+  real(kind=pr), dimension(1:2), save :: solid_position,     &
+                                         solid_velocity,     &
+                                         solid_acceleration
 
 !!!!!!!!!!!!!
 contains

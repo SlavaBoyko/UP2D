@@ -44,7 +44,7 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge)
   !$omp end parallel do
 
   !-- mean flow forcing
-  call mean_flow (uk_tmp)
+  call mean_flow (uk_tmp,time)
 
   !-- velocity in phys. space
   call ifft (uk_tmp(:,:,1), u_tmp(:,:,1))
@@ -68,7 +68,7 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge)
   !$omp end parallel do
 
   !-- mean flow forcing
-  call mean_flow (uk)
+  call mean_flow (uk,time)
 
   !-- velocity in phys. space
   !-- note: we now advanced in fourier space (uk) and transform back to phys. space (u)
@@ -81,4 +81,20 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge)
 
 !  at the end of the time step, we consistently return u and uk
 end subroutine RK2
+
+!==========================SOLID================================================
+
+subroutine RK2_solid ( dt )
+  use vars
+  implicit none
+  real(kind=pr),intent(out) :: dt
+
+  solid_acceleration(1) = 0.d0
+  solid_acceleration(2) = g
+  ! simple euler
+  solid_position(1:2) = solid_position(1:2) + dt*solid_velocity(1:2)
+  solid_velocity(1:2) = solid_velocity(1:2) + dt*solid_acceleration(1:2)
+
+end  subroutine RK2_solid
+
 end module
