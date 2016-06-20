@@ -86,7 +86,7 @@ subroutine init_fields (time, u, uk, pk, vor, nlk, mask, us, mask_sponge)
          call vorticity2velocity ( vortk, uk )
          ! the biot-savart operator does not contain the mean flow, so, since we
          ! read our backup from a vorticity file, we have to add the mean flow mode
-         call mean_flow(uk)
+         call mean_flow(uk,time)
          call ifft( uk(:,:,1), u(:,:,1))
          call ifft( uk(:,:,2), u(:,:,2))
        else

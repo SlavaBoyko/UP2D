@@ -1,9 +1,10 @@
-subroutine time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge)
+subroutine time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge, solid)
   use vars
   use hdf5_wrapper
   use RK2_module
   use timing_module
   implicit none
+  type(solid_data_struct), intent(inout) :: solid
   real(kind=pr) :: time=0.0d0, dt1=0.0d0
   real(kind=pr),dimension(0:nx-1,0:ny-1,1:2), intent(inout) :: u, uk, us, nlk
   real(kind=pr),dimension(0:nx-1,0:ny-1), intent(inout) :: pk, vort, mask, mask_sponge
@@ -29,8 +30,8 @@ subroutine time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge)
     !----------------------------------------------------------------
     !-- Actual time step
     !----------------------------------------------------------------
-    call RK2 (time, dt1, it, u, uk, pk, vort, nlk, mask, us, mask_sponge)
-    call RK2_solid (dt1)
+    call RK2 (time, dt1, it, u, uk, pk, vort, nlk, mask, us, mask_sponge, solid)
+    call RK2_solid (dt1,solid)
     ! Advance in time
     time = time + dt1
     it = it + 1

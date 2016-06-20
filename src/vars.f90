@@ -28,11 +28,19 @@ module vars
   ! memory
   real(kind=pr), dimension(:,:), allocatable, save :: dealiase
 
-  ! solid
-  ! rigid solid with one center of gravity (cg). Parameters of cg:
-  real(kind=pr), dimension(1:2), save :: solid_position,     &
-                                         solid_velocity,     &
-                                         solid_acceleration
+  ! solid ======================================================================
+  ! rigid solid with one center of gravity (cg). Parameters of cg
+  ! This variables are there for the inifile. The data is temporary
+  ! saved to this parameters
+  real(kind=pr), save :: position_x,     position_y,     &
+                         velocity_x,     velocity_y,     &
+                         acceleration_x, acceleration_y
+
+  ! define the structure for the solid parameters
+  type solid_data_struct
+    ! the first index ("1") is the "x" and the ("2") "y"
+    real(kind=pr), dimension(1:2) :: position, velocity, acceleration
+  end type solid_data_struct
 
 !!!!!!!!!!!!!
 contains

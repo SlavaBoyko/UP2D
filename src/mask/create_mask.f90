@@ -1,7 +1,8 @@
 !===============================================================================
-subroutine create_mask (time, mask, us)
+subroutine create_mask (time, mask, us, solid)
   use vars
   implicit none
+  type(solid_data_struct), intent(inout) :: solid
   real(kind=pr), intent (in) :: time
   real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
   real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us
@@ -17,7 +18,7 @@ subroutine create_mask (time, mask, us)
     case('ellipse')
       call ellipse(mask, us)
     case('free_ellipse')
-      call free_ellipse(time, mask, us)
+      call free_ellipse(time, mask, us, solid)
     case('moving_cylinder')
       call moving_cylinder(time, mask, us)
     case('none')
@@ -92,26 +93,18 @@ end subroutine ellipse
 
 !===============================================================================
 
-subroutine free_ellipse(time, mask, us)
+subroutine free_ellipse(time, mask, us, solid)
   use vars
   implicit none
+  type(solid_data_struct), intent(inout) :: solid
   real(kind=pr),intent(in) :: time
   real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
   real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us
   integer :: ix,iy
   real(kind=pr)::R,R0,x,y
 
-  !gravitational acceleration constant
-  g = -9.81
-
-  !Initialization of start position
-  if (time == 0.d0) then
-    solid_position(1) =  xl/2.d0
-    solid_position(2) =  yl/2.d0
-  endif
-
-  x0 = solid_position(1)
-  y0 = solid_position(2)
+  x0 = solid%position(1)
+  y0 = solid%position(2)
 
   !$omp parallel do private(ix,iy,R,x,y)
   do ix=0,nx-1
@@ -123,8 +116,8 @@ subroutine free_ellipse(time, mask, us)
       if (R<= 1.d0) then
         mask(ix,iy) = 1.d0
         ! update the solid velocity
-        us(ix,iy,1) = solid_velocity(1)
-        us(ix,iy,2) = solid_velocity(2)
+        us(ix,iy,1) = solid%velocity(1)
+        us(ix,iy,2) = solid%velocity(2)
       endif
 
     enddo

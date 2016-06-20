@@ -3,7 +3,6 @@
 subroutine get_params(paramsfile)
   use vars
   use ini_files_parser
-
   type(inifile) :: PARAMS
   character(len=*) :: paramsfile
 
@@ -30,6 +29,13 @@ subroutine get_params(paramsfile)
   ! Penalization section
   call read_param(PARAMS,"Penalization","iMask",iMask, "none")
   call read_param(PARAMS,"Penalization","eps",eps, 1.d-2)
+  call read_param(PARAMS,"Penalization","position_x",position_x, 2.d0)
+  call read_param(PARAMS,"Penalization","position_y",position_y, 2.d0)
+  call read_param(PARAMS,"Penalization","velocity_x",velocity_x, 0.d0)
+  call read_param(PARAMS,"Penalization","velocity_y",velocity_y, 0.d0)
+  call read_param(PARAMS,"Penalization","acceleration_x",acceleration_x, 0.d0)
+  call read_param(PARAMS,"Penalization","acceleration_y",acceleration_y, 0.d0)
+  call read_param(PARAMS,"Penalization","g",g, 0.d0)
 
   ! Geometry section
   call read_param(PARAMS,"Geometry","xl",xl, 1.d0)
@@ -59,7 +65,6 @@ subroutine get_params(paramsfile)
   ! lattice spacing is global
   dx = xl/dble(nx)
   dy = yl/dble(ny)
-
 
   ! clean ini file
   call clean_ini_file(PARAMS)

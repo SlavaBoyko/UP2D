@@ -2,10 +2,11 @@ module RK2_module
   implicit none
   contains
 
-subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge)
+subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   use vars
   use rhs
   implicit none
+  type(solid_data_struct), intent(inout) :: solid
   integer,intent(in) :: it
   real(kind=pr),intent(out) :: dt
   real(kind=pr),intent(in) :: time
@@ -30,7 +31,7 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge)
   !-- compute integrating factor
   call cal_vis (dt, workvis)
   !-- mask and us
-  call create_mask (time, mask, us)
+  call create_mask (time, mask, us, solid)
   !-- RHS and pressure
   call cal_nlk (time, u, uk, vort, nlk, mask, us, mask_sponge)
   call add_pressure (nlk)
@@ -54,7 +55,7 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge)
   ! do second RK2 step (RHS evaluation with the argument defined above)
   !---------------------------------------------------------------------------------
   !-- mask and us
-  call create_mask (time+dt, mask, us)
+  call create_mask (time+dt, mask, us, solid)
   !-- RHS and pressure
   call cal_nlk (time+dt, u_tmp, uk_tmp, vort, nlk2, mask, us, mask_sponge)
   call add_pressure (nlk2)
@@ -68,7 +69,7 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge)
   !$omp end parallel do
 
   !-- mean flow forcing
-  call mean_flow (uk,time)
+  call mean_flow (uk,time + dt)
 
   !-- velocity in phys. space
   !-- note: we now advanced in fourier space (uk) and transform back to phys. space (u)
@@ -84,16 +85,18 @@ end subroutine RK2
 
 !==========================SOLID================================================
 
-subroutine RK2_solid ( dt )
+subroutine RK2_solid ( dt, solid)
   use vars
   implicit none
+  type(solid_data_struct), intent(inout) :: solid
   real(kind=pr),intent(out) :: dt
 
-  solid_acceleration(1) = 0.d0
-  solid_acceleration(2) = g
+  solid%acceleration(1) = 0.d0
+  solid%acceleration(2) = g
+
   ! simple euler
-  solid_position(1:2) = solid_position(1:2) + dt*solid_velocity(1:2)
-  solid_velocity(1:2) = solid_velocity(1:2) + dt*solid_acceleration(1:2)
+  solid%position(1:2) = solid%position(1:2) + dt*solid%velocity(1:2)
+  solid%velocity(1:2) = solid%velocity(1:2) + dt*solid%acceleration(1:2)
 
 end  subroutine RK2_solid
 

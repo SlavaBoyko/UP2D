@@ -8,7 +8,7 @@ subroutine mean_flow (uk,time)
     case ('none')
       ! don't do anything
     case ('constant')
-      uk(0:1,0:1,1) = ux_mean ! norm with the grid !?
+      uk(0:1,0:1,1) = ux_mean
       uk(0:1,0:1,2) = uy_mean
     case ('oscillating')
       uk(0:1,0:1,1) = ux_mean

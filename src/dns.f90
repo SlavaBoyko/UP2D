@@ -37,9 +37,19 @@ end program dns
 subroutine Start_Simulation()
   use vars
   implicit none
+  type(solid_data_struct) :: solid
   real(kind=pr), dimension(:,:,:), allocatable :: u, uk, nlk, us
   real(kind=pr), dimension(:,:), allocatable :: pk, vort,mask
   real(kind=pr), dimension(:,:), allocatable, save :: mask_sponge
+
+  write (*,*) "*** information: fill the solid structure with inidata"
+  !  fill the structure for the solid parameters with ini data
+    solid%position(1)     = position_x
+    solid%position(2)     = position_y
+    solid%velocity(1)     = velocity_x
+    solid%velocity(2)     = velocity_y
+    solid%acceleration(1) = acceleration_x
+    solid%acceleration(2) = acceleration_x
 
   write (*,*) "*** information: entering StartSimulation"
 
@@ -71,7 +81,7 @@ subroutine Start_Simulation()
 
   ! Step forward in time
   write (*,*) "*** information: entering time_step"
-  call time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge)
+  call time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge, solid)
 
   ! free memory
   deallocate (dealiase, us, mask,pk,vort,u,uk,nlk)
