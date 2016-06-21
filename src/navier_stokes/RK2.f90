@@ -5,8 +5,10 @@ module RK2_module
 subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   use vars
   use rhs
+  use calc_solid_module
   implicit none
   type(solid_data_struct), intent(inout) :: solid
+  type(solid_data_struct) :: solid_tmp ! for the RK time step
   integer,intent(in) :: it
   real(kind=pr),intent(out) :: dt
   real(kind=pr),intent(in) :: time
@@ -36,7 +38,7 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   call cal_nlk (time, u, uk, vort, nlk, mask, us, mask_sponge)
   call add_pressure (nlk)
 
-  !-- do the euler step
+  !-- do the euler ste
   !$omp parallel do private (iy)
   do iy=0,ny-1
     uk_tmp(:,iy,1) = (uk(:,iy,1)+dt*nlk(:,iy,1))*dealiase(:,iy)*workvis(:,iy)
@@ -51,11 +53,15 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   call ifft (uk_tmp(:,:,1), u_tmp(:,:,1))
   call ifft (uk_tmp(:,:,2), u_tmp(:,:,2))
 
+  !-- first RK2 step for solid
+  call RK2_rhs_solid(solid, solid_tmp, dt, 1)
+
+
   !---------------------------------------------------------------------------------
   ! do second RK2 step (RHS evaluation with the argument defined above)
   !---------------------------------------------------------------------------------
   !-- mask and us
-  call create_mask (time+dt, mask, us, solid)
+  call create_mask (time+dt, mask, us, solid_tmp)
   !-- RHS and pressure
   call cal_nlk (time+dt, u_tmp, uk_tmp, vort, nlk2, mask, us, mask_sponge)
   call add_pressure (nlk2)
@@ -78,26 +84,12 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   call ifft (uk(:,:,1), u(:,:,1))
   call ifft (uk(:,:,2), u(:,:,2))
 
+  !-- second RK2 step for solid
+  call RK2_rhs_solid(solid, solid_tmp, dt, 2)
+  
   deallocate(nlk2, uk_tmp, u_tmp,workvis)
 
 !  at the end of the time step, we consistently return u and uk
 end subroutine RK2
-
-!==========================SOLID================================================
-
-subroutine RK2_solid ( dt, solid)
-  use vars
-  implicit none
-  type(solid_data_struct), intent(inout) :: solid
-  real(kind=pr),intent(out) :: dt
-
-  solid%acceleration(1) = 0.d0
-  solid%acceleration(2) = g
-
-  ! simple euler
-  solid%position(1:2) = solid%position(1:2) + dt*solid%velocity(1:2)
-  solid%velocity(1:2) = solid%velocity(1:2) + dt*solid%acceleration(1:2)
-
-end  subroutine RK2_solid
 
 end module

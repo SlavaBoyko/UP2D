@@ -14,7 +14,8 @@ OBJS := $(FFILES:%.f90=$(OBJDIR)/%.o)
 
 # Files that create modules:
 MFILES = timing.f90 vars.f90 cal_nlk.f90 \
-ini_files_parser.f90 hdf_wrapper.f90
+ini_files_parser.f90 hdf_wrapper.f90 \
+calc_solid_module.f90
 MOBJS := $(MFILES:%.f90=$(OBJDIR)/%.o)
 
 # Source code directories (colon-separated):
@@ -89,6 +90,8 @@ $(OBJDIR)/hdf_wrapper.o: hdf_wrapper.f90 $(OBJDIR)/vars.o
 $(OBJDIR)/ini_files_parser.o: ini_files_parser.f90 $(OBJDIR)/vars.o
 	$(FC) $(FFLAGS) -c -o $@ $< $(LDFLAGS)
 $(OBJDIR)/cal_nlk.o: cal_nlk.f90 $(OBJDIR)/vars.o
+	$(FC) $(FFLAGS) -c -o $@ $< $(LDFLAGS)
+$(OBJDIR)/calc_solid_module.o: calc_solid_module.f90 $(OBJDIR)/vars.o
 	$(FC) $(FFLAGS) -c -o $@ $< $(LDFLAGS)
 # Compile remaining objects from Fortran files.
 $(OBJDIR)/%.o: %.f90 $(MOBJS)

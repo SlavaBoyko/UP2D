@@ -39,7 +39,10 @@ module vars
   ! define the structure for the solid parameters
   type solid_data_struct
     ! the first index ("1") is the "x" and the ("2") "y"
-    real(kind=pr), dimension(1:2) :: position, velocity, acceleration
+    real(kind=pr), dimension(1:2) :: position,     &
+                                     velocity,     &
+                                     acceleration, &
+                                     aeroForce
   end type solid_data_struct
 
 !!!!!!!!!!!!!

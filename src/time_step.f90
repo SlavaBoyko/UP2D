@@ -31,7 +31,7 @@ subroutine time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge, solid)
     !-- Actual time step
     !----------------------------------------------------------------
     call RK2 (time, dt1, it, u, uk, pk, vort, nlk, mask, us, mask_sponge, solid)
-    call RK2_solid (dt1,solid)
+
     ! Advance in time
     time = time + dt1
     it = it + 1

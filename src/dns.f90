@@ -36,20 +36,15 @@ end program dns
 
 subroutine Start_Simulation()
   use vars
+  use calc_solid_module
   implicit none
   type(solid_data_struct) :: solid
   real(kind=pr), dimension(:,:,:), allocatable :: u, uk, nlk, us
   real(kind=pr), dimension(:,:), allocatable :: pk, vort,mask
   real(kind=pr), dimension(:,:), allocatable, save :: mask_sponge
 
-  write (*,*) "*** information: fill the solid structure with inidata"
-  !  fill the structure for the solid parameters with ini data
-    solid%position(1)     = position_x
-    solid%position(2)     = position_y
-    solid%velocity(1)     = velocity_x
-    solid%velocity(2)     = velocity_y
-    solid%acceleration(1) = acceleration_x
-    solid%acceleration(2) = acceleration_x
+  write (*,*) "*** information: initialising the solid structure "
+  call solid_initialisation (solid)
 
   write (*,*) "*** information: entering StartSimulation"
 
