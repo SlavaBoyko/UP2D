@@ -1,7 +1,9 @@
-subroutine init_fields (time, u, uk, pk, vor, nlk, mask, us, mask_sponge)
+subroutine init_fields (time, u, uk, pk, vor, nlk, mask, us, mask_sponge, solid)
   use vars
   use hdf5_wrapper
+  use calc_solid_module
   implicit none
+  type(solid_data_struct), intent(inout) :: solid
   real(kind=pr), intent(out) :: time
   real(kind=pr), dimension(0:nx-1,0:ny-1,1:2), intent (inout) :: u, uk, nlk
   real(kind=pr), dimension(0:nx-1,0:ny-1), intent (inout) :: vor, pk
@@ -28,6 +30,7 @@ subroutine init_fields (time, u, uk, pk, vor, nlk, mask, us, mask_sponge)
     uk= 0.d0
     vor = 0.d0
     pk = 0.d0
+    call solid_initialisation (solid)
 
   !*****************
   case ('meanflow')

@@ -2,6 +2,7 @@ program dns
   use vars
   implicit none
   character(len=strlen) :: infile
+  type(solid_data_struct) :: solid
 
   ! get the first command line argument
   call get_command_argument(1,infile)
@@ -12,9 +13,9 @@ program dns
     ! the file is an *.ini file -> we run a normal simulation
     !-------------------------------------------------------------------------
     ! read parameters from ini file
-    call get_params(infile)
+    call get_params(infile,solid)
     ! and run the simulation
-    call Start_Simulation()
+    call Start_Simulation(solid)
 
   elseif ((infile=="--postprocess").or.(infile=="-p").or.(infile=="-h").or.(infile=="--help")) then
     !-------------------------------------------------------------------------
@@ -34,7 +35,7 @@ end program dns
 
 
 
-subroutine Start_Simulation()
+subroutine Start_Simulation(solid)
   use vars
   use calc_solid_module
   implicit none
@@ -42,9 +43,6 @@ subroutine Start_Simulation()
   real(kind=pr), dimension(:,:,:), allocatable :: u, uk, nlk, us
   real(kind=pr), dimension(:,:), allocatable :: pk, vort,mask
   real(kind=pr), dimension(:,:), allocatable, save :: mask_sponge
-
-  write (*,*) "*** information: initialising the solid structure "
-  call solid_initialisation (solid)
 
   write (*,*) "*** information: entering StartSimulation"
 

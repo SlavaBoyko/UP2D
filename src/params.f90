@@ -1,10 +1,11 @@
 ! Wrapper to read parameters from an ini file for fsi.  Also reads
 ! parameters which are set in the vars module.
-subroutine get_params(paramsfile)
+subroutine get_params(paramsfile,solid)
   use vars
   use ini_files_parser
   type(inifile) :: PARAMS
   character(len=*) :: paramsfile
+  type(solid_data_struct) :: solid
 
   ! Read the paramsfile and put the length i and the text in PARAMS
   call read_ini_file(PARAMS, paramsfile, .true.)
@@ -29,13 +30,17 @@ subroutine get_params(paramsfile)
   ! Penalization section
   call read_param(PARAMS,"Penalization","iMask",iMask, "none")
   call read_param(PARAMS,"Penalization","eps",eps, 1.d-2)
-  call read_param(PARAMS,"Penalization","position_x",position_x, 2.d0)
-  call read_param(PARAMS,"Penalization","position_y",position_y, 2.d0)
-  call read_param(PARAMS,"Penalization","velocity_x",velocity_x, 0.d0)
-  call read_param(PARAMS,"Penalization","velocity_y",velocity_y, 0.d0)
-  call read_param(PARAMS,"Penalization","acceleration_x",acceleration_x, 0.d0)
-  call read_param(PARAMS,"Penalization","acceleration_y",acceleration_y, 0.d0)
+  call read_param(PARAMS,"Penalization","position_x",solid%position(1), 2.d0)
+  call read_param(PARAMS,"Penalization","position_y",solid%position(2), 2.d0)
+  call read_param(PARAMS,"Penalization","velocity_x",solid%velocity(1), 0.d0)
+  call read_param(PARAMS,"Penalization","velocity_y",solid%velocity(2), 0.d0)
+  call read_param(PARAMS,"Penalization","acceleration_x",solid%acceleration(1), 0.d0)
+  call read_param(PARAMS,"Penalization","acceleration_y",solid%acceleration(2), 0.d0)
+  call read_param(PARAMS,"Penalization","position_angle",solid%ang_position, 0.d0)
+  call read_param(PARAMS,"Penalization","angular_velocity",solid%ang_velocity, 0.d0)
+  call read_param(PARAMS,"Penalization","angular_acceleration",solid%ang_acceleration, 0.d0)
   call read_param(PARAMS,"Penalization","g",g, 0.d0)
+  call read_param(PARAMS,"Penalization","Mass",Mass, 1.d0)
 
   ! Geometry section
   call read_param(PARAMS,"Geometry","xl",xl, 1.d0)

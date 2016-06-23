@@ -9,7 +9,7 @@ module vars
 
   real(kind=pr), save :: xl,yl,dx,dy,x0,y0
   real(kind=pr), save :: Tmax, CFL, tsave, tdrag, dt_fixed=0.d0, dt_max=0.d0, tsave_first=0.d0
-  real(kind=pr), save :: nu, eps, pi, tstart, g
+  real(kind=pr), save :: nu, eps, pi, tstart, g, Mass
   real(kind=pr), save :: ux_mean, uy_mean
   integer, save :: itsave
   character(len=strlen),save :: intelligent_dt = "yes"
@@ -30,21 +30,30 @@ module vars
 
   ! solid ======================================================================
   ! rigid solid with one center of gravity (cg). Parameters of cg
-  ! This variables are there for the inifile. The data is temporary
-  ! saved to this parameters
-  real(kind=pr), save :: position_x,     position_y,     &
-                         velocity_x,     velocity_y,     &
-                         acceleration_x, acceleration_y
 
   ! define the structure for the solid parameters
   type solid_data_struct
     ! the first index ("1") is the "x" and the ("2") "y"
-    real(kind=pr), dimension(1:2) :: position,     &
-                                     velocity,     &
-                                     acceleration, &
+    real(kind=pr), dimension(1:2) :: position,         &
+                                     velocity,         &
+                                     acceleration,     &
                                      aeroForce
+
+    real(kind=pr)                 :: ang_position,     &
+                                     ang_velocity,     &
+                                     ang_acceleration, &
+                                     momentum
+
   end type solid_data_struct
 
+  !Moment of inertia
+  real(kind=pr),save :: J
+
+  !this params only for the free_ellipse
+  real(kind=pr),save :: a, b
+
+  !Bounding box
+  integer, save:: ix_start, ix_end, iy_start, iy_end
 !!!!!!!!!!!!!
 contains
 !!!!!!!!!!!!!

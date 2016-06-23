@@ -37,6 +37,10 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   !-- RHS and pressure
   call cal_nlk (time, u, uk, vort, nlk, mask, us, mask_sponge)
   call add_pressure (nlk)
+  !-- Calculate forces
+  call calc_forces (solid,   mask, u, us)
+  !-- first RK2 step for solid
+  call RK2_rhs_solid(solid, solid_tmp, dt, 1) !<- this one need forces. they are in solid
 
   !-- do the euler ste
   !$omp parallel do private (iy)
@@ -53,10 +57,6 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   call ifft (uk_tmp(:,:,1), u_tmp(:,:,1))
   call ifft (uk_tmp(:,:,2), u_tmp(:,:,2))
 
-  !-- first RK2 step for solid
-  call RK2_rhs_solid(solid, solid_tmp, dt, 1)
-
-
   !---------------------------------------------------------------------------------
   ! do second RK2 step (RHS evaluation with the argument defined above)
   !---------------------------------------------------------------------------------
@@ -65,6 +65,10 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   !-- RHS and pressure
   call cal_nlk (time+dt, u_tmp, uk_tmp, vort, nlk2, mask, us, mask_sponge)
   call add_pressure (nlk2)
+  !-- Calculate forces
+  call calc_forces (solid,   mask, u_tmp, us) !<- the u_tmp is different
+  !-- second RK2 step for solid
+  call RK2_rhs_solid(solid, solid_tmp, dt, 2) !<- this one need forces. they are in solid
 
   !-- sum up all the terms (final step)
   !$omp parallel do private (iy)
@@ -84,9 +88,6 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   call ifft (uk(:,:,1), u(:,:,1))
   call ifft (uk(:,:,2), u(:,:,2))
 
-  !-- second RK2 step for solid
-  call RK2_rhs_solid(solid, solid_tmp, dt, 2)
-  
   deallocate(nlk2, uk_tmp, u_tmp,workvis)
 
 !  at the end of the time step, we consistently return u and uk

@@ -3,6 +3,7 @@ subroutine time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge, solid)
   use hdf5_wrapper
   use RK2_module
   use timing_module
+  use statistic_module
   implicit none
   type(solid_data_struct), intent(inout) :: solid
   real(kind=pr) :: time=0.0d0, dt1=0.0d0
@@ -15,7 +16,7 @@ subroutine time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge, solid)
   t1 = MPI_wtime()
 
   !-- Initialize fields or read values from a backup file
-  call init_fields(time, u, uk, pk, vort, nlk, mask, us, mask_sponge)
+  call init_fields(time, u, uk, pk, vort, nlk, mask, us, mask_sponge, solid)
   !-- create the sponge mask (we currently do this only once and assume it is not
   !-- time dependent.)
   call sponge_mask(time, mask_sponge)
@@ -36,14 +37,12 @@ subroutine time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge, solid)
     time = time + dt1
     it = it + 1
 
-    ! compute lift/drag
-    open (14, file = 'ekin.t', status = 'unknown', access = 'append')
-    write (14,'(2(es15.8,1x))') time, sum( (u(:,:,1)**2 + u(:,:,2)**2)/2.d0 )*dx*dy
-    close (14)
+    call write_out_solid_forces (time, solid) ! performens ?
 
     if ( time_for_output( time, dt1, it, tsave, itsave, Tmax, 0.d0) ) then
       ! save output fields to disk
       call save_fields(time, it, u, uk, vort, mask, us, mask_sponge)
+      call write_out_ekin (time, u)
     endif
 
     ! output remaining time
@@ -59,28 +58,28 @@ end subroutine time_step
 !-------------------------------------------------------------------------------
 ! Output how much time remains in the simulation.
 !-------------------------------------------------------------------------------
-subroutine are_we_there_yet(time, wtime_tstart, dt1, it)
-  use vars
-  use timing_module
-  implicit none
-
-  real(kind=pr),intent(inout) :: time,wtime_tstart,dt1
-  integer,intent(inout) :: it
-  real(kind=pr):: time_left, t2, time_nt
-
-  ! elapsed time since time stepping started
-  t2 = MPI_wtime() - wtime_tstart
-  ! estimate remaining time until we reach tmax
-  time_left = (tmax-time) * (t2/(time-tstart))
-  ! estimate remaining time until we real nt time steps
-  time_nt = 9e9*dble(nt-it) * (t2/dble(it))
-  ! remaining time is minimum of both
-  time_left = min( time_left, time_nt )
-
-  write(*,'("time left: ",i2,"d ",i2,"h ",i2,"m ",i2,"s dt=",es10.2,"s t=",g10.2)') &
-  floor(time_left/(24.d0*3600.d0))   ,&
-  floor(mod(time_left,24.d0*3600.d0)/3600.d0),&
-  floor(mod(time_left,3600.d0)/60.d0),&
-  floor(mod(mod(time_left,3600.d0),60.d0)),&
-  dt1,time
-end subroutine are_we_there_yet
+! subroutine are_we_there_yet(time, wtime_tstart, dt1, it)
+!   use vars
+!   use timing_module
+!   implicit none
+!
+!   real(kind=pr),intent(inout) :: time,wtime_tstart,dt1
+!   integer,intent(inout) :: it
+!   real(kind=pr):: time_left, t2, time_nt
+!
+!   ! elapsed time since time stepping started
+!   t2 = MPI_wtime() - wtime_tstart
+!   ! estimate remaining time until we reach tmax
+!   time_left = (tmax-time) * (t2/(time-tstart))
+!   ! estimate remaining time until we real nt time steps
+!   time_nt = 9e9*dble(nt-it) * (t2/dble(it))
+!   ! remaining time is minimum of both
+!   time_left = min( time_left, time_nt )
+!
+!   write(*,'("time left: ",i2,"d ",i2,"h ",i2,"m ",i2,"s dt=",es10.2,"s t=",g10.2)') &
+!   floor(time_left/(24.d0*3600.d0))   ,&
+!   floor(mod(time_left,24.d0*3600.d0)/3600.d0),&
+!   floor(mod(time_left,3600.d0)/60.d0),&
+!   floor(mod(mod(time_left,3600.d0),60.d0)),&
+!   dt1,time
+! end subroutine are_we_there_yet
