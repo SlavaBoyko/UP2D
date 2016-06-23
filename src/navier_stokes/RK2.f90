@@ -33,12 +33,12 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   !-- compute integrating factor
   call cal_vis (dt, workvis)
   !-- mask and us
-  call create_mask (time, mask, us, solid)
+  call create_mask (time, mask, us, u, solid)
   !-- RHS and pressure
   call cal_nlk (time, u, uk, vort, nlk, mask, us, mask_sponge)
   call add_pressure (nlk)
   !-- Calculate forces
-  call calc_forces (solid,   mask, u, us)
+  !call calc_forces (solid,   mask, u, us)
   !-- first RK2 step for solid
   call RK2_rhs_solid(solid, solid_tmp, dt, 1) !<- this one need forces. they are in solid
 
@@ -51,7 +51,7 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   !$omp end parallel do
 
   !-- mean flow forcing
-  call mean_flow (uk_tmp,time)
+  call mean_flow (uk_tmp,time + dt)
 
   !-- velocity in phys. space
   call ifft (uk_tmp(:,:,1), u_tmp(:,:,1))
@@ -61,12 +61,12 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   ! do second RK2 step (RHS evaluation with the argument defined above)
   !---------------------------------------------------------------------------------
   !-- mask and us
-  call create_mask (time+dt, mask, us, solid_tmp)
+  call create_mask (time+dt, mask, us, u, solid_tmp)
   !-- RHS and pressure
   call cal_nlk (time+dt, u_tmp, uk_tmp, vort, nlk2, mask, us, mask_sponge)
   call add_pressure (nlk2)
   !-- Calculate forces
-  call calc_forces (solid,   mask, u_tmp, us) !<- the u_tmp is different
+  !call calc_forces (solid,   mask, u_tmp, us) !<- the u_tmp is different
   !-- second RK2 step for solid
   call RK2_rhs_solid(solid, solid_tmp, dt, 2) !<- this one need forces. they are in solid
 

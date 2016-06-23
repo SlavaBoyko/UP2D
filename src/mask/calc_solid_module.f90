@@ -30,10 +30,15 @@ module calc_solid_module
 
       !-free_hut END--------------------------------------------------------
 
+      !-free_hut------------------------------------------------------------
+      case('cylinder') ! <- need to be set here for the test unit
+
+      !-free_hut END--------------------------------------------------------
+
       ! unknown step : error--------------------------------------------------------
       case default
         write (*,*) iMask
-        write (*,*) '??? ERROR: Invalid initial condition'
+        write (*,*) '??? ERROR: this initial condition is not defined in '
         stop
       ! unknown step : error END ---------------------------------------------------
 
@@ -124,14 +129,15 @@ module calc_solid_module
     Fy = 0.d0
     !speed up with Bounding box ?
 
-    !!!!$omp parallel do private(ix,iy,Fx,Fy,x,y,u_diff_x,u_diff_y)
+    !!!$omp parallel do private(ix,iy,x,y,u_diff_x,u_diff_y) &
+    !!!$omp& reduction(+:Fx, Fy, cross_p)
     do ix=0,nx-1
       do iy=0,ny-1
         x = dble(ix)*dx-x0
         y = dble(iy)*dy-y0
 
-        call keep_solid_intact_at_bc (x,y)
-        
+        call periodize_solid_coordinate (x,y)
+
         u_diff_x = u(ix,iy,1)-us(ix,iy,1)
         u_diff_y = u(ix,iy,2)-us(ix,iy,2)
 
@@ -142,7 +148,8 @@ module calc_solid_module
         cross_p = cross_p + mask(ix,iy) * (x * u_diff_y - y * u_diff_x)
       enddo
     enddo
-    !!!!!$omp end parallel do
+    !!!$omp end parallel do
+
     solid%aeroForce(1) = Fx * dx * dy
     solid%aeroForce(2) = Fy * dx * dy
 
@@ -154,22 +161,22 @@ module calc_solid_module
 !===============================================================================
   ! This routine checks if the center of gravity is in the fluid domain and puts
   ! it in if not so. This is the periodic condition for the solid
-  subroutine keep_solid_inside (solid)
+  subroutine periodize_solid_cog (solid)
     use vars
     implicit none
     type(solid_data_struct), intent(inout) :: solid
 
-    if ( y0 < 0 ) then;  solid%position(2) = y0 + yl;  endif
-    if ( y0 > yl) then;  solid%position(2) = y0 - yl;  endif
-    if ( x0 < 0 ) then;  solid%position(1) = x0 + xl;  endif
-    if ( x0 > xl) then;  solid%position(1) = x0 - xl;  endif
+    if ( y0 < 0.d0 ) then;  solid%position(2) = y0 + yl;  endif
+    if ( y0 > yl   ) then;  solid%position(2) = y0 - yl;  endif
+    if ( x0 < 0.d0 ) then;  solid%position(1) = x0 + xl;  endif
+    if ( x0 > xl   ) then;  solid%position(1) = x0 - xl;  endif
 
-  end subroutine keep_solid_inside
+  end subroutine periodize_solid_cog
 
 !===============================================================================
 !Keep the solid continuously (intact) at the domain boundary
 !===============================================================================
-  subroutine keep_solid_intact_at_bc (x,y)
+  subroutine periodize_solid_coordinate (x,y)
     use vars
     implicit none
     real(kind=pr),intent(inout) :: x, y
@@ -179,6 +186,6 @@ module calc_solid_module
     if ( x < -xl/2.d0 ) then;  x = x + xl; endif
     if ( y < -yl/2.d0 ) then;  y = y + yl; endif
 
-  end subroutine keep_solid_intact_at_bc
+  end subroutine periodize_solid_coordinate
 
 end module calc_solid_module

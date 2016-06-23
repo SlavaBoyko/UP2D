@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" [
-<!ENTITY nxnynz "0128 0128">
-<!ENTITY subnxnynz "0064 0064">
+<!ENTITY nxnynz "0256 0256">
+<!ENTITY subnxnynz "0128 0128">
 ]>
 <Xdmf Version="2.0">  
 <Domain>  
@@ -16,7 +16,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -65,7 +65,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -114,7 +114,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -163,7 +163,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -212,7 +212,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -261,7 +261,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -310,7 +310,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -359,7 +359,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -408,7 +408,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -457,7 +457,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -506,7 +506,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -555,7 +555,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -604,7 +604,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -653,7 +653,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -702,7 +702,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -751,7 +751,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -800,7 +800,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -849,7 +849,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -898,7 +898,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -947,7 +947,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -996,7 +996,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1045,7 +1045,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1094,7 +1094,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1135,7 +1135,7 @@
  </Grid>
 <!-- beginning time step -->    
 <Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
-    <Time Value="9.59999684E-01" />
+    <Time Value="9.60000000E-01" />
     <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
  
     <Geometry GeometryType="Origin_DxDy">
@@ -1143,7 +1143,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1192,7 +1192,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1241,7 +1241,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1290,7 +1290,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1339,7 +1339,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1388,7 +1388,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1437,7 +1437,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1486,7 +1486,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1535,7 +1535,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1584,7 +1584,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1633,7 +1633,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1682,7 +1682,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1731,7 +1731,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1780,7 +1780,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1829,7 +1829,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1878,7 +1878,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1927,7 +1927,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -1976,7 +1976,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2025,7 +2025,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2074,7 +2074,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2123,7 +2123,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2172,7 +2172,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2221,7 +2221,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2270,7 +2270,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2319,7 +2319,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2368,7 +2368,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2417,7 +2417,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2466,7 +2466,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2515,7 +2515,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2564,7 +2564,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2613,7 +2613,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2662,7 +2662,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2711,7 +2711,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2760,7 +2760,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2809,7 +2809,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2858,7 +2858,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2907,7 +2907,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -2948,7 +2948,7 @@
  </Grid>
 <!-- beginning time step -->    
 <Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
-    <Time Value="2.44000000E+00" />
+    <Time Value="2.43999925E+00" />
     <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
  
     <Geometry GeometryType="Origin_DxDy">
@@ -2956,7 +2956,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3005,7 +3005,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3054,7 +3054,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3103,7 +3103,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3152,7 +3152,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3201,7 +3201,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3250,7 +3250,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3299,7 +3299,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3348,7 +3348,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3397,7 +3397,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3446,7 +3446,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3487,7 +3487,7 @@
  </Grid>
 <!-- beginning time step -->    
 <Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
-    <Time Value="2.88000000E+00" />
+    <Time Value="2.87999960E+00" />
     <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
  
     <Geometry GeometryType="Origin_DxDy">
@@ -3495,7 +3495,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3544,7 +3544,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3593,7 +3593,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3642,7 +3642,7 @@
     0 0
     </DataItem>
     <DataItem Dimensions="2" NumberType="Float" Format="XML">
-     3.12500000E-02  3.12500000E-02
+     1.56250000E-02  1.56250000E-02
     </DataItem>
     </Geometry>
     
@@ -3678,6 +3678,2456 @@
     <Attribute Name="uy" AttributeType="Scalar" Center="Node">
     <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
     uy_000300.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.04000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000304.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000304.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000304.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000304.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000304.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.08000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000308.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000308.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000308.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000308.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000308.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.12000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000312.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000312.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000312.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000312.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000312.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.16000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000316.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000316.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000316.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000316.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000316.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.20000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000320.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000320.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000320.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000320.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000320.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.24000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000324.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000324.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000324.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000324.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000324.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.28000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000328.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000328.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000328.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000328.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000328.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.32000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000332.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000332.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000332.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000332.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000332.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.36000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000336.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000336.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000336.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000336.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000336.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.40000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000340.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000340.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000340.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000340.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000340.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.44000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000344.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000344.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000344.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000344.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000344.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.48000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000348.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000348.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000348.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000348.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000348.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.52000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000352.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000352.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000352.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000352.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000352.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.56000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000356.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000356.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000356.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000356.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000356.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.60000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000360.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000360.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000360.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000360.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000360.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.64000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000364.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000364.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000364.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000364.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000364.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.68000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000368.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000368.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000368.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000368.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000368.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.72000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000372.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000372.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000372.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000372.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000372.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.76000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000376.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000376.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000376.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000376.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000376.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.80000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000380.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000380.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000380.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000380.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000380.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.84000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000384.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000384.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000384.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000384.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000384.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.88000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000388.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000388.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000388.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000388.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000388.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.92000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000392.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000392.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000392.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000392.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000392.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="3.96000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000396.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000396.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000396.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000396.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000396.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.00000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000400.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000400.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000400.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000400.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000400.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.04000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000404.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000404.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000404.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000404.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000404.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.08000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000408.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000408.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000408.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000408.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000408.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.12000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000412.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000412.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000412.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000412.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000412.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.16000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000416.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000416.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000416.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000416.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000416.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.20000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000420.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000420.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000420.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000420.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000420.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.24000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000424.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000424.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000424.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000424.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000424.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.28000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000428.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000428.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000428.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000428.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000428.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.32000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000432.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000432.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000432.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000432.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000432.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.36000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000436.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000436.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000436.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000436.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000436.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.40000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000440.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000440.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000440.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000440.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000440.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.44000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000444.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000444.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000444.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000444.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000444.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.48000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000448.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000448.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000448.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000448.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000448.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.52000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000452.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000452.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000452.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000452.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000452.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.56000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000456.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000456.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000456.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000456.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000456.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.60000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000460.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000460.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000460.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000460.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000460.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.64000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000464.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000464.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000464.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000464.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000464.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.68000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000468.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000468.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000468.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000468.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000468.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.72000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000472.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000472.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000472.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000472.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000472.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.76000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000476.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000476.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000476.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000476.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000476.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.80000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000480.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000480.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000480.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000480.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000480.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.84000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000484.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000484.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000484.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000484.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000484.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.88000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000488.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000488.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000488.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000488.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000488.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.92000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000492.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000492.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000492.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000492.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000492.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="4.96000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000496.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000496.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000496.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000496.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000496.h5:/uy
+    </DataItem>
+    </Attribute>
+ </Grid>
+<!-- beginning time step -->    
+<Grid Name="FLUSI_cartesian_grid" GridType="Uniform">
+    <Time Value="5.00000000E+00" />
+    <Topology TopologyType="2DCoRectMesh" Dimensions="&nxnynz;" />
+ 
+    <Geometry GeometryType="Origin_DxDy">
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+    0 0
+    </DataItem>
+    <DataItem Dimensions="2" NumberType="Float" Format="XML">
+     1.56250000E-02  1.56250000E-02
+    </DataItem>
+    </Geometry>
+    
+    <!--Scalar-->
+    <Attribute Name="mask" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    mask_000500.h5:/mask
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="p" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    p_000500.h5:/p
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="vor" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    vor_000500.h5:/vor
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="ux" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    ux_000500.h5:/ux
+    </DataItem>
+    </Attribute>
+    
+    <!--Scalar-->
+    <Attribute Name="uy" AttributeType="Scalar" Center="Node">
+    <DataItem Dimensions="&nxnynz;" NumberType="Float" Format="HDF">
+    uy_000500.h5:/uy
     </DataItem>
     </Attribute>
  </Grid>

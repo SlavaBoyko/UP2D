@@ -39,7 +39,7 @@ subroutine Start_Simulation(solid)
   use vars
   use calc_solid_module
   implicit none
-  type(solid_data_struct) :: solid
+  type(solid_data_struct), intent(inout) :: solid
   real(kind=pr), dimension(:,:,:), allocatable :: u, uk, nlk, us
   real(kind=pr), dimension(:,:), allocatable :: pk, vort,mask
   real(kind=pr), dimension(:,:), allocatable, save :: mask_sponge

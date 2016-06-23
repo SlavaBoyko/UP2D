@@ -26,17 +26,13 @@ module statistic_module
     real(kind=pr), intent(in) :: time
     type(solid_data_struct), intent(in) :: solid
 
-    if (time > 0.1) then
-      open (14, file = 'Forces.txt', status = 'unknown', access = 'append')
-        write (14,'(3(es15.8,1x))') time, solid%aeroForce(1), solid%aeroForce(2)
-      close (14)
-    endif
+    open (14, file = 'Forces.txt', status = 'unknown', access = 'append')
+      write (14,'(3(es15.8,1x))') time, solid%aeroForce(1), solid%aeroForce(2)
+    close (14)
 
-    if (time > 0.1) then
-      open (14, file = 'momentum.txt', status = 'unknown', access = 'append')
-        write (14,'(2(es15.8,1x))') time, solid%momentum
-      close (14)
-    endif
+    open (14, file = 'momentum.txt', status = 'unknown', access = 'append')
+      write (14,'(2(es15.8,1x))') time, solid%momentum
+    close (14)
 
   end subroutine write_out_solid_forces
 

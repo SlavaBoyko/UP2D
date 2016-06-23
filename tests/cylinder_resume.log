@@ -20,7 +20,11 @@
  read Penalization::velocity_y = 0.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::acceleration_x = 0.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::acceleration_y = 0.00     (THIS IS THE DEFAULT VALUE!)  
+ read Penalization::position_angle = 0.00     (THIS IS THE DEFAULT VALUE!)  
+ read Penalization::angular_velocity = 0.00     (THIS IS THE DEFAULT VALUE!)  
+ read Penalization::angular_acceleration = 0.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::g = 0.00     (THIS IS THE DEFAULT VALUE!)  
+ read Penalization::Mass = 1.00     (THIS IS THE DEFAULT VALUE!)  
  read Geometry::xl = 4.00  
  read Geometry::yl = 4.00  
  read Saving::tsave = 0.200 
@@ -36,7 +40,6 @@
  read MeanFlow::iMeanFlow = constant
  read MeanFlow::ux_mean = 1.00  
  read MeanFlow::uy_mean = 0.00  
- *** information: fill the solid structure with inidata
  *** information: entering StartSimulation
  *** information: allocated memory
  fftw wrapper: nthreads=           2
@@ -48,71 +51,71 @@
 inicond=quiescent max field divergence   0.0000E+00
 Initialization done, looping now.
 time=  0.0000E+00 Tmax=  2.5000E-01 it= 0 nt=  9999999
-time left:  0d  0h  0m  4s dt=  1.25E-03s t=  0.65E-02
-time left:  0d  0h  0m  5s dt=  1.05E-03s t=  0.12E-01
-time left:  0d  0h  0m  5s dt=  9.47E-04s t=  0.17E-01
-time left:  0d  0h  0m  5s dt=  8.82E-04s t=  0.22E-01
-time left:  0d  0h  0m  5s dt=  8.36E-04s t=  0.26E-01
-time left:  0d  0h  0m  5s dt=  8.04E-04s t=  0.30E-01
-time left:  0d  0h  0m  5s dt=  7.80E-04s t=  0.34E-01
-time left:  0d  0h  0m  5s dt=  7.60E-04s t=  0.38E-01
-time left:  0d  0h  0m  5s dt=  7.44E-04s t=  0.41E-01
-time left:  0d  0h  0m  5s dt=  7.32E-04s t=  0.45E-01
-time left:  0d  0h  0m  5s dt=  7.22E-04s t=  0.49E-01
-time left:  0d  0h  0m  5s dt=  7.14E-04s t=  0.52E-01
-time left:  0d  0h  0m  5s dt=  7.07E-04s t=  0.56E-01
-time left:  0d  0h  0m  5s dt=  7.01E-04s t=  0.59E-01
-time left:  0d  0h  0m  5s dt=  6.96E-04s t=  0.63E-01
-time left:  0d  0h  0m  5s dt=  6.92E-04s t=  0.66E-01
-time left:  0d  0h  0m  5s dt=  6.88E-04s t=  0.70E-01
-time left:  0d  0h  0m  5s dt=  6.85E-04s t=  0.73E-01
-time left:  0d  0h  0m  5s dt=  6.82E-04s t=  0.76E-01
-time left:  0d  0h  0m  5s dt=  6.80E-04s t=  0.80E-01
-time left:  0d  0h  0m  5s dt=  6.79E-04s t=  0.83E-01
-time left:  0d  0h  0m  5s dt=  6.77E-04s t=  0.87E-01
-time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.90E-01
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.93E-01
-time left:  0d  0h  0m  5s dt=  6.73E-04s t=  0.97E-01
-time left:  0d  0h  0m  5s dt=  5.29E-04s t=  0.10    
+time left:  0d  0h  0m  5s dt=  1.25E-03s t=  0.65E-02
+time left:  0d  0h  0m  6s dt=  1.05E-03s t=  0.12E-01
+time left:  0d  0h  0m  6s dt=  9.47E-04s t=  0.17E-01
+time left:  0d  0h  0m  6s dt=  8.82E-04s t=  0.22E-01
+time left:  0d  0h  0m  6s dt=  8.36E-04s t=  0.26E-01
+time left:  0d  0h  0m  6s dt=  8.04E-04s t=  0.30E-01
+time left:  0d  0h  0m  6s dt=  7.80E-04s t=  0.34E-01
+time left:  0d  0h  0m  6s dt=  7.60E-04s t=  0.38E-01
+time left:  0d  0h  0m  6s dt=  7.44E-04s t=  0.41E-01
+time left:  0d  0h  0m  6s dt=  7.32E-04s t=  0.45E-01
+time left:  0d  0h  0m  6s dt=  7.22E-04s t=  0.49E-01
+time left:  0d  0h  0m  7s dt=  7.14E-04s t=  0.52E-01
+time left:  0d  0h  0m  7s dt=  7.07E-04s t=  0.56E-01
+time left:  0d  0h  0m  7s dt=  7.01E-04s t=  0.59E-01
+time left:  0d  0h  0m  7s dt=  6.96E-04s t=  0.63E-01
+time left:  0d  0h  0m  7s dt=  6.92E-04s t=  0.66E-01
+time left:  0d  0h  0m  6s dt=  6.88E-04s t=  0.70E-01
+time left:  0d  0h  0m  6s dt=  6.85E-04s t=  0.73E-01
+time left:  0d  0h  0m  6s dt=  6.82E-04s t=  0.76E-01
+time left:  0d  0h  0m  6s dt=  6.80E-04s t=  0.80E-01
+time left:  0d  0h  0m  6s dt=  6.79E-04s t=  0.83E-01
+time left:  0d  0h  0m  6s dt=  6.77E-04s t=  0.87E-01
+time left:  0d  0h  0m  6s dt=  6.75E-04s t=  0.90E-01
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.93E-01
+time left:  0d  0h  0m  6s dt=  6.73E-04s t=  0.97E-01
+time left:  0d  0h  0m  6s dt=  5.29E-04s t=  0.10    
 time left:  0d  0h  0m  5s dt=  6.72E-04s t=  0.10    
-time left:  0d  0h  0m  4s dt=  6.71E-04s t=  0.11    
-time left:  0d  0h  0m  4s dt=  6.71E-04s t=  0.11    
-time left:  0d  0h  0m  4s dt=  6.70E-04s t=  0.11    
-time left:  0d  0h  0m  4s dt=  6.70E-04s t=  0.12    
-time left:  0d  0h  0m  4s dt=  6.69E-04s t=  0.12    
-time left:  0d  0h  0m  4s dt=  6.69E-04s t=  0.12    
-time left:  0d  0h  0m  4s dt=  6.69E-04s t=  0.13    
-time left:  0d  0h  0m  4s dt=  6.69E-04s t=  0.13    
+time left:  0d  0h  0m  5s dt=  6.71E-04s t=  0.11    
+time left:  0d  0h  0m  5s dt=  6.71E-04s t=  0.11    
+time left:  0d  0h  0m  5s dt=  6.70E-04s t=  0.11    
+time left:  0d  0h  0m  5s dt=  6.70E-04s t=  0.12    
+time left:  0d  0h  0m  5s dt=  6.69E-04s t=  0.12    
+time left:  0d  0h  0m  5s dt=  6.69E-04s t=  0.12    
+time left:  0d  0h  0m  5s dt=  6.69E-04s t=  0.13    
+time left:  0d  0h  0m  5s dt=  6.69E-04s t=  0.13    
 time left:  0d  0h  0m  4s dt=  6.69E-04s t=  0.13    
 time left:  0d  0h  0m  4s dt=  6.69E-04s t=  0.14    
 time left:  0d  0h  0m  4s dt=  6.68E-04s t=  0.14    
-time left:  0d  0h  0m  3s dt=  6.68E-04s t=  0.14    
-time left:  0d  0h  0m  3s dt=  6.69E-04s t=  0.15    
-time left:  0d  0h  0m  3s dt=  4.50E-04s t=  0.15    
-time left:  0d  0h  0m  3s dt=  6.69E-04s t=  0.15    
-time left:  0d  0h  0m  3s dt=  6.69E-04s t=  0.16    
+time left:  0d  0h  0m  4s dt=  6.68E-04s t=  0.14    
+time left:  0d  0h  0m  4s dt=  6.69E-04s t=  0.15    
+time left:  0d  0h  0m  4s dt=  4.50E-04s t=  0.15    
+time left:  0d  0h  0m  4s dt=  6.69E-04s t=  0.15    
+time left:  0d  0h  0m  4s dt=  6.69E-04s t=  0.16    
 time left:  0d  0h  0m  3s dt=  6.69E-04s t=  0.16    
 time left:  0d  0h  0m  3s dt=  6.69E-04s t=  0.16    
 time left:  0d  0h  0m  3s dt=  6.69E-04s t=  0.17    
 time left:  0d  0h  0m  3s dt=  6.69E-04s t=  0.17    
-time left:  0d  0h  0m  2s dt=  6.69E-04s t=  0.17    
-time left:  0d  0h  0m  2s dt=  6.69E-04s t=  0.18    
-time left:  0d  0h  0m  2s dt=  6.69E-04s t=  0.18    
+time left:  0d  0h  0m  3s dt=  6.69E-04s t=  0.17    
+time left:  0d  0h  0m  3s dt=  6.69E-04s t=  0.18    
+time left:  0d  0h  0m  3s dt=  6.69E-04s t=  0.18    
 time left:  0d  0h  0m  2s dt=  6.70E-04s t=  0.18    
 time left:  0d  0h  0m  2s dt=  6.70E-04s t=  0.19    
 time left:  0d  0h  0m  2s dt=  6.70E-04s t=  0.19    
 time left:  0d  0h  0m  2s dt=  6.70E-04s t=  0.19    
 time left:  0d  0h  0m  2s dt=  6.70E-04s t=  0.20    
 Saving. time=  2.0000E-01 vormax=  2.2366E+01 fname=000020                                                                          
-time left:  0d  0h  0m  1s dt=  4.86E-04s t=  0.20    
-time left:  0d  0h  0m  1s dt=  6.70E-04s t=  0.20    
+time left:  0d  0h  0m  2s dt=  4.86E-04s t=  0.20    
+time left:  0d  0h  0m  2s dt=  6.70E-04s t=  0.20    
 time left:  0d  0h  0m  1s dt=  6.70E-04s t=  0.21    
 time left:  0d  0h  0m  1s dt=  6.70E-04s t=  0.21    
 time left:  0d  0h  0m  1s dt=  6.70E-04s t=  0.21    
 time left:  0d  0h  0m  1s dt=  6.70E-04s t=  0.22    
 time left:  0d  0h  0m  1s dt=  6.70E-04s t=  0.22    
 time left:  0d  0h  0m  1s dt=  6.71E-04s t=  0.22    
-time left:  0d  0h  0m  0s dt=  6.71E-04s t=  0.23    
+time left:  0d  0h  0m  1s dt=  6.71E-04s t=  0.23    
 time left:  0d  0h  0m  0s dt=  6.71E-04s t=  0.23    
 time left:  0d  0h  0m  0s dt=  6.71E-04s t=  0.23    
 time left:  0d  0h  0m  0s dt=  6.71E-04s t=  0.24    
@@ -144,7 +147,11 @@ time left:  0d  0h  0m  0s dt=  3.69E-04s t=  0.25
  read Penalization::velocity_y = 0.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::acceleration_x = 0.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::acceleration_y = 0.00     (THIS IS THE DEFAULT VALUE!)  
+ read Penalization::position_angle = 0.00     (THIS IS THE DEFAULT VALUE!)  
+ read Penalization::angular_velocity = 0.00     (THIS IS THE DEFAULT VALUE!)  
+ read Penalization::angular_acceleration = 0.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::g = 0.00     (THIS IS THE DEFAULT VALUE!)  
+ read Penalization::Mass = 1.00     (THIS IS THE DEFAULT VALUE!)  
  read Geometry::xl = 4.00  
  read Geometry::yl = 4.00  
  read Saving::tsave = 0.200 
@@ -160,7 +167,6 @@ time left:  0d  0h  0m  0s dt=  3.69E-04s t=  0.25
  read MeanFlow::iMeanFlow = constant
  read MeanFlow::ux_mean = 1.00  
  read MeanFlow::uy_mean = 0.00  
- *** information: fill the solid structure with inidata
  *** information: entering StartSimulation
  *** information: allocated memory
  fftw wrapper: nthreads=           2
@@ -182,89 +188,89 @@ Done reading file
 inicond=backup::vor_000020.h5 max field divergence   3.5078E-16
 Initialization done, looping now.
 time=  2.0000E-01 Tmax=  5.0000E-01 it= 0 nt=  9999999
-time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.20    
-time left:  0d  0h  0m 10s dt=  6.70E-04s t=  0.21    
-time left:  0d  0h  0m 10s dt=  6.70E-04s t=  0.21    
-time left:  0d  0h  0m  9s dt=  6.70E-04s t=  0.21    
-time left:  0d  0h  0m  9s dt=  6.70E-04s t=  0.22    
-time left:  0d  0h  0m  9s dt=  6.70E-04s t=  0.22    
-time left:  0d  0h  0m  9s dt=  6.71E-04s t=  0.22    
-time left:  0d  0h  0m  9s dt=  6.71E-04s t=  0.23    
-time left:  0d  0h  0m  9s dt=  6.71E-04s t=  0.23    
-time left:  0d  0h  0m  8s dt=  6.71E-04s t=  0.23    
-time left:  0d  0h  0m  8s dt=  6.71E-04s t=  0.24    
-time left:  0d  0h  0m  8s dt=  6.71E-04s t=  0.24    
-time left:  0d  0h  0m  8s dt=  6.71E-04s t=  0.24    
-time left:  0d  0h  0m  8s dt=  6.72E-04s t=  0.25    
-time left:  0d  0h  0m  8s dt=  3.69E-04s t=  0.25    
-time left:  0d  0h  0m  8s dt=  6.72E-04s t=  0.25    
-time left:  0d  0h  0m  8s dt=  6.72E-04s t=  0.26    
-time left:  0d  0h  0m  7s dt=  6.72E-04s t=  0.26    
-time left:  0d  0h  0m  7s dt=  6.72E-04s t=  0.26    
-time left:  0d  0h  0m  7s dt=  6.72E-04s t=  0.27    
-time left:  0d  0h  0m  7s dt=  6.72E-04s t=  0.27    
-time left:  0d  0h  0m  7s dt=  6.72E-04s t=  0.27    
-time left:  0d  0h  0m  7s dt=  6.72E-04s t=  0.28    
-time left:  0d  0h  0m  7s dt=  6.72E-04s t=  0.28    
-time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.28    
-time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.29    
-time left:  0d  0h  0m  6s dt=  6.73E-04s t=  0.29    
-time left:  0d  0h  0m  6s dt=  6.73E-04s t=  0.29    
-time left:  0d  0h  0m  6s dt=  6.73E-04s t=  0.30    
-time left:  0d  0h  0m  6s dt=  2.56E-04s t=  0.30    
-time left:  0d  0h  0m  6s dt=  6.73E-04s t=  0.30    
-time left:  0d  0h  0m  6s dt=  6.73E-04s t=  0.31    
-time left:  0d  0h  0m  6s dt=  6.73E-04s t=  0.31    
-time left:  0d  0h  0m  6s dt=  6.73E-04s t=  0.31    
-time left:  0d  0h  0m  6s dt=  6.73E-04s t=  0.32    
-time left:  0d  0h  0m  5s dt=  6.73E-04s t=  0.32    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.32    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.33    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.33    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.33    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.34    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.34    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.34    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.35    
-time left:  0d  0h  0m  4s dt=  1.56E-04s t=  0.35    
-time left:  0d  0h  0m  4s dt=  6.74E-04s t=  0.35    
-time left:  0d  0h  0m  4s dt=  6.74E-04s t=  0.36    
-time left:  0d  0h  0m  4s dt=  6.74E-04s t=  0.36    
-time left:  0d  0h  0m  4s dt=  6.74E-04s t=  0.36    
-time left:  0d  0h  0m  4s dt=  6.74E-04s t=  0.37    
-time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.37    
-time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.37    
+time left:  0d  0h  0m 13s dt=  6.70E-04s t=  0.20    
+time left:  0d  0h  0m 12s dt=  6.70E-04s t=  0.21    
+time left:  0d  0h  0m 12s dt=  6.70E-04s t=  0.21    
+time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.21    
+time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.22    
+time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.22    
+time left:  0d  0h  0m 11s dt=  6.71E-04s t=  0.22    
+time left:  0d  0h  0m 11s dt=  6.71E-04s t=  0.23    
+time left:  0d  0h  0m 11s dt=  6.71E-04s t=  0.23    
+time left:  0d  0h  0m 10s dt=  6.71E-04s t=  0.23    
+time left:  0d  0h  0m 10s dt=  6.71E-04s t=  0.24    
+time left:  0d  0h  0m 10s dt=  6.71E-04s t=  0.24    
+time left:  0d  0h  0m 10s dt=  6.71E-04s t=  0.24    
+time left:  0d  0h  0m 10s dt=  6.72E-04s t=  0.25    
+time left:  0d  0h  0m 10s dt=  3.69E-04s t=  0.25    
+time left:  0d  0h  0m 10s dt=  6.72E-04s t=  0.25    
+time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.26    
+time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.26    
+time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.26    
+time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.27    
+time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.27    
+time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.27    
+time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.28    
+time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.28    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.28    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.29    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.29    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.29    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.30    
+time left:  0d  0h  0m  8s dt=  2.56E-04s t=  0.30    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.30    
+time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.31    
+time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.31    
+time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.31    
+time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.32    
+time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.32    
+time left:  0d  0h  0m  7s dt=  6.74E-04s t=  0.32    
+time left:  0d  0h  0m  7s dt=  6.74E-04s t=  0.33    
+time left:  0d  0h  0m  7s dt=  6.74E-04s t=  0.33    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.33    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.34    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.34    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.34    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.35    
+time left:  0d  0h  0m  6s dt=  1.56E-04s t=  0.35    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.35    
+time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.36    
+time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.36    
+time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.36    
+time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.37    
+time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.37    
+time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.37    
+time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.38    
+time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.38    
 time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.38    
-time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.38    
-time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.38    
-time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.39    
-time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.39    
-time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.39    
-time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.40    
+time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.39    
+time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.39    
+time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.39    
+time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.40    
 Saving. time=  4.0000E-01 vormax=  1.8389E+01 fname=000040                                                                          
-time left:  0d  0h  0m  3s dt=  7.82E-05s t=  0.40    
-time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.40    
+time left:  0d  0h  0m  4s dt=  7.82E-05s t=  0.40    
+time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.40    
 time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.41    
 time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.41    
-time left:  0d  0h  0m  2s dt=  6.75E-04s t=  0.41    
-time left:  0d  0h  0m  2s dt=  6.75E-04s t=  0.42    
-time left:  0d  0h  0m  2s dt=  6.75E-04s t=  0.42    
-time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.42    
-time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.43    
+time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.41    
+time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.42    
+time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.42    
+time left:  0d  0h  0m  3s dt=  6.76E-04s t=  0.42    
+time left:  0d  0h  0m  3s dt=  6.76E-04s t=  0.43    
 time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.43    
 time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.43    
 time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.44    
 time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.44    
-time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.44    
-time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.45    
-time left:  0d  0h  0m  1s dt=  1.15E-05s t=  0.45    
+time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.44    
+time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.45    
+time left:  0d  0h  0m  2s dt=  1.15E-05s t=  0.45    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.45    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.46    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.46    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.46    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.47    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.47    
-time left:  0d  0h  0m  0s dt=  6.76E-04s t=  0.47    
+time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.47    
 time left:  0d  0h  0m  0s dt=  6.76E-04s t=  0.48    
 time left:  0d  0h  0m  0s dt=  6.76E-04s t=  0.48    
 time left:  0d  0h  0m  0s dt=  6.76E-04s t=  0.48    

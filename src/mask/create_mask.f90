@@ -1,11 +1,11 @@
 !===============================================================================
-subroutine create_mask (time, mask, us, solid)
+subroutine create_mask (time, mask, us, u, solid)
   use vars
   implicit none
   type(solid_data_struct), intent(inout) :: solid
   real(kind=pr), intent (in) :: time
   real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
-  real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us
+  real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us, u
   real(kind=pr) :: R
   integer :: ix, iy
 
@@ -18,7 +18,7 @@ subroutine create_mask (time, mask, us, solid)
     case('ellipse')
       call ellipse(mask, us)
     case('free_ellipse')
-      call free_ellipse(time, mask, us, solid)
+      call free_ellipse(time, mask, us, u, solid)
     case('moving_cylinder')
       call moving_cylinder(time, mask, us)
     case('none')
@@ -92,44 +92,51 @@ subroutine ellipse(mask, us)
 end subroutine ellipse
 
 !===============================================================================
-
-subroutine free_ellipse(time, mask, us, solid)
+! NO SMOOTHING FUNKTION !
+subroutine free_ellipse(time, mask, us, u, solid)
   use vars
   use calc_solid_module
   implicit none
   type(solid_data_struct), intent(inout) :: solid
   real(kind=pr),intent(in) :: time
   real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
-  real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us
+  real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us, u
   integer :: ix,iy
   real(kind=pr)::R,R0,x,y
   real(kind=pr)::x_tmp,y_tmp ! used for rotation
+  real(kind=pr) :: Fx, Fy, cross_p, u_diff_x, u_diff_y ! used for the Forces
 
   mask = 0.d0
+  cross_p = 0.d0
+  Fx = 0.d0
+  Fy = 0.d0
 
-  call keep_solid_inside (solid)
+  call periodize_solid_cog (solid)
 
   x0 = solid%position(1)
   y0 = solid%position(2)
 
   ! Bounding container speed up
-  ix_start = floor( (x0 - (a + 0.1d0) )/dx )
-  ix_end   = floor( (x0 + (a + 0.1d0) )/dx )
-  iy_start = floor( (y0 - (a + 0.1d0) )/dy )
-  iy_end   = floor( (y0 + (a + 0.1d0) )/dy )
+  ix_start = ceiling( (x0 - (a + 0.1d0) )/dx )
+  ix_end   = ceiling( (x0 + (a + 0.1d0) )/dx )
+  iy_start = ceiling( (y0 - (a + 0.1d0) )/dy )
+  iy_end   = ceiling( (y0 + (a + 0.1d0) )/dy )
 
   if (iy_end >= ny-1) then; iy_end = ny-1; iy_start = 0;  endif;
   if (iy_start <= 0 ) then; iy_end = ny-1; iy_start = 0;  endif;
   if (ix_start <= 0  ) then; ix_start = 0; ix_end = nx-1; endif;
   if (ix_end >= nx-1 ) then; ix_start = 0; ix_end = nx-1; endif;
 
-  !$omp parallel do private(ix,iy,R,x,y,x_tmp,y_tmp)
+  !$omp parallel do private(ix,iy, R, x,y, x_tmp,y_tmp, u_diff_x, u_diff_y) &
+  !$omp& reduction(+:Fx, Fy, cross_p)
+!  do ix=0,nx-1
+!    do iy=0,ny-1
   do ix=ix_start,ix_end
     do iy=iy_start,iy_end
       x = dble(ix)*dx-x0
       y = dble(iy)*dy-y0
 
-      call keep_solid_intact_at_bc (x,y)
+      call periodize_solid_coordinate (x,y)
 
       x_tmp = cos(solid%ang_position)*x - sin(solid%ang_position)*y
       y_tmp = sin(solid%ang_position)*x + cos(solid%ang_position)*y
@@ -138,13 +145,35 @@ subroutine free_ellipse(time, mask, us, solid)
       if (R<= 1.d0) then
         mask(ix,iy) = 1.d0
         ! update the solid velocity
+        ! this ist the solid velocity
         us(ix,iy,1) = solid%velocity(1) - solid%ang_velocity * y
         us(ix,iy,2) = solid%velocity(2) + solid%ang_velocity * x
-      endif
+        ! we can also compute the Forces here (!)
+        ! they look like this in seperate routine
+        ! This is handy becouse we are here in the mask region
+        u_diff_x = u(ix,iy,1)- us(ix,iy,1)
+        u_diff_y = u(ix,iy,2)- us(ix,iy,2)
 
+          !Fx = Fx + mask(ix,iy)*( u_diff_x )
+          !Fy = Fy + mask(ix,iy)*( u_diff_y )
+
+          !Cross product: r x u
+          !cross_p = cross_p + mask(ix,iy) * (x * u_diff_y - y * u_diff_x)
+
+        Fx = Fx + u_diff_x
+        Fy = Fy + u_diff_y
+
+        cross_p = cross_p + (x * u_diff_y - y * u_diff_x)
+      endif
     enddo
   enddo
   !$omp end parallel do
+
+  solid%aeroForce(1) = Fx * dx * dy /eps
+  solid%aeroForce(2) = Fy * dx * dy /eps
+
+  solid%momentum = cross_p * dx * dy /eps
+
 end subroutine free_ellipse
 
 !===============================================================================
