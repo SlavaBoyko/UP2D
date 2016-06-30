@@ -16,7 +16,8 @@ module calc_solid_module
     solid%aeroForce(1)    = 0.d0
     solid%aeroForce(2)    = 0.d0
 
-    ! compute the Moment of inertia for iMask
+    ! if none J
+    J = 1.d0;
     select case (iMask)
       !-free_ellipse------------------------------------------------------------
       case('free_ellipse')
@@ -27,13 +28,54 @@ module calc_solid_module
 
       !-free_hut------------------------------------------------------------
       case('free_hut')
+        write(*,*) 'Preprocessing the solid: hut...'
+        ! Preprocessing is done here. WE ARE IN THE HUT BODY SYSTEM NOW.
+        ! The hut have two "legs". Every leg have there own coordinate system (CS).
+        ! CS(leg_1) and CS(leg_2) collapse in point where the legs meet (definition).
+        ! If the hut points up, leg_1 is the left one.
+        ! let us shift CS's up so, that the CS of the whole hut is in the
+        ! center of gravity (cg)
+        cg_shift = leg_l/2.d0 * cos(alpha); ! <- used in create_mask
 
+        !The size (length) of the smoothing is controlled with n_cell_smooth
+        smooth_length = n_cell_smooth * dx;
+
+        ! Alpha is the 1/2 opening angle. To build the hut we need to transform this
+        ! angle in CS(leg_1) and CS(leg_2).
+        alpha_leg_1 = 3.d0*pi/2.d0 - alpha;
+        alpha_leg_2 = 3.d0*pi/2.d0 + alpha;
+
+        ! Let us compute the rotation matrix for each leg
+        rotate_leg(:,:,1) = reshape((/cos(alpha_leg_1),-sin(alpha_leg_1), &
+                                      sin(alpha_leg_1), cos(alpha_leg_1)/),(/2,2/)); ! <- you see NOT the structure of the matrix, LOOK UP "reshape" for more info
+
+        rotate_leg(:,:,2) = reshape((/cos(alpha_leg_2),-sin(alpha_leg_2), &
+                                      sin(alpha_leg_2), cos(alpha_leg_2)/),(/2,2/)); ! <- you see NOT the structure of the matrix, LOOK UP "reshape" for more info
+
+        ! The rotation around the cg is made with the "solid%position_angle"
+        ! To make the rotation we need first translate the center of the CS(leg_1)
+        ! and the CS(leg_2) to the cg of the whole hut. Make the rotation with
+        ! "solid%position_angle" and then translate the CS(leg_1) and CS(leg_2)
+        ! back. For that operation we need a constant translation distance.
+        ! The translation distance for the CS(leg_1) and the CS(_2) is the same,
+        ! due to the definition that they collapse in a point, where the legs meet.
+        ! The modulus is computed as follow:
+        ! in x direction in CS(leg)
+        cg_rot_dist(1) = leg_l / 2.d0 * cos(alpha)*cos(alpha);
+        ! in y direction in CS(leg)
+        cg_rot_dist(2) = leg_l / 2.d0 * cos(alpha)*sin(alpha);
+
+        ! compute the Moment of inertia for iMask
+        !J = Mass * leg_l**2 * ( 1 - 0.75d0 * cos(alpha)**2 ) / 3.d0
+        J = Mass * ( 1 - 0.75d0 * cos(alpha)**2 ) / 3.d0
+
+        write(*,*) 'Preprocessing the solid: hut...DONE'
       !-free_hut END--------------------------------------------------------
 
-      !-free_hut------------------------------------------------------------
+      !-cylinder------------------------------------------------------------
       case('cylinder') ! <- need to be set here for the test unit
 
-      !-free_hut END--------------------------------------------------------
+      !-cylinder END--------------------------------------------------------
 
       ! unknown step : error--------------------------------------------------------
       case default
@@ -187,5 +229,58 @@ module calc_solid_module
     if ( y < -yl/2.d0 ) then;  y = y + yl; endif
 
   end subroutine periodize_solid_coordinate
+
+!===============================================================================
+! Rotate the legs of the hut around the center of gravity  (by rotating the CS)
+!===============================================================================
+  subroutine rotate_hut_leg_cog (CS,theta,leg_number)
+    use vars
+    implicit none
+    real(kind=pr),intent(in) :: theta
+    integer, intent(in) :: leg_number
+    real(kind=pr),dimension(1:2,1),intent(inout) :: CS   ! <- coordinate system
+    real(kind=pr),dimension(1:2,1)               :: CS_r ! temorary variable of the rotation
+    select case (leg_number)
+      !-rotating the leg_1 around the cog---------------------------------------
+      case(1)
+        ! translate to the cog in CS(leg_1)
+        CS(1,1) = CS(1,1) - cg_rot_dist(1);
+        CS(2,1) = CS(2,1) - cg_rot_dist(2);
+
+        ! rotate around the cog
+        CS_r(1,1) =  cos(theta)*CS(1,1) + sin(theta)*CS(2,1);
+        CS_r(2,1) = -sin(theta)*CS(1,1) + cos(theta)*CS(2,1);
+
+        CS(1,1) = CS_r(1,1) + cg_rot_dist(1);
+        CS(2,1) = CS_r(2,1) + cg_rot_dist(2);
+        !Output : CS
+
+      !-rotating the leg_1 around the cog END-----------------------------------
+
+      !-rotating the leg_2 around the cog---------------------------------------
+      case(2)
+        ! translate to the cog in CS(leg_2)
+        CS(1,1) = CS(1,1) - cg_rot_dist(1);
+        CS(2,1) = CS(2,1) + cg_rot_dist(2);
+
+        ! rotate around the cog
+        CS_r(1,1) =  cos(theta)*CS(1,1) + sin(theta)*CS(2,1);
+        CS_r(2,1) = -sin(theta)*CS(1,1) + cos(theta)*CS(2,1);
+
+        CS(1,1) = CS_r(1,1) + cg_rot_dist(1);
+        CS(2,1) = CS_r(2,1) - cg_rot_dist(2);
+        !Output : CS
+      !-rotating the leg_2 around the cog END-----------------------------------
+
+      ! unknown leg_number : error----------------------------------------------
+      case default
+        write (*,*) leg_number
+        write (*,*) '??? ERROR: no such leg_number in "rotate_hut_leg_cog" '
+        stop
+      ! unknown leg_number : error END -----------------------------------------
+
+    end select
+
+  end subroutine rotate_hut_leg_cog
 
 end module calc_solid_module

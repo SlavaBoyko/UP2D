@@ -41,6 +41,12 @@ subroutine get_params(paramsfile,solid)
   call read_param(PARAMS,"Penalization","angular_acceleration",solid%ang_acceleration, 0.d0)
   call read_param(PARAMS,"Penalization","g",g, 0.d0)
   call read_param(PARAMS,"Penalization","Mass",Mass, 1.d0)
+  call read_param(PARAMS,"Penalization","alpha",alpha, 1.57d0) ! pi/2 standard
+  call read_param(PARAMS,"Penalization","leg_l",leg_l, 1.d0)
+  call read_param(PARAMS,"Penalization","leg_h",leg_h, 0.2d0)
+  call read_param(PARAMS,"Penalization","n_cell_smooth",n_cell_smooth, 3)
+  call read_param(PARAMS,"Penalization","bounding_container",BC, "no")
+  call read_param(PARAMS,"Penalization","buffer",buffer, 0.1d0)
 
   ! Geometry section
   call read_param(PARAMS,"Geometry","xl",xl, 1.d0)
@@ -54,11 +60,13 @@ subroutine get_params(paramsfile,solid)
   call read_param(PARAMS,"Saving","iSaveVelocity",iSaveVelocity, 1)
   call read_param(PARAMS,"Saving","iSavePressure",iSavePressure, 1)
   call read_param(PARAMS,"Saving","iSaveMask",iSaveMask, 1)
+  call read_param(PARAMS,"Saving","iSaveSponge",iSaveSponge, 1)
 
   ! sponge
   call read_param(PARAMS,"Sponge","iSpongeType",iSpongeType, "none")
   call read_param(PARAMS,"Sponge","use_sponge",use_sponge, 0)
   call read_param(PARAMS,"Sponge","eps_sponge",eps_sponge, 1.0d0)
+  call read_param(PARAMS,"Sponge","Sp_thickness",Sp_thickness, 10)
 
   ! mean flow
   call read_param(PARAMS,"MeanFlow","iMeanFlow",iMeanFlow, "none")

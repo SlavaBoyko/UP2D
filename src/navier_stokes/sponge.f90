@@ -14,13 +14,15 @@ subroutine sponge_mask(time, mask_sponge)
   mask_sponge = 0.d0
 
   select case (iSpongeType)
-  case ('everywhere')
-    mask_sponge = 1.d0
-  case('none')
-    mask_sponge = 0.d0
-  case default
-    write (*,*) "mask not defnd", iSpongeType
-    stop
+    case ('everywhere')
+      mask_sponge = 1.d0
+    case('none')
+      mask_sponge = 0.d0
+    case('allEdges')
+      call sponge_all_four_edges(mask_sponge)
+    case default
+      write (*,*) "mask not defnd", iSpongeType
+      stop
   end select
 
 end subroutine sponge_mask
@@ -60,3 +62,34 @@ subroutine add_sponge_term(time, nlk, vor, mask_sponge, work1, work2)
   endif
 
 end subroutine
+
+!-------------------------------------------------------------------------------
+! Add the sponge term to the non-linear terms in fourier space
+!-------------------------------------------------------------------------------
+
+subroutine sponge_all_four_edges(mask_sponge)
+  use vars
+  implicit none
+  real(kind=pr),dimension(0:nx-1,0:ny-1), intent(inout) :: mask_sponge
+  integer :: ix,iy
+  real(kind=pr)::x,y
+
+  mask_sponge = 1.d0
+
+  !$omp parallel do private(ix,iy,x,y)
+  do ix=0,nx-1
+    do iy=0,ny-1
+      x = dble(ix)*dx
+      y = dble(iy)*dy
+
+       if ( x >= Sp_thickness * dx .and. x <= xl - Sp_thickness * dx .and. &
+            y >= Sp_thickness * dx .and. y <= yl - Sp_thickness * dx      ) then
+
+         mask_sponge(ix,iy) = 0.d0
+       endif
+
+    enddo
+  enddo
+  !$omp end parallel do
+
+end subroutine sponge_all_four_edges

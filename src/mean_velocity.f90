@@ -12,7 +12,7 @@ subroutine mean_flow (uk,time)
       uk(0:1,0:1,2) = uy_mean
     case ('oscillating')
       uk(0:1,0:1,1) = ux_mean
-      uk(0:1,0:1,2) = uy_mean * pi * 1.d0 *sin(2.d0*pi*time)
+      uk(0:1,0:1,2) = uy_mean * pi * sin(2.d0*pi*time)
   end select
 
 end subroutine mean_flow

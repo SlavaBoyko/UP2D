@@ -33,6 +33,12 @@ subroutine save_fields(time, it, u, uk, vort, mask, us, mask_sponge)
     call SaveField (time, "mask_"//trim(timestring), mask)
   endif
 
+  if (use_sponge == 1) then ! <- this operation follows the main program structure. 
+    if ( iSaveSponge == 1) then
+      call SaveField (time, "sponge_"//trim(timestring), mask_sponge)
+    endif
+  endif
+
   if ( iSavePressure == 1 ) then
     call cal_pressure (time, u, uk, pk, mask, us, mask_sponge)
     call ifft(pk, work)

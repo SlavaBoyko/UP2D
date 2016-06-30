@@ -19,12 +19,14 @@ subroutine create_mask (time, mask, us, u, solid)
       call ellipse(mask, us)
     case('free_ellipse')
       call free_ellipse(time, mask, us, u, solid)
+    case('free_hut')
+      call free_hut(time, mask, us, u, solid)
     case('moving_cylinder')
       call moving_cylinder(time, mask, us)
     case('none')
       mask = 0.d0
     case default
-      write (*,*) "mask not defnd", iMask
+      write (*,*) "mask not defnd: ", iMask
       stop
   end select
 
@@ -101,10 +103,11 @@ subroutine free_ellipse(time, mask, us, u, solid)
   real(kind=pr),intent(in) :: time
   real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
   real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us, u
-  integer :: ix,iy
+  integer :: ix,iy, lb, rb, bb, tb
   real(kind=pr)::R,R0,x,y
-  real(kind=pr)::x_tmp,y_tmp ! used for rotation
+  real(kind=pr)::x_tmp,y_tmp
   real(kind=pr) :: Fx, Fy, cross_p, u_diff_x, u_diff_y ! used for the Forces
+
 
   mask = 0.d0
   cross_p = 0.d0
@@ -116,7 +119,7 @@ subroutine free_ellipse(time, mask, us, u, solid)
   x0 = solid%position(1)
   y0 = solid%position(2)
 
-  ! Bounding container speed up
+  !Bounding container speed up
   ix_start = ceiling( (x0 - (a + 0.1d0) )/dx )
   ix_end   = ceiling( (x0 + (a + 0.1d0) )/dx )
   iy_start = ceiling( (y0 - (a + 0.1d0) )/dy )
@@ -127,12 +130,11 @@ subroutine free_ellipse(time, mask, us, u, solid)
   if (ix_start <= 0  ) then; ix_start = 0; ix_end = nx-1; endif;
   if (ix_end >= nx-1 ) then; ix_start = 0; ix_end = nx-1; endif;
 
+
   !$omp parallel do private(ix,iy, R, x,y, x_tmp,y_tmp, u_diff_x, u_diff_y) &
   !$omp& reduction(+:Fx, Fy, cross_p)
-!  do ix=0,nx-1
-!    do iy=0,ny-1
-  do ix=ix_start,ix_end
-    do iy=iy_start,iy_end
+  do ix=ix_start, ix_end
+    do iy=iy_start, iy_end
       x = dble(ix)*dx-x0
       y = dble(iy)*dy-y0
 
@@ -178,6 +180,75 @@ end subroutine free_ellipse
 
 !===============================================================================
 
+subroutine free_hut(time, mask, us, u, solid) ! <- do we need to pass the mask into the routine ?
+  use vars
+  use calc_solid_module
+  use bound_container_module
+  implicit none
+  type(solid_data_struct), intent(inout) :: solid
+  real(kind=pr),intent(in) :: time
+  real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
+  real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us, u
+  integer :: ix,iy, lb, rb, bb, tb
+  real(kind=pr)::R,R0,x,y
+  real(kind=pr)::x_tmp,y_tmp,theta ! used for rotation . theta = position angle in this routine
+  real(kind=pr) :: Fx, Fy, cross_p, u_diff_x, u_diff_y ! used for the Forces
+  real(kind=pr),dimension(1:2,1) :: CS_leg_1,    & ! coordinate system of the leg_1. If the hut points up, leg_1 is the left one.
+                                    CS_leg_2,    & ! leg_2
+                                    CS_hut         ! the global coordinate system
+
+  us = 0.d0   ! <- imprtant ?
+  mask = 0.d0
+  cross_p = 0.d0
+  Fx = 0.d0
+  Fy = 0.d0
+
+  call periodize_solid_cog (solid)
+
+  x0 = solid%position(1)
+  y0 = solid%position(2)
+
+  call get_bounding_container_index (rb,lb,bb,tb,solid)
+  ! rb = right bounding; lb = left bounding ; bb = bottom bounding; tb = top bounding
+
+  !$omp parallel do private(ix,iy, R, u_diff_x, u_diff_y, CS_leg_1,CS_leg_2,CS_hut) &
+  !$omp& reduction(+:Fx, Fy, cross_p)
+   do ix=lb, rb
+     do iy=bb ,tb
+       ! |-------CS_hut--------------|----shift to the legs CS--|
+        CS_hut(1,1) = dble(ix)*dx - x0             ! x coordinate
+        CS_hut(2,1) = dble(iy)*dy - y0 - cg_shift  ! y coordinate
+
+        call periodize_solid_coordinate (CS_hut(1,1),CS_hut(2,1))
+
+        CS_leg_1 = matmul( rotate_leg(:,:,1), CS_hut) ! <- rotate the CS of the leg_1
+        CS_leg_2 = matmul( rotate_leg(:,:,2), CS_hut) ! <- rotate the CS of the leg_2
+
+        call rotate_hut_leg_cog ( CS_leg_1, solid%ang_position, 1 ) ! <- index for the leg
+        call rotate_hut_leg_cog ( CS_leg_2, solid%ang_position, 2 )
+
+        call build_smooth_hut (CS_leg_1, CS_leg_2, mask, ix, iy) !Output: mask
+
+        us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity * (CS_hut(2,1)+cg_shift)  ) * mask(ix,iy)
+        us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *  CS_hut(1,1)            ) * mask(ix,iy)
+
+        u_diff_x = ( u(ix,iy,1)- us(ix,iy,1) ) * mask(ix,iy)
+        u_diff_y = ( u(ix,iy,2)- us(ix,iy,2) ) * mask(ix,iy)
+
+        Fx = Fx + u_diff_x
+        Fy = Fy + u_diff_y
+
+        cross_p = cross_p + (  CS_hut(1,1) * u_diff_y   -  (CS_hut(2,1)+cg_shift) * u_diff_x  )
+    enddo
+  enddo
+  !$omp end parallel do
+  solid%aeroForce(1) = Fx * dx * dy /eps
+  solid%aeroForce(2) = Fy * dx * dy /eps
+
+  solid%momentum = cross_p * dx * dy /eps
+
+end subroutine free_hut
+
 subroutine moving_cylinder(time,mask, us)
   use vars
   implicit none
@@ -205,6 +276,7 @@ subroutine moving_cylinder(time,mask, us)
     enddo
   enddo
   !$omp end parallel do
+
 end subroutine moving_cylinder
 
 
@@ -224,3 +296,77 @@ subroutine SmoothStep (f,x,t,h)
     f = 0.0d0
   endif
 end subroutine SmoothStep
+
+!===============================================================================
+
+subroutine build_smooth_hut (CS_1, CS_2, mask, ix, iy)
+  use vars
+  implicit none
+  real(kind=pr)::R
+  integer,intent(in) :: ix,iy
+  real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
+  real(kind=pr),dimension(1:2,1) :: CS_1,    & ! coordinate system of the leg_1. If the hut points up, leg_1 is the left one.
+                                    CS_2       ! leg_2
+
+  R = sqrt( CS_1(1,1)**2 + CS_1(2,1)**2 )
+  if (R <= leg_h / 2.d0) then
+    mask(ix,iy) = 1.d0
+  endif
+
+  if (R >= leg_h / 2.d0 .and. R <= leg_h / 2.d0 + smooth_length) then
+    mask(ix,iy) = 0.5*(1 + cos((sqrt(CS_1(1,1)**2 +CS_1(2,1)**2) - leg_h/2.d0)*pi/smooth_length) );
+  endif
+
+  !smooth inside left
+  if ( CS_1(1,1) <=  leg_l                        .and.  &
+       CS_1(1,1) >=  0.d0                         .and.  & ! in x
+       CS_1(2,1) <=  leg_h / 2.d0 + smooth_length .and.  & ! in y
+       CS_1(2,1) >=  leg_h / 2.d0                        &
+      ) then
+        mask(ix,iy) = 0.5d0 * cos((CS_1(2,1) - leg_h/2.d0)*pi / smooth_length) + 0.5;
+  endif
+
+  !smooth inside right
+  if ( CS_2(1,1) <=  leg_l                        .and.  &
+       CS_2(1,1) >=  leg_h / 2.d0                 .and.  & ! in x
+       CS_2(2,1) >= -leg_h / 2.d0 - smooth_length .and.  & ! in y
+       CS_2(2,1) <= -leg_h / 2.d0                        &
+      ) then
+        mask(ix,iy) = 0.5d0 * cos((CS_2(2,1) + leg_h/2.d0)*pi / smooth_length) + 0.5;
+  endif
+
+  if ( CS_1(1,1) <=  leg_l        .and.  &
+       CS_1(1,1) >=  0.d0         .and.  &
+       CS_1(2,1) <=  leg_h / 2.d0 .and.  &
+       CS_1(2,1) >= -leg_h / 2.d0        &
+      ) then
+        mask(ix,iy) = 1.d0
+  endif
+
+  if ( CS_2(1,1) <=  leg_l        .and.  &
+       CS_2(1,1) >=  0.d0         .and.  &
+       CS_2(2,1) <=  leg_h / 2.d0 .and.  &
+       CS_2(2,1) >= -leg_h / 2.d0        &
+      ) then
+        mask(ix,iy) = 1.d0
+  endif
+
+  !smooth outside left
+  if ( CS_1(1,1) <=  leg_l                        .and.  &
+       CS_1(1,1) >=  0                            .and.  & ! in x
+       CS_1(2,1) >= -leg_h / 2.d0 - smooth_length .and.  & ! in y
+       CS_1(2,1) <= -leg_h / 2.d0                        &
+      ) then
+        mask(ix,iy) = 0.5d0 * cos((CS_1(2,1) + leg_h/2.d0)*pi / smooth_length) + 0.5;
+  endif
+
+  !smooth outside right
+  if ( CS_2(1,1) <=  leg_l                        .and.  &
+       CS_2(1,1) >=  0                            .and.  & ! in x
+       CS_2(2,1) <=  leg_h / 2.d0 + smooth_length .and.  & ! in y
+       CS_2(2,1) >=  leg_h / 2.d0                        &
+      ) then
+        mask(ix,iy) = 0.5d0 * cos((CS_2(2,1) - leg_h/2.d0)*pi / smooth_length) + 0.5;
+  endif
+
+end subroutine build_smooth_hut
