@@ -72,6 +72,39 @@ module calc_solid_module
         write(*,*) 'Preprocessing the solid: hut...DONE'
       !-free_hut END--------------------------------------------------------
 
+      !-free_triangle------------------------------------------------------------
+    case('free_triangle')
+        write(*,*) 'Preprocessing the solid: triangle...'
+
+        cg_shift = 2.d0 * leg_l/3.d0 * cos(alpha); ! <- used in create_mask
+
+        !The size (length) of the smoothing is controlled with n_cell_smooth
+        smooth_length = n_cell_smooth * dx;
+
+        ! Alpha is the 1/2 opening angle. To build the hut we need to transform this
+        ! angle in CS(leg_1) and CS(leg_2).
+        alpha_leg_1 = 3.d0*pi/2.d0 - alpha;
+        alpha_leg_2 = 3.d0*pi/2.d0 + alpha;
+
+        ! Let us compute the rotation matrix for each leg
+        rotate_leg(:,:,1) = reshape((/cos(alpha_leg_1),-sin(alpha_leg_1), &
+                                      sin(alpha_leg_1), cos(alpha_leg_1)/),(/2,2/)); ! <- you see NOT the structure of the matrix, LOOK UP "reshape" for more info
+
+        rotate_leg(:,:,2) = reshape((/cos(alpha_leg_2),-sin(alpha_leg_2), &
+                                      sin(alpha_leg_2), cos(alpha_leg_2)/),(/2,2/)); ! <- you see NOT the structure of the matrix, LOOK UP "reshape" for more info
+
+
+        cg_rot_dist(1) = leg_l / 2.d0 * cos(alpha)*cos(alpha);
+        ! in y direction in CS(leg)
+        cg_rot_dist(2) = leg_l / 2.d0 * cos(alpha)*sin(alpha);
+
+        ! compute the Moment of inertia for iMask
+        !J = Mass * leg_l**2 * ( 1 - 0.75d0 * cos(alpha)**2 ) / 3.d0
+        J = Mass * ( leg_l**2.d0 + ( leg_l* cos(alpha) )**2.d0 ) / 36.d0
+
+        write(*,*) 'Preprocessing the solid: triangle...DONE'
+      !-free_triangle END--------------------------------------------------------
+
       !-cylinder------------------------------------------------------------
       case('cylinder') ! <- need to be set here for the test unit
 
@@ -106,6 +139,7 @@ module calc_solid_module
     real(kind=pr),intent(in) :: dt
     integer,intent(in) :: step
 
+
     select case (step)
       ! the euler step -------------------------------------------------------------
       case (1)
@@ -115,12 +149,13 @@ module calc_solid_module
 
         solid_tmp%position(1:2) = solid%position(1:2) + dt*solid%velocity(1:2)
         solid_tmp%velocity(1:2) = solid%velocity(1:2) + dt*solid%acceleration(1:2)
-
+        solid_tmp%acceleration(1:2) = solid%acceleration(1:2)
         ! angular momentum balance
         solid%ang_acceleration = solid%momentum / J
 
         solid_tmp%ang_position = solid%ang_position + dt*solid%ang_velocity
         solid_tmp%ang_velocity = solid%ang_velocity + dt*solid%ang_acceleration
+        solid_tmp%ang_acceleration = solid%ang_acceleration
         ! Output: solid_tmp
       ! the euler step END ---------------------------------------------------------
 
@@ -129,18 +164,20 @@ module calc_solid_module
         ! momentum balance
         ! acceleration is constant in time. force the solid_tmp%acceleration
         ! for the next RK step. Forcing not necessary.
-        solid_tmp%acceleration(1) = solid%aeroForce(1) / Mass
-        solid_tmp%acceleration(2) = solid%aeroForce(2) / Mass + g
-
+        solid%acceleration(1) = solid%aeroForce(1) / Mass
+        solid%acceleration(2) = solid%aeroForce(2) / Mass + g
+        !write(*,*) solid_tmp%acceleration(2)
         solid%position(1:2) = solid%position(1:2) + 0.5d0*dt*(solid%velocity(1:2)     + solid_tmp%velocity(1:2)     )
         solid%velocity(1:2) = solid%velocity(1:2) + 0.5d0*dt*(solid%acceleration(1:2) + solid_tmp%acceleration(1:2) )
 
         ! angular momentum balance
-        solid_tmp%ang_acceleration = solid%momentum / J
+        solid%ang_acceleration = solid%momentum / J
 
         solid%ang_position = solid%ang_position + 0.5d0*dt*(solid%ang_velocity     + solid_tmp%ang_velocity     )
         solid%ang_velocity = solid%ang_velocity + 0.5d0*dt*(solid%ang_acceleration + solid_tmp%ang_acceleration )
 
+        !write (*,*) 'This is ang velocity'
+        !write (*,*) solid%ang_velocity
         ! Output: solid at the time t+1 with RK2
       ! the second RK2 step END-----------------------------------------------------
 
@@ -178,7 +215,7 @@ module calc_solid_module
         x = dble(ix)*dx-x0
         y = dble(iy)*dy-y0
 
-        call periodize_solid_coordinate (x,y)
+        !call periodize_solid_coordinate (x,y)
 
         u_diff_x = u(ix,iy,1)-us(ix,iy,1)
         u_diff_y = u(ix,iy,2)-us(ix,iy,2)

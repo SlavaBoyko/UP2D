@@ -26,13 +26,25 @@ module statistic_module
     real(kind=pr), intent(in) :: time
     type(solid_data_struct), intent(in) :: solid
 
-    open (14, file = 'Forces.txt', status = 'unknown', access = 'append')
-      write (14,'(3(es15.8,1x))') time, solid%aeroForce(1), solid%aeroForce(2)
+    open (14, file = 'hut_data.txt', status = 'unknown', access = 'append')
+      write (14,'(6(es15.8,1x))') time, solid%aeroForce(1), &
+                                        solid%aeroForce(2), &
+                                        solid%momentum    , &
+                                        solid%position(1) , &
+                                        solid%position(2)
     close (14)
 
-    open (14, file = 'momentum.txt', status = 'unknown', access = 'append')
-      write (14,'(2(es15.8,1x))') time, solid%momentum
-    close (14)
+    ! open (14, file = 'momentum.txt', status = 'unknown', access = 'append')
+    !   write (14,'(2(es15.8,1x))') time, solid%momentum
+    ! close (14)
+    !
+    ! open (14, file = 'y_position.txt', status = 'unknown', access = 'append')
+    !   write (14,'(2(es15.8,1x))') time, solid%position(2)
+    ! close (14)
+    !
+    ! open (14, file = 'x_position.txt', status = 'unknown', access = 'append')
+    !   write (14,'(2(es15.8,1x))') time, solid%position(1)
+    ! close (14)
 
   end subroutine write_out_solid_forces
 

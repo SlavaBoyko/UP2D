@@ -21,6 +21,8 @@ subroutine create_mask (time, mask, us, u, solid)
       call free_ellipse(time, mask, us, u, solid)
     case('free_hut')
       call free_hut(time, mask, us, u, solid)
+    case('free_triangle')
+      call free_triangle(time, mask, us, u, solid)
     case('moving_cylinder')
       call moving_cylinder(time, mask, us)
     case('none')
@@ -229,8 +231,85 @@ subroutine free_hut(time, mask, us, u, solid) ! <- do we need to pass the mask i
 
         call build_smooth_hut (CS_leg_1, CS_leg_2, mask, ix, iy) !Output: mask
 
-        us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity * (CS_hut(2,1)+cg_shift)  ) * mask(ix,iy)
-        us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *  CS_hut(1,1)            ) * mask(ix,iy)
+        us(ix,iy,1) = solid%velocity(1) - solid%ang_velocity * ( CS_hut(2,1) + cg_shift )
+        us(ix,iy,2) = solid%velocity(2) + solid%ang_velocity *  CS_hut(1,1)
+
+        !u_diff_x = ( u(ix,iy,1)- us(ix,iy,1) ) * mask(ix,iy)
+        !u_diff_y = ( u(ix,iy,2)- us(ix,iy,2) ) * mask(ix,iy)
+
+        !Fx = Fx + u_diff_x
+        !Fy = Fy + u_diff_y
+
+
+        !cross_p = cross_p + (  CS_hut(1,1) * u_diff_y   -  (CS_hut(2,1)+cg_shift) * u_diff_x  )
+    enddo
+  enddo
+  !$omp end parallel do
+
+        !write(*,*) cross_p
+  !solid%aeroForce(1) = Fx * dx * dy /eps
+  !solid%aeroForce(2) = Fy * dx * dy /eps
+  !write(*,*) solid%aeroForce(2)
+  !solid%momentum = cross_p * dx * dy /eps
+
+end subroutine free_hut
+
+!===============================================================================
+
+subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the mask into the routine ?
+  use vars
+  use calc_solid_module
+  use bound_container_module
+  implicit none
+  type(solid_data_struct), intent(inout) :: solid
+  real(kind=pr),intent(in) :: time
+  real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
+  real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us, u
+  integer :: ix,iy, lb, rb, bb, tb
+  real(kind=pr)::R,R0,x,y
+  real(kind=pr)::x_tmp,y_tmp,theta ! used for rotation . theta = position angle in this routine
+  real(kind=pr) :: Fx, Fy, cross_p, u_diff_x, u_diff_y ! used for the Forces
+  real(kind=pr),dimension(1:2,1) :: CS_leg_1,    & ! coordinate system of the leg_1. If the hut points up, leg_1 is the left one.
+                                    CS_leg_2,    & ! leg_2
+                                    CS_hut,      & ! the global coordinate system
+                                    CS_r
+  us = 0.d0   ! <- imprtant ?
+  mask = 0.d0
+  cross_p = 0.d0
+  Fx = 0.d0
+  Fy = 0.d0
+
+  call periodize_solid_cog (solid)
+
+  x0 = solid%position(1)
+  y0 = solid%position(2)
+
+  call get_bounding_container_index (rb,lb,bb,tb,solid)
+  ! rb = right bounding; lb = left bounding ; bb = bottom bounding; tb = top bounding
+
+  !$omp parallel do private(ix,iy, R, u_diff_x, u_diff_y, CS_leg_1,CS_leg_2,CS_hut,CS_r) &
+  !$omp& reduction(+:Fx, Fy, cross_p)
+   do ix=lb, rb
+     do iy=bb ,tb
+       ! |-------CS_hut--------------|----shift to the legs CS--|
+        CS_hut(1,1) = dble(ix)*dx - x0             ! x coordinate
+        CS_hut(2,1) = dble(iy)*dy - y0             ! y coordinate
+
+        call periodize_solid_coordinate (CS_hut(1,1),CS_hut(2,1))
+
+        ! rotate around the cog
+        CS_r(1,1) =  cos(solid%ang_position)*CS_hut(1,1) + sin(solid%ang_position)*CS_hut(2,1);
+        CS_r(2,1) = -sin(solid%ang_position)*CS_hut(1,1) + cos(solid%ang_position)*CS_hut(2,1);
+
+        if (   1.d0/3.d0 * leg_l * cos(alpha) + CS_r(2,1)                       >= 0.d0 .and. &
+             + CS_r(2,1)  - 1.d0 / tan(alpha)*CS_r(1,1) - 2.d0/3.d0 * leg_l * cos(alpha) <= 0.d0 .and. &
+             + CS_r(2,1)  + 1.d0 / tan(alpha)*CS_r(1,1) - 2.d0/3.d0 * leg_l * cos(alpha) <= 0.d0      &
+             ) then
+             mask(ix,iy) = 1.d0
+        endif
+
+        us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity *  CS_r(2,1) ) * mask(ix,iy)
+        us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *  CS_r(1,1) )* mask(ix,iy)
 
         u_diff_x = ( u(ix,iy,1)- us(ix,iy,1) ) * mask(ix,iy)
         u_diff_y = ( u(ix,iy,2)- us(ix,iy,2) ) * mask(ix,iy)
@@ -238,7 +317,7 @@ subroutine free_hut(time, mask, us, u, solid) ! <- do we need to pass the mask i
         Fx = Fx + u_diff_x
         Fy = Fy + u_diff_y
 
-        cross_p = cross_p + (  CS_hut(1,1) * u_diff_y   -  (CS_hut(2,1)+cg_shift) * u_diff_x  )
+        cross_p = cross_p + (  CS_r(1,1) * u_diff_y   -  (CS_r(2,1) ) * u_diff_x  )
     enddo
   enddo
   !$omp end parallel do
@@ -247,7 +326,7 @@ subroutine free_hut(time, mask, us, u, solid) ! <- do we need to pass the mask i
 
   solid%momentum = cross_p * dx * dy /eps
 
-end subroutine free_hut
+end subroutine free_triangle
 
 subroutine moving_cylinder(time,mask, us)
   use vars
@@ -302,7 +381,7 @@ end subroutine SmoothStep
 subroutine build_smooth_hut (CS_1, CS_2, mask, ix, iy)
   use vars
   implicit none
-  real(kind=pr)::R
+  real(kind=pr)::R, R_ll, R_rl
   integer,intent(in) :: ix,iy
   real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
   real(kind=pr),dimension(1:2,1) :: CS_1,    & ! coordinate system of the leg_1. If the hut points up, leg_1 is the left one.
@@ -315,6 +394,26 @@ subroutine build_smooth_hut (CS_1, CS_2, mask, ix, iy)
 
   if (R >= leg_h / 2.d0 .and. R <= leg_h / 2.d0 + smooth_length) then
     mask(ix,iy) = 0.5*(1 + cos((sqrt(CS_1(1,1)**2 +CS_1(2,1)**2) - leg_h/2.d0)*pi/smooth_length) );
+  endif
+
+  ! round the left leg
+  R_ll = sqrt( ( CS_1(1,1)-leg_l )**2 + CS_1(2,1)**2 )
+  if (R_ll <= leg_h / 2.d0) then
+    mask(ix,iy) = 1.d0
+  endif
+
+  if (R_ll >= leg_h / 2.d0 .and. R_ll <= leg_h / 2.d0 + smooth_length) then
+    mask(ix,iy) = 0.5*(1 + cos((sqrt( ( CS_1(1,1) - leg_l)**2 +CS_1(2,1)**2) - leg_h/2.d0)*pi/smooth_length) );
+  endif
+
+  ! round the right leg
+  R_rl = sqrt( ( CS_2(1,1)-leg_l )**2 + CS_2(2,1)**2 )
+  if (R_rl <= leg_h / 2.d0) then
+    mask(ix,iy) = 1.d0
+  endif
+
+  if (R_rl >= leg_h / 2.d0 .and. R_rl <= leg_h / 2.d0 + smooth_length) then
+    mask(ix,iy) = 0.5*(1 + cos((sqrt( ( CS_2(1,1) - leg_l)**2 + CS_2(2,1)**2) - leg_h/2.d0)*pi/smooth_length) );
   endif
 
   !smooth inside left

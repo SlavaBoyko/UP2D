@@ -6,9 +6,25 @@ gnuplot -persist <<-EOFMarker
 	#fenstergröse
 	set terminal wxt size 1200,600 
 	set title "Forces"
+
 	set term wxt 0
-	plot "Forces.txt" u 1:3 title 'F_x' with line, \
-	     "Forces.txt" u 1:2 title 'F_y' lt 3 with line
+	set terminal pdf
+	set output "Forces.pdf"
+	plot "hut_data.txt" u 1:3 title 'F_x' with line, \
+	     "hut_data.txt" u 1:2 title 'F_y' lt 3 with line
+	
+	set title "Momentum"	
 	set term wxt 1
- 	plot "momentum.txt" u 1:2 title 'momentum' with line
+	set terminal pdf
+	set output "moment.pdf"
+ 	plot "hut_data.txt" u 1:4 title 'momentum' with line
+
+	set title "position"	
+	set term wxt 2
+	set terminal pdf
+	set output "Position.pdf"
+ 	plot "hut_data.txt" u 1:6 title 'y' with line, \
+             "hut_data.txt" u 1:5 title 'x' lt 3 with line
+
+
 EOFMarker
