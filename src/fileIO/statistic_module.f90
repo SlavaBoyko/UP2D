@@ -25,15 +25,26 @@ module statistic_module
     implicit none
     real(kind=pr), intent(in) :: time
     type(solid_data_struct), intent(in) :: solid
+    logical :: there
 
-    open (14, file = 'hat_data.txt', status = 'unknown', access = 'append')
-      write (14,'(6(es15.8,1x))') time, solid%aeroForce(1), &
-                                        solid%aeroForce(2), &
-                                        solid%momentum    , &
-                                        solid%position(1) , &
-                                        solid%position(2)
-    close (14)
+    !open (14, file = 'hat_data.txt', status = 'new' )
+    !  write(14,*) 'hi'
+    !close (14)
+    inquire( file = 'hat_data.txt' , exist= there )
 
+    if (there) then
+      open (14, file = 'hat_data.txt', status = 'unknown', access = 'append')
+        write (14,'(6(es15.8,1x))') time, solid%aeroForce(1), &
+                                          solid%aeroForce(2), &
+                                          solid%momentum    , &
+                                          solid%position(1) , &
+                                          solid%position(2)
+      close (14)
+    else
+      open (14, file = 'hat_data.txt', status = 'new', access = 'append')
+        write(14,'(6(1x,a))') '# Time', 'Fx', 'Fy', 'Momentum', 'Postition_x', 'Position_y'
+      close(14)
+    endif
     ! open (14, file = 'momentum.txt', status = 'unknown', access = 'append')
     !   write (14,'(2(es15.8,1x))') time, solid%momentum
     ! close (14)
