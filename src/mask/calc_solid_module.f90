@@ -26,21 +26,21 @@ module calc_solid_module
         J = Mass * (a**2 + b**2) / 5
       !-free_ellipse END--------------------------------------------------------
 
-      !-free_hut------------------------------------------------------------
-      case('free_hut')
-        write(*,*) 'Preprocessing the solid: hut...'
-        ! Preprocessing is done here. WE ARE IN THE HUT BODY SYSTEM NOW.
-        ! The hut have two "legs". Every leg have there own coordinate system (CS).
+      !-free_hat------------------------------------------------------------
+      case('free_hat')
+        write(*,*) 'Preprocessing the solid: hat...'
+        ! Preprocessing is done here. WE ARE IN THE hat BODY SYSTEM NOW.
+        ! The hat have two "legs". Every leg have there own coordinate system (CS).
         ! CS(leg_1) and CS(leg_2) collapse in point where the legs meet (definition).
-        ! If the hut points up, leg_1 is the left one.
-        ! let us shift CS's up so, that the CS of the whole hut is in the
+        ! If the hat points up, leg_1 is the left one.
+        ! let us shift CS's up so, that the CS of the whole hat is in the
         ! center of gravity (cg)
         cg_shift = leg_l/2.d0 * cos(alpha); ! <- used in create_mask
 
         !The size (length) of the smoothing is controlled with n_cell_smooth
         smooth_length = n_cell_smooth * dx;
 
-        ! Alpha is the 1/2 opening angle. To build the hut we need to transform this
+        ! Alpha is the 1/2 opening angle. To build the hat we need to transform this
         ! angle in CS(leg_1) and CS(leg_2).
         alpha_leg_1 = 3.d0*pi/2.d0 - alpha;
         alpha_leg_2 = 3.d0*pi/2.d0 + alpha;
@@ -54,7 +54,7 @@ module calc_solid_module
 
         ! The rotation around the cg is made with the "solid%position_angle"
         ! To make the rotation we need first translate the center of the CS(leg_1)
-        ! and the CS(leg_2) to the cg of the whole hut. Make the rotation with
+        ! and the CS(leg_2) to the cg of the whole hat. Make the rotation with
         ! "solid%position_angle" and then translate the CS(leg_1) and CS(leg_2)
         ! back. For that operation we need a constant translation distance.
         ! The translation distance for the CS(leg_1) and the CS(_2) is the same,
@@ -69,8 +69,8 @@ module calc_solid_module
         !J = Mass * leg_l**2 * ( 1 - 0.75d0 * cos(alpha)**2 ) / 3.d0
         J = Mass * ( 1 - 0.75d0 * cos(alpha)**2 ) / 3.d0
 
-        write(*,*) 'Preprocessing the solid: hut...DONE'
-      !-free_hut END--------------------------------------------------------
+        write(*,*) 'Preprocessing the solid: hat...DONE'
+      !-free_hat END--------------------------------------------------------
 
       !-free_triangle------------------------------------------------------------
     case('free_triangle')
@@ -81,7 +81,7 @@ module calc_solid_module
         !The size (length) of the smoothing is controlled with n_cell_smooth
         smooth_length = n_cell_smooth * dx;
 
-        ! Alpha is the 1/2 opening angle. To build the hut we need to transform this
+        ! Alpha is the 1/2 opening angle. To build the hat we need to transform this
         ! angle in CS(leg_1) and CS(leg_2).
         alpha_leg_1 = 3.d0*pi/2.d0 - alpha;
         alpha_leg_2 = 3.d0*pi/2.d0 + alpha;
@@ -268,9 +268,9 @@ module calc_solid_module
   end subroutine periodize_solid_coordinate
 
 !===============================================================================
-! Rotate the legs of the hut around the center of gravity  (by rotating the CS)
+! Rotate the legs of the hat around the center of gravity  (by rotating the CS)
 !===============================================================================
-  subroutine rotate_hut_leg_cog (CS,theta,leg_number)
+  subroutine rotate_hat_leg_cog (CS,theta,leg_number)
     use vars
     implicit none
     real(kind=pr),intent(in) :: theta
@@ -312,12 +312,12 @@ module calc_solid_module
       ! unknown leg_number : error----------------------------------------------
       case default
         write (*,*) leg_number
-        write (*,*) '??? ERROR: no such leg_number in "rotate_hut_leg_cog" '
+        write (*,*) '??? ERROR: no such leg_number in "rotate_hat_leg_cog" '
         stop
       ! unknown leg_number : error END -----------------------------------------
 
     end select
 
-  end subroutine rotate_hut_leg_cog
+  end subroutine rotate_hat_leg_cog
 
 end module calc_solid_module

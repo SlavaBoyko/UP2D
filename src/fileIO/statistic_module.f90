@@ -26,7 +26,7 @@ module statistic_module
     real(kind=pr), intent(in) :: time
     type(solid_data_struct), intent(in) :: solid
 
-    open (14, file = 'hut_data.txt', status = 'unknown', access = 'append')
+    open (14, file = 'hat_data.txt', status = 'unknown', access = 'append')
       write (14,'(6(es15.8,1x))') time, solid%aeroForce(1), &
                                         solid%aeroForce(2), &
                                         solid%momentum    , &

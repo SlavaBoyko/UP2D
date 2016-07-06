@@ -13,7 +13,7 @@ module vars
   real(kind=pr), save :: ux_mean, uy_mean
   integer, save :: itsave
   character(len=strlen),save :: intelligent_dt = "yes"
-  character(len=strlen),save :: inicond, iMask, iMeanFlow, iMethod, BC ! BC is the flag for use of a bounding container. Used by free_hut
+  character(len=strlen),save :: inicond, iMask, iMeanFlow, iMethod, BC ! BC is the flag for use of a bounding container. Used by free_hat
 
   integer, save :: iSaveVelocity, iSaveVorticity, iSaveMask, iSavePressure, iSaveSponge, Sp_thickness
 
@@ -56,17 +56,17 @@ module vars
   integer, save:: ix_start, ix_end, iy_start, iy_end
   real(kind=pr),save :: buffer
 
-  !Params for the free_hut
+  !Params for the free_hat
   real(kind=pr),save :: cg_shift,                 &   ! distance to the center of gravity
-                        alpha_leg_1, alpha_leg_2, &   ! If the hut points up, leg_1 is the left one (in radian).
+                        alpha_leg_1, alpha_leg_2, &   ! If the hat points up, leg_1 is the left one (in radian).
                         alpha,                    &   ! alpha = 1/2 opening angle (in radian)
-                        leg_l,leg_h,              &   ! leg_l = length of the leg; leg_h = thickness of the hut leg
+                        leg_l,leg_h,              &   ! leg_l = length of the leg; leg_h = thickness of the hat leg
                         smooth_length                 ! smoothing_length = n_cell_smooth * dx
 
   integer, save      :: n_cell_smooth                 ! controlls the thickness of the smoothing layer
 
-  real(kind=pr), dimension(1:2,1:2,1:2) :: rotate_leg ! rotation matrix's to build the legs CS of the hut. "1" is for the leg_1
-  real(kind=pr), dimension(1:2)         :: cg_rot_dist! distance (modulus) in CS(legs) to rotate around the center of gravity(cg) of the whole hut
+  real(kind=pr), dimension(1:2,1:2,1:2) :: rotate_leg ! rotation matrix's to build the legs CS of the hat. "1" is for the leg_1
+  real(kind=pr), dimension(1:2)         :: cg_rot_dist! distance (modulus) in CS(legs) to rotate around the center of gravity(cg) of the whole hat
 !!!!!!!!!!!!!
 contains
 !!!!!!!!!!!!!

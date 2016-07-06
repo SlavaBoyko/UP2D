@@ -19,8 +19,8 @@ subroutine create_mask (time, mask, us, u, solid)
       call ellipse(mask, us)
     case('free_ellipse')
       call free_ellipse(time, mask, us, u, solid)
-    case('free_hut')
-      call free_hut(time, mask, us, u, solid)
+    case('free_hat')
+      call free_hat(time, mask, us, u, solid)
     case('free_triangle')
       call free_triangle(time, mask, us, u, solid)
     case('moving_cylinder')
@@ -182,7 +182,7 @@ end subroutine free_ellipse
 
 !===============================================================================
 
-subroutine free_hut(time, mask, us, u, solid) ! <- do we need to pass the mask into the routine ?
+subroutine free_hat(time, mask, us, u, solid) ! <- do we need to pass the mask into the routine ?
   use vars
   use calc_solid_module
   use bound_container_module
@@ -195,9 +195,9 @@ subroutine free_hut(time, mask, us, u, solid) ! <- do we need to pass the mask i
   real(kind=pr)::R,R0,x,y
   real(kind=pr)::x_tmp,y_tmp,theta ! used for rotation . theta = position angle in this routine
   real(kind=pr) :: Fx, Fy, cross_p, u_diff_x, u_diff_y ! used for the Forces
-  real(kind=pr),dimension(1:2,1) :: CS_leg_1,    & ! coordinate system of the leg_1. If the hut points up, leg_1 is the left one.
+  real(kind=pr),dimension(1:2,1) :: CS_leg_1,    & ! coordinate system of the leg_1. If the hat points up, leg_1 is the left one.
                                     CS_leg_2,    & ! leg_2
-                                    CS_hut         ! the global coordinate system
+                                    CS_hat         ! the global coordinate system
 
   us = 0.d0   ! <- imprtant ?
   mask = 0.d0
@@ -213,27 +213,27 @@ subroutine free_hut(time, mask, us, u, solid) ! <- do we need to pass the mask i
   call get_bounding_container_index (rb,lb,bb,tb,solid)
   ! rb = right bounding; lb = left bounding ; bb = bottom bounding; tb = top bounding
 
-  !$omp parallel do private(ix,iy, R, u_diff_x, u_diff_y, CS_leg_1,CS_leg_2,CS_hut) &
+  !$omp parallel do private(ix,iy, R, u_diff_x, u_diff_y, CS_leg_1,CS_leg_2,CS_hat) &
   !$omp& reduction(+:Fx, Fy, cross_p)
    do ix=lb, rb
      do iy=bb ,tb
-       ! |-------CS_hut--------------|----shift to the legs CS--|
-        CS_hut(1,1) = dble(ix)*dx - x0             ! x coordinate
-        CS_hut(2,1) = dble(iy)*dy - y0 - cg_shift  ! y coordinate
+       ! |-------CS_hat--------------|----shift to the legs CS--|
+        CS_hat(1,1) = dble(ix)*dx - x0             ! x coordinate
+        CS_hat(2,1) = dble(iy)*dy - y0 - cg_shift  ! y coordinate
 
-        call periodize_solid_coordinate (CS_hut(1,1),CS_hut(2,1))
+        call periodize_solid_coordinate (CS_hat(1,1),CS_hat(2,1))
 
-        CS_leg_1 = matmul( rotate_leg(:,:,1), CS_hut) ! <- rotate the CS of the leg_1
-        CS_leg_2 = matmul( rotate_leg(:,:,2), CS_hut) ! <- rotate the CS of the leg_2
+        CS_leg_1 = matmul( rotate_leg(:,:,1), CS_hat) ! <- rotate the CS of the leg_1
+        CS_leg_2 = matmul( rotate_leg(:,:,2), CS_hat) ! <- rotate the CS of the leg_2
 
-        call rotate_hut_leg_cog ( CS_leg_1, solid%ang_position, 1 ) ! <- index for the leg
-        call rotate_hut_leg_cog ( CS_leg_2, solid%ang_position, 2 )
+        call rotate_hat_leg_cog ( CS_leg_1, solid%ang_position, 1 ) ! <- index for the leg
+        call rotate_hat_leg_cog ( CS_leg_2, solid%ang_position, 2 )
 
-        call build_smooth_hut (CS_leg_1, CS_leg_2, mask, ix, iy) !Output: mask
+        call build_smooth_hat (CS_leg_1, CS_leg_2, mask, ix, iy) !Output: mask
 
 
-        us(ix,iy,1) = solid%velocity(1) - solid%ang_velocity * ( CS_hut(2,1) + cg_shift )
-        us(ix,iy,2) = solid%velocity(2) + solid%ang_velocity *  CS_hut(1,1)
+        us(ix,iy,1) = solid%velocity(1) - solid%ang_velocity * ( CS_hat(2,1) + cg_shift )
+        us(ix,iy,2) = solid%velocity(2) + solid%ang_velocity *  CS_hat(1,1)
 
         !u_diff_x = ( u(ix,iy,1)- us(ix,iy,1) ) * mask(ix,iy)
         !u_diff_y = ( u(ix,iy,2)- us(ix,iy,2) ) * mask(ix,iy)
@@ -242,7 +242,7 @@ subroutine free_hut(time, mask, us, u, solid) ! <- do we need to pass the mask i
         !Fy = Fy + u_diff_y
 
 
-        !cross_p = cross_p + (  CS_hut(1,1) * u_diff_y   -  (CS_hut(2,1)+cg_shift) * u_diff_x  )
+        !cross_p = cross_p + (  CS_hat(1,1) * u_diff_y   -  (CS_hat(2,1)+cg_shift) * u_diff_x  )
     enddo
   enddo
   !$omp end parallel do
@@ -253,7 +253,7 @@ subroutine free_hut(time, mask, us, u, solid) ! <- do we need to pass the mask i
   !write(*,*) solid%aeroForce(2)
   !solid%momentum = cross_p * dx * dy /eps
 
-end subroutine free_hut
+end subroutine free_hat
 
 !===============================================================================
 
@@ -270,9 +270,9 @@ subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the m
   real(kind=pr)::R,R0,x,y
   real(kind=pr)::x_tmp,y_tmp,theta ! used for rotation . theta = position angle in this routine
   real(kind=pr) :: Fx, Fy, cross_p, u_diff_x, u_diff_y ! used for the Forces
-  real(kind=pr),dimension(1:2,1) :: CS_leg_1,    & ! coordinate system of the leg_1. If the hut points up, leg_1 is the left one.
+  real(kind=pr),dimension(1:2,1) :: CS_leg_1,    & ! coordinate system of the leg_1. If the hat points up, leg_1 is the left one.
                                     CS_leg_2,    & ! leg_2
-                                    CS_hut,      & ! the global coordinate system
+                                    CS_hat,      & ! the global coordinate system
                                     CS_r
   us = 0.d0   ! <- imprtant ?
   mask = 0.d0
@@ -288,19 +288,19 @@ subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the m
   call get_bounding_container_index (rb,lb,bb,tb,solid)
   ! rb = right bounding; lb = left bounding ; bb = bottom bounding; tb = top bounding
 
-  !$omp parallel do private(ix,iy, R, u_diff_x, u_diff_y, CS_leg_1,CS_leg_2,CS_hut,CS_r) &
+  !$omp parallel do private(ix,iy, R, u_diff_x, u_diff_y, CS_leg_1,CS_leg_2,CS_hat,CS_r) &
   !$omp& reduction(+:Fx, Fy, cross_p)
    do ix=lb, rb
      do iy=bb ,tb
-       ! |-------CS_hut--------------|----shift to the legs CS--|
-        CS_hut(1,1) = dble(ix)*dx - x0             ! x coordinate
-        CS_hut(2,1) = dble(iy)*dy - y0             ! y coordinate
+       ! |-------CS_hat--------------|----shift to the legs CS--|
+        CS_hat(1,1) = dble(ix)*dx - x0             ! x coordinate
+        CS_hat(2,1) = dble(iy)*dy - y0             ! y coordinate
 
-        call periodize_solid_coordinate (CS_hut(1,1),CS_hut(2,1))
+        call periodize_solid_coordinate (CS_hat(1,1),CS_hat(2,1))
 
         ! rotate around the cog
-        CS_r(1,1) =  cos(solid%ang_position)*CS_hut(1,1) + sin(solid%ang_position)*CS_hut(2,1);
-        CS_r(2,1) = -sin(solid%ang_position)*CS_hut(1,1) + cos(solid%ang_position)*CS_hut(2,1);
+        CS_r(1,1) =  cos(solid%ang_position)*CS_hat(1,1) + sin(solid%ang_position)*CS_hat(2,1);
+        CS_r(2,1) = -sin(solid%ang_position)*CS_hat(1,1) + cos(solid%ang_position)*CS_hat(2,1);
 
         if (   1.d0/3.d0 * leg_l * cos(alpha) + CS_r(2,1)                       >= 0.d0 .and. &
              + CS_r(2,1)  - 1.d0 / tan(alpha)*CS_r(1,1) - 2.d0/3.d0 * leg_l * cos(alpha) <= 0.d0 .and. &
@@ -312,8 +312,8 @@ subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the m
         us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity *  CS_r(2,1) ) * mask(ix,iy)
         us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *  CS_r(1,1) )* mask(ix,iy)
 
-        us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity * (CS_hut(2,1)+cg_shift)  ) * mask(ix,iy)
-        us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *  CS_hut(1,1)            ) * mask(ix,iy)
+        us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity * (CS_hat(2,1)+cg_shift)  ) * mask(ix,iy)
+        us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *  CS_hat(1,1)            ) * mask(ix,iy)
 
         u_diff_x = ( u(ix,iy,1)- us(ix,iy,1) ) * mask(ix,iy)
         u_diff_y = ( u(ix,iy,2)- us(ix,iy,2) ) * mask(ix,iy)
@@ -322,7 +322,7 @@ subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the m
         Fy = Fy + u_diff_y
 
         cross_p = cross_p + (  CS_r(1,1) * u_diff_y   -  (CS_r(2,1) ) * u_diff_x  )
-        !cross_p = cross_p + (  CS_hut(1,1) * u_diff_y   -  (CS_hut(2,1)+cg_shift) * u_diff_x  )
+        !cross_p = cross_p + (  CS_hat(1,1) * u_diff_y   -  (CS_hat(2,1)+cg_shift) * u_diff_x  )
 
     enddo
   enddo
@@ -385,13 +385,13 @@ end subroutine SmoothStep
 
 !===============================================================================
 
-subroutine build_smooth_hut (CS_1, CS_2, mask, ix, iy)
+subroutine build_smooth_hat (CS_1, CS_2, mask, ix, iy)
   use vars
   implicit none
   real(kind=pr)::R, R_ll, R_rl
   integer,intent(in) :: ix,iy
   real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
-  real(kind=pr),dimension(1:2,1) :: CS_1,    & ! coordinate system of the leg_1. If the hut points up, leg_1 is the left one.
+  real(kind=pr),dimension(1:2,1) :: CS_1,    & ! coordinate system of the leg_1. If the hat points up, leg_1 is the left one.
                                     CS_2       ! leg_2
 
   R = sqrt( CS_1(1,1)**2 + CS_1(2,1)**2 )
@@ -475,4 +475,4 @@ subroutine build_smooth_hut (CS_1, CS_2, mask, ix, iy)
         mask(ix,iy) = 0.5d0 * cos((CS_2(2,1) - leg_h/2.d0)*pi / smooth_length) + 0.5;
   endif
 
-end subroutine build_smooth_hut
+end subroutine build_smooth_hat

@@ -42,7 +42,7 @@ module bound_container_module
   end subroutine get_bounding_container_index
 
 !===============================================================================
-! find the 3 bounding points of the hut
+! find the 3 bounding points of the hat
 !===============================================================================
   subroutine get_3_bounding_points (bc_nodes,solid)
     use vars
@@ -51,7 +51,7 @@ module bound_container_module
     real(kind=pr), dimension(1:3,1:2), intent(out)   :: bc_nodes
     real(kind=pr), dimension(1:2,1:2)                :: points, points_r
     ! Point one is the top one. we are in the domain coordinae system
-    ! we add the center of gravity of the hut later
+    ! we add the center of gravity of the hat later
     ! alpha = 1/2 opening angle
 
     !                      |------------|  <- buffer,to get out of the solid
@@ -94,7 +94,7 @@ module bound_container_module
   end subroutine get_3_bounding_points
 
 !===============================================================================
-! find the array index of the 3 bounding points of the hut
+! find the array index of the 3 bounding points of the hat
 !===============================================================================
   subroutine get_array_index (rb,lb,bb,tb,bc_nodes,solid)
     use vars
@@ -104,7 +104,7 @@ module bound_container_module
     real(kind=pr)                                   :: rb_r,lb_r,bb_r,tb_r ! <- index r for "real number"
     integer, intent(out)                            :: rb,lb,bb,tb
 
-    ! we have the bounding box. Now we set it arround the hut
+    ! we have the bounding box. Now we set it arround the hat
     rb_r = solid%position(1) + abs(maxval(bc_nodes(:,1)))  + buffer + smooth_length;
     lb_r = solid%position(1) - abs(minval(bc_nodes(:,1)))  - buffer - smooth_length;
     tb_r = solid%position(2) + abs(maxval(bc_nodes(:,2)))  + buffer + smooth_length;
