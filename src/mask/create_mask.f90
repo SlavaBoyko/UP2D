@@ -182,7 +182,7 @@ end subroutine free_ellipse
 
 !===============================================================================
 
-subroutine free_hat(time, mask, us, u, solid) ! <- do we need to pass the mask into the routine ?
+subroutine free_hat(time, mask, us, u, solid)
   use vars
   use calc_solid_module
   use bound_container_module
@@ -199,8 +199,6 @@ subroutine free_hat(time, mask, us, u, solid) ! <- do we need to pass the mask i
                                     CS_leg_2,    & ! leg_2
                                     CS_hat         ! the global coordinate system
 
-  us = 0.d0   ! <- imprtant ?
-  mask = 0.d0
   cross_p = 0.d0
   Fx = 0.d0
   Fy = 0.d0
@@ -213,7 +211,7 @@ subroutine free_hat(time, mask, us, u, solid) ! <- do we need to pass the mask i
   call get_bounding_container_index (rb,lb,bb,tb,solid)
   ! rb = right bounding; lb = left bounding ; bb = bottom bounding; tb = top bounding
 
-  !$omp parallel do private(ix,iy, R, u_diff_x, u_diff_y, CS_leg_1,CS_leg_2,CS_hat) &
+  !$omp parallel do private(ix,iy, u_diff_x, u_diff_y, CS_leg_1,CS_leg_2,CS_hat) &
   !$omp& reduction(+:Fx, Fy, cross_p)
    do ix=lb, rb
      do iy=bb ,tb
@@ -226,32 +224,33 @@ subroutine free_hat(time, mask, us, u, solid) ! <- do we need to pass the mask i
         CS_leg_1 = matmul( rotate_leg(:,:,1), CS_hat) ! <- rotate the CS of the leg_1
         CS_leg_2 = matmul( rotate_leg(:,:,2), CS_hat) ! <- rotate the CS of the leg_2
 
-        call rotate_hat_leg_cog ( CS_leg_1, solid%ang_position, 1 ) ! <- index for the leg
+        call rotate_hat_leg_cog ( CS_leg_1, solid%ang_position, 1 ) ! "1" <- index for the leg
         call rotate_hat_leg_cog ( CS_leg_2, solid%ang_position, 2 )
 
         call build_smooth_hat (CS_leg_1, CS_leg_2, mask, ix, iy) !Output: mask
 
+        !  calc forces only if the mask is not zero
+        if ( mask(ix,iy) /= 0 )then
+          us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity * ( CS_hat(2,1) + cg_shift ) ) * mask(ix,iy)
+          us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *   CS_hat(1,1)              ) * mask(ix,iy)
 
-        us(ix,iy,1) = solid%velocity(1) - solid%ang_velocity * ( CS_hat(2,1) + cg_shift )
-        us(ix,iy,2) = solid%velocity(2) + solid%ang_velocity *  CS_hat(1,1)
+          u_diff_x = ( u(ix,iy,1)- us(ix,iy,1) ) * mask(ix,iy)
+          u_diff_y = ( u(ix,iy,2)- us(ix,iy,2) ) * mask(ix,iy)
 
-        !u_diff_x = ( u(ix,iy,1)- us(ix,iy,1) ) * mask(ix,iy)
-        !u_diff_y = ( u(ix,iy,2)- us(ix,iy,2) ) * mask(ix,iy)
+          Fx = Fx + u_diff_x
+          Fy = Fy + u_diff_y
 
-        !Fx = Fx + u_diff_x
-        !Fy = Fy + u_diff_y
-
-
-        !cross_p = cross_p + (  CS_hat(1,1) * u_diff_y   -  (CS_hat(2,1)+cg_shift) * u_diff_x  )
+          cross_p = cross_p + (  CS_hat(1,1) * u_diff_y - ( CS_hat(2,1)+cg_shift ) * u_diff_x  )
+        endif
     enddo
   enddo
   !$omp end parallel do
 
         !write(*,*) cross_p
-  !solid%aeroForce(1) = Fx * dx * dy /eps
-  !solid%aeroForce(2) = Fy * dx * dy /eps
+  solid%aeroForce(1) = Fx * dx * dy /eps
+  solid%aeroForce(2) = Fy * dx * dy /eps
   !write(*,*) solid%aeroForce(2)
-  !solid%momentum = cross_p * dx * dy /eps
+  solid%momentum = cross_p * dx * dy /eps
 
 end subroutine free_hat
 
@@ -311,9 +310,6 @@ subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the m
 
         us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity *  CS_r(2,1) ) * mask(ix,iy)
         us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *  CS_r(1,1) )* mask(ix,iy)
-
-        us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity * (CS_hat(2,1)+cg_shift)  ) * mask(ix,iy)
-        us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *  CS_hat(1,1)            ) * mask(ix,iy)
 
         u_diff_x = ( u(ix,iy,1)- us(ix,iy,1) ) * mask(ix,iy)
         u_diff_y = ( u(ix,iy,2)- us(ix,iy,2) ) * mask(ix,iy)
@@ -438,7 +434,9 @@ subroutine build_smooth_hat (CS_1, CS_2, mask, ix, iy)
        CS_2(2,1) >= -leg_h / 2.d0 - smooth_length .and.  & ! in y
        CS_2(2,1) <= -leg_h / 2.d0                        &
       ) then
-        mask(ix,iy) = 0.5d0 * cos((CS_2(2,1) + leg_h/2.d0)*pi / smooth_length) + 0.5;
+        mask(ix,iy) = max( mask(ix,iy), &
+                           0.5d0 * cos((CS_2(2,1) + leg_h/2.d0)*pi / smooth_length) + 0.5 &
+                        )
   endif
 
   if ( CS_1(1,1) <=  leg_l        .and.  &

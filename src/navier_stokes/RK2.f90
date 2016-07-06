@@ -38,7 +38,7 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   call cal_nlk (time, u, uk, vort, nlk, mask, us, mask_sponge)
   call add_pressure (nlk)
   !-- Calculate forces
-  call calc_forces (solid,   mask, u, us)
+  !call calc_forces (solid,   mask, u, us)
   !-- first RK2 step for solid
   call RK2_rhs_solid(solid, solid_tmp, dt, 1) !<- this one need forces. they are in solid
 
@@ -66,7 +66,7 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   call cal_nlk (time+dt, u_tmp, uk_tmp, vort, nlk2, mask, us, mask_sponge)
   call add_pressure (nlk2)
   !-- Calculate forces
-  call calc_forces (solid,   mask, u_tmp, us) !<- the u_tmp is different
+  !call calc_forces (solid,   mask, u_tmp, us) !<- the u_tmp is different
   !-- second RK2 step for solid
   call RK2_rhs_solid(solid, solid_tmp, dt, 2) !<- this one need forces. they are in solid
 
