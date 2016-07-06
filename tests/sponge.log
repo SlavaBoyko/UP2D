@@ -13,7 +13,6 @@
  read InitialCondition::inicond = dipole
  read Dealiasing::iDealias = 1        
  read Penalization::iMask = none
- read Penalization::eps = 0.100 
  read Penalization::position_x = 2.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::position_y = 2.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::velocity_x = 0.00     (THIS IS THE DEFAULT VALUE!)  
@@ -31,6 +30,7 @@
  read Penalization::n_cell_smooth = 3 (THIS IS THE DEFAULT VALUE!)        
  read Penalization::bounding_container = no (THIS IS THE DEFAULT VALUE!)
  read Penalization::buffer = 0.100     (THIS IS THE DEFAULT VALUE!) 
+ read PenalizationParameter::eps = 0.100E-01 (THIS IS THE DEFAULT VALUE!) 
  read Geometry::xl = 4.00  
  read Geometry::yl = 4.00  
  read Saving::tsave = 0.500E-01 
@@ -59,31 +59,31 @@
 inicond=dipole max field divergence   1.7365E-15
 Initialization done, looping now.
 time=  0.0000E+00 Tmax=  1.5000E-01 it= 0 nt=  9999999
-time left:  0d  0h  0m 35s dt=  1.37E-04s t=  0.68E-03
-time left:  0d  0h  0m 32s dt=  1.48E-04s t=  0.14E-02
-time left:  0d  0h  0m 30s dt=  1.60E-04s t=  0.22E-02
-time left:  0d  0h  0m 28s dt=  1.73E-04s t=  0.30E-02
-time left:  0d  0h  0m 27s dt=  1.89E-04s t=  0.39E-02
-time left:  0d  0h  0m 25s dt=  2.08E-04s t=  0.49E-02
-time left:  0d  0h  0m 24s dt=  2.31E-04s t=  0.60E-02
-time left:  0d  0h  0m 22s dt=  2.58E-04s t=  0.73E-02
-time left:  0d  0h  0m 21s dt=  2.93E-04s t=  0.87E-02
-time left:  0d  0h  0m 20s dt=  3.36E-04s t=  0.10E-01
-time left:  0d  0h  0m 18s dt=  3.91E-04s t=  0.12E-01
-time left:  0d  0h  0m 16s dt=  4.61E-04s t=  0.14E-01
-time left:  0d  0h  0m 15s dt=  5.54E-04s t=  0.17E-01
-time left:  0d  0h  0m 13s dt=  6.78E-04s t=  0.20E-01
-time left:  0d  0h  0m 11s dt=  8.35E-04s t=  0.24E-01
-time left:  0d  0h  0m  9s dt=  1.02E-03s t=  0.29E-01
-time left:  0d  0h  0m  8s dt=  1.21E-03s t=  0.34E-01
-time left:  0d  0h  0m  7s dt=  1.36E-03s t=  0.41E-01
-time left:  0d  0h  0m  5s dt=  1.46E-03s t=  0.48E-01
+time left:  0d  0h  0m 51s dt=  1.37E-04s t=  0.68E-03
+time left:  0d  0h  0m 43s dt=  1.48E-04s t=  0.14E-02
+time left:  0d  0h  0m 37s dt=  1.60E-04s t=  0.22E-02
+time left:  0d  0h  0m 34s dt=  1.73E-04s t=  0.30E-02
+time left:  0d  0h  0m 32s dt=  1.89E-04s t=  0.39E-02
+time left:  0d  0h  0m 29s dt=  2.08E-04s t=  0.49E-02
+time left:  0d  0h  0m 28s dt=  2.31E-04s t=  0.60E-02
+time left:  0d  0h  0m 26s dt=  2.58E-04s t=  0.73E-02
+time left:  0d  0h  0m 25s dt=  2.93E-04s t=  0.87E-02
+time left:  0d  0h  0m 23s dt=  3.36E-04s t=  0.10E-01
+time left:  0d  0h  0m 21s dt=  3.91E-04s t=  0.12E-01
+time left:  0d  0h  0m 19s dt=  4.61E-04s t=  0.14E-01
+time left:  0d  0h  0m 17s dt=  5.54E-04s t=  0.17E-01
+time left:  0d  0h  0m 15s dt=  6.78E-04s t=  0.20E-01
+time left:  0d  0h  0m 13s dt=  8.35E-04s t=  0.24E-01
+time left:  0d  0h  0m 11s dt=  1.02E-03s t=  0.29E-01
+time left:  0d  0h  0m  9s dt=  1.21E-03s t=  0.34E-01
+time left:  0d  0h  0m  8s dt=  1.36E-03s t=  0.41E-01
+time left:  0d  0h  0m  6s dt=  1.46E-03s t=  0.48E-01
 Saving. time=  5.0000E-02 vormax=  1.0009E+00 fname=000005                                                                          
 time left:  0d  0h  0m  5s dt=  1.51E-03s t=  0.55E-01
-time left:  0d  0h  0m  4s dt=  1.54E-03s t=  0.62E-01
-time left:  0d  0h  0m  3s dt=  1.55E-03s t=  0.70E-01
+time left:  0d  0h  0m  5s dt=  1.54E-03s t=  0.62E-01
+time left:  0d  0h  0m  4s dt=  1.55E-03s t=  0.70E-01
 time left:  0d  0h  0m  3s dt=  1.56E-03s t=  0.78E-01
-time left:  0d  0h  0m  2s dt=  1.56E-03s t=  0.85E-01
+time left:  0d  0h  0m  3s dt=  1.56E-03s t=  0.85E-01
 time left:  0d  0h  0m  2s dt=  1.56E-03s t=  0.93E-01
 Saving. time=  1.0000E-01 vormax=  3.9354E-03 fname=000010                                                                          
 time left:  0d  0h  0m  2s dt=  4.62E-04s t=  0.10    

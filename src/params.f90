@@ -29,7 +29,6 @@ subroutine get_params(paramsfile,solid)
 
   ! Penalization section
   call read_param(PARAMS,"Penalization","iMask",iMask, "none")
-  call read_param(PARAMS,"Penalization","eps",eps, 1.d-2)
   call read_param(PARAMS,"Penalization","position_x",solid%position(1), 2.d0)
   call read_param(PARAMS,"Penalization","position_y",solid%position(2), 2.d0)
   call read_param(PARAMS,"Penalization","velocity_x",solid%velocity(1), 0.d0)
@@ -47,6 +46,10 @@ subroutine get_params(paramsfile,solid)
   call read_param(PARAMS,"Penalization","n_cell_smooth",n_cell_smooth, 3)
   call read_param(PARAMS,"Penalization","bounding_container",BC, "no")
   call read_param(PARAMS,"Penalization","buffer",buffer, 0.1d0)
+
+  !Penalization parameter
+  call read_param(PARAMS,"PenalizationParameter","C_k",C_k, 0.d0)
+  call read_param(PARAMS,"PenalizationParameter","eps",eps, 1.d-2)
 
   ! Geometry section
   call read_param(PARAMS,"Geometry","xl",xl, 1.d0)
@@ -82,4 +85,9 @@ subroutine get_params(paramsfile,solid)
   ! clean ini file
   call clean_ini_file(PARAMS)
 
+  ! PenalizationParameter case
+  if (C_k > 1.d-10)then
+    eps = (C_k * dx)**2 / nu
+    write(*,*) '*** INFO: C_k is set, the new eps is:', eps
+  endif
 end subroutine get_params
