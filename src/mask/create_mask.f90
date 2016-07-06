@@ -231,6 +231,7 @@ subroutine free_hut(time, mask, us, u, solid) ! <- do we need to pass the mask i
 
         call build_smooth_hut (CS_leg_1, CS_leg_2, mask, ix, iy) !Output: mask
 
+
         us(ix,iy,1) = solid%velocity(1) - solid%ang_velocity * ( CS_hut(2,1) + cg_shift )
         us(ix,iy,2) = solid%velocity(2) + solid%ang_velocity *  CS_hut(1,1)
 
@@ -311,6 +312,9 @@ subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the m
         us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity *  CS_r(2,1) ) * mask(ix,iy)
         us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *  CS_r(1,1) )* mask(ix,iy)
 
+        us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity * (CS_hut(2,1)+cg_shift)  ) * mask(ix,iy)
+        us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *  CS_hut(1,1)            ) * mask(ix,iy)
+
         u_diff_x = ( u(ix,iy,1)- us(ix,iy,1) ) * mask(ix,iy)
         u_diff_y = ( u(ix,iy,2)- us(ix,iy,2) ) * mask(ix,iy)
 
@@ -318,6 +322,8 @@ subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the m
         Fy = Fy + u_diff_y
 
         cross_p = cross_p + (  CS_r(1,1) * u_diff_y   -  (CS_r(2,1) ) * u_diff_x  )
+        !cross_p = cross_p + (  CS_hut(1,1) * u_diff_y   -  (CS_hut(2,1)+cg_shift) * u_diff_x  )
+
     enddo
   enddo
   !$omp end parallel do
@@ -327,6 +333,7 @@ subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the m
   solid%momentum = cross_p * dx * dy /eps
 
 end subroutine free_triangle
+
 
 subroutine moving_cylinder(time,mask, us)
   use vars
