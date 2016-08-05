@@ -197,9 +197,7 @@ subroutine free_hat(time, mask, us, u, solid)
   real(kind=pr) :: Fx, Fy, cross_p, u_diff_x, u_diff_y ! used for the Forces
   real(kind=pr),dimension(1:2,1) :: CS_leg_1,    & ! coordinate system of the leg_1. If the hat points up, leg_1 is the left one.
                                     CS_leg_2,    & ! leg_2
-                                    CS_hat  ,    & ! the global coordinate system
-                                    CS_gurney_l, &
-                                    CS_gurney_r
+                                    CS_hat         ! the global coordinate system
 
   cross_p = 0.d0
   Fx = 0.d0
@@ -213,7 +211,7 @@ subroutine free_hat(time, mask, us, u, solid)
   call get_bounding_container_index (rb,lb,bb,tb,solid)
   ! rb = right bounding; lb = left bounding ; bb = bottom bounding; tb = top bounding
 
-  !$omp parallel do private(ix,iy, u_diff_x, u_diff_y, CS_leg_1,CS_leg_2,CS_hat, CS_gurney_l, CS_gurney_r) &
+  !$omp parallel do private(ix,iy, u_diff_x, u_diff_y, CS_leg_1,CS_leg_2,CS_hat ) &
   !$omp& reduction(+:Fx, Fy, cross_p)
    do ix=lb, rb
      do iy=bb ,tb
@@ -386,13 +384,11 @@ end subroutine SmoothStep
 subroutine build_smooth_hat (CS_1, CS_2, mask, ix, iy)
   use vars
   implicit none
-  real(kind=pr)::R, R_ll, R_rl, hole
+  real(kind=pr)::R, R_ll, R_rl
   integer,intent(in) :: ix,iy
   real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
   real(kind=pr),dimension(1:2,1),intent(in) :: CS_1,    & ! coordinate system of the leg_1. If the hat points up, leg_1 is the left one.
                                                CS_2       ! leg_2
-
-  hole = 0.05 * leg_l
 
   R = sqrt( CS_1(1,1)**2 + CS_1(2,1)**2 )
   if (R <= leg_h / 2.d0) then
@@ -477,22 +473,4 @@ subroutine build_smooth_hat (CS_1, CS_2, mask, ix, iy)
         mask(ix,iy) = 0.5d0 * cos((CS_2(2,1) - leg_h/2.d0)*pi / smooth_length) + 0.5;
   endif
 
-  if (iMake_free_hat_holes == 1 ) then
-    ! make holes
-    if ( CS_2(1,1) <=  leg_l * 0.5d0 + hole          .and.  &
-         CS_2(1,1) >=  leg_l * 0.5d0 - hole          .and.  &
-         CS_2(2,1) <=  leg_h / 2.d0  + smooth_length .and.  &
-         CS_2(2,1) >= -leg_h / 2.d0  - smooth_length        &
-        ) then
-          mask(ix,iy) = 0.d0
-    endif
-
-    if ( CS_1(1,1) <=  leg_l * 0.5d0 + hole          .and.  &
-         CS_1(1,1) >=  leg_l * 0.5d0 - hole          .and.  &
-         CS_1(2,1) <=  leg_h / 2.d0  + smooth_length .and.  &
-         CS_1(2,1) >= -leg_h / 2.d0  - smooth_length        &
-        ) then
-          mask(ix,iy) = 0.d0
-    endif
-  endif
 end subroutine build_smooth_hat
