@@ -30,5 +30,4 @@ gnuplot -persist <<-EOFMarker
  	plot "hat_data.txt" u 1:6 title 'y' with line, \
              "hat_data.txt" u 1:5 title 'x' lt 3 with line
 
-
 EOFMarker

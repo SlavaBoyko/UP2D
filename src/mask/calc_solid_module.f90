@@ -320,4 +320,57 @@ module calc_solid_module
 
   end subroutine rotate_hat_leg_cog
 
+!===============================================================================
+! Rotate gurney of the hat around the center of gravity  (by rotating the CS)
+!===============================================================================
+  subroutine rotate_hat_gurney (CS,theta,leg_number)
+    use vars
+    implicit none
+    real(kind=pr),intent(in) :: theta
+    integer, intent(in) :: leg_number
+    real(kind=pr),dimension(1:2,1),intent(inout) :: CS   ! <- coordinate system
+    real(kind=pr),dimension(1:2,1)               :: CS_r ! temorary variable of the rotation
+    select case (leg_number)
+      !-rotating the leg_1 around the cog---------------------------------------
+      case(1)
+        ! translate to the cog in CS(leg_1)
+        CS(1,1) = CS(1,1) - ( - leg_l * 0.5d0 * cos(alpha) * sin(alpha) )
+        CS(2,1) = CS(2,1) - ( - leg_l + 0.5d0 * leg_l * cos(alpha) * cos(alpha) )
+
+        ! rotate around the cog
+        CS_r(1,1) =  cos(theta)*CS(1,1) + sin(theta)*CS(2,1);
+        CS_r(2,1) = -sin(theta)*CS(1,1) + cos(theta)*CS(2,1);
+
+        CS(1,1) = CS_r(1,1) + ( - leg_l * 0.5d0 * cos(alpha) * sin(alpha) )
+        CS(2,1) = CS_r(2,1) + ( - leg_l + 0.5d0 * leg_l * cos(alpha) * cos(alpha))
+        !Output : CS
+
+      !-rotating the leg_1 around the cog END-----------------------------------
+
+      !-rotating the leg_2 around the cog---------------------------------------
+      case(2)
+        ! translate to the cog in CS(leg_2)
+        CS(1,1) = CS(1,1) - ( - leg_l * 0.5d0 * cos(alpha) * sin(alpha) );
+        CS(2,1) = CS(2,1) - ( leg_l - 0.5d0 * leg_l * cos(alpha) * cos(alpha) );
+
+        ! rotate around the cog
+        CS_r(1,1) =  cos(theta)*CS(1,1) + sin(theta)*CS(2,1);
+        CS_r(2,1) = -sin(theta)*CS(1,1) + cos(theta)*CS(2,1);
+
+        CS(1,1) = CS_r(1,1) + ( - leg_l * 0.5d0 * cos(alpha) * sin(alpha) )
+        CS(2,1) = CS_r(2,1) + ( leg_l - 0.5d0 * leg_l * cos(alpha) * cos(alpha) )
+        !Output : CS
+      !-rotating the leg_2 around the cog END-----------------------------------
+
+      ! unknown leg_number : error----------------------------------------------
+      case default
+        write (*,*) leg_number
+        write (*,*) '??? ERROR: no such leg_number in "rotate_hat_leg_cog" '
+        stop
+      ! unknown leg_number : error END -----------------------------------------
+
+    end select
+
+  end subroutine rotate_hat_gurney
+
 end module calc_solid_module

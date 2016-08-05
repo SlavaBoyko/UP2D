@@ -19,7 +19,7 @@ subroutine time_step (u, uk, nlk, pk, vort, mask, us, mask_sponge, solid)
   call init_fields(time, u, uk, pk, vort, nlk, mask, us, mask_sponge, solid)
   !-- create the sponge mask (we currently do this only once and assume it is not
   !-- time dependent.)
-  call sponge_mask(time, mask_sponge)
+  call sponge_mask(time, mask_sponge, solid)
 
   write (*,'("Initialization done, looping now.")')
   write (*,'("time=",es12.4," Tmax=",es12.4," it=",i2," nt=",i9)') time, Tmax, it, nt

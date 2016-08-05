@@ -29,6 +29,7 @@ subroutine get_params(paramsfile,solid)
 
   ! Penalization section
   call read_param(PARAMS,"Penalization","iMask",iMask, "none")
+  call read_param(PARAMS,"Penalization","iMake_free_hat_holes",iMake_free_hat_holes, 0)
   call read_param(PARAMS,"Penalization","position_x",solid%position(1), 2.d0)
   call read_param(PARAMS,"Penalization","position_y",solid%position(2), 2.d0)
   call read_param(PARAMS,"Penalization","velocity_x",solid%velocity(1), 0.d0)
@@ -68,6 +69,7 @@ subroutine get_params(paramsfile,solid)
   ! sponge
   call read_param(PARAMS,"Sponge","iSpongeType",iSpongeType, "none")
   call read_param(PARAMS,"Sponge","use_sponge",use_sponge, 0)
+  call read_param(PARAMS,"Sponge","moving_sponge",moving_sponge, 0)
   call read_param(PARAMS,"Sponge","eps_sponge",eps_sponge, 1.0d0)
   call read_param(PARAMS,"Sponge","Sp_thickness",Sp_thickness, 10)
 

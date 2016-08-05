@@ -34,6 +34,10 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   call cal_vis (dt, workvis)
   !-- mask and us
   call create_mask (time, mask, us, u, solid)
+  !-- calculate sponge_mask position. depend on solid pisition
+  if (moving_sponge == 1) then
+    call sponge_mask(time, mask_sponge, solid)
+  endif
   !-- RHS and pressure
   call cal_nlk (time, u, uk, vort, nlk, mask, us, mask_sponge)
   call add_pressure (nlk)

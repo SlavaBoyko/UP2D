@@ -13,6 +13,7 @@
  read InitialCondition::inicond = dipole
  read Dealiasing::iDealias = 1        
  read Penalization::iMask = none
+ read Penalization::iMake_free_hat_holes = 0 (THIS IS THE DEFAULT VALUE!)        
  read Penalization::position_x = 2.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::position_y = 2.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::velocity_x = 0.00     (THIS IS THE DEFAULT VALUE!)  
@@ -30,6 +31,7 @@
  read Penalization::n_cell_smooth = 3 (THIS IS THE DEFAULT VALUE!)        
  read Penalization::bounding_container = no (THIS IS THE DEFAULT VALUE!)
  read Penalization::buffer = 0.100     (THIS IS THE DEFAULT VALUE!) 
+ read PenalizationParameter::C_k = 0.00     (THIS IS THE DEFAULT VALUE!)  
  read PenalizationParameter::eps = 0.100E-01 (THIS IS THE DEFAULT VALUE!) 
  read Geometry::xl = 4.00  
  read Geometry::yl = 4.00  
@@ -43,6 +45,7 @@
  read Saving::iSaveSponge = 1 (THIS IS THE DEFAULT VALUE!)        
  read Sponge::iSpongeType = everywhere
  read Sponge::use_sponge = 1        
+ read Sponge::moving_sponge = 0 (THIS IS THE DEFAULT VALUE!)        
  read Sponge::eps_sponge = 0.100E-01 
  read Sponge::Sp_thickness = 10 (THIS IS THE DEFAULT VALUE!)       
  read MeanFlow::iMeanFlow = constant
@@ -52,34 +55,34 @@
  *** information: allocated memory
  fftw wrapper: nthreads=           2
  FFT testing error=  3.43600115176938700E-027
- FFT testing error=  1.52854850073455500E-014
+ FFT testing error=  1.52854849562725651E-014
  *** information: did fft_initialize
  dealiase_mask is set...
  *** information: entering time_step
-inicond=dipole max field divergence   1.7365E-15
+inicond=dipole max field divergence   1.7809E-15
 Initialization done, looping now.
 time=  0.0000E+00 Tmax=  1.5000E-01 it= 0 nt=  9999999
 time left:  0d  0h  0m 51s dt=  1.37E-04s t=  0.68E-03
-time left:  0d  0h  0m 43s dt=  1.48E-04s t=  0.14E-02
-time left:  0d  0h  0m 37s dt=  1.60E-04s t=  0.22E-02
-time left:  0d  0h  0m 34s dt=  1.73E-04s t=  0.30E-02
-time left:  0d  0h  0m 32s dt=  1.89E-04s t=  0.39E-02
-time left:  0d  0h  0m 29s dt=  2.08E-04s t=  0.49E-02
-time left:  0d  0h  0m 28s dt=  2.31E-04s t=  0.60E-02
-time left:  0d  0h  0m 26s dt=  2.58E-04s t=  0.73E-02
-time left:  0d  0h  0m 25s dt=  2.93E-04s t=  0.87E-02
-time left:  0d  0h  0m 23s dt=  3.36E-04s t=  0.10E-01
-time left:  0d  0h  0m 21s dt=  3.91E-04s t=  0.12E-01
-time left:  0d  0h  0m 19s dt=  4.61E-04s t=  0.14E-01
-time left:  0d  0h  0m 17s dt=  5.54E-04s t=  0.17E-01
-time left:  0d  0h  0m 15s dt=  6.78E-04s t=  0.20E-01
-time left:  0d  0h  0m 13s dt=  8.35E-04s t=  0.24E-01
-time left:  0d  0h  0m 11s dt=  1.02E-03s t=  0.29E-01
-time left:  0d  0h  0m  9s dt=  1.21E-03s t=  0.34E-01
-time left:  0d  0h  0m  8s dt=  1.36E-03s t=  0.41E-01
-time left:  0d  0h  0m  6s dt=  1.46E-03s t=  0.48E-01
+time left:  0d  0h  0m 47s dt=  1.48E-04s t=  0.14E-02
+time left:  0d  0h  0m 43s dt=  1.60E-04s t=  0.22E-02
+time left:  0d  0h  0m 40s dt=  1.73E-04s t=  0.30E-02
+time left:  0d  0h  0m 37s dt=  1.89E-04s t=  0.39E-02
+time left:  0d  0h  0m 34s dt=  2.08E-04s t=  0.49E-02
+time left:  0d  0h  0m 32s dt=  2.31E-04s t=  0.60E-02
+time left:  0d  0h  0m 30s dt=  2.58E-04s t=  0.73E-02
+time left:  0d  0h  0m 28s dt=  2.93E-04s t=  0.87E-02
+time left:  0d  0h  0m 26s dt=  3.36E-04s t=  0.10E-01
+time left:  0d  0h  0m 23s dt=  3.91E-04s t=  0.12E-01
+time left:  0d  0h  0m 21s dt=  4.61E-04s t=  0.14E-01
+time left:  0d  0h  0m 19s dt=  5.54E-04s t=  0.17E-01
+time left:  0d  0h  0m 17s dt=  6.78E-04s t=  0.20E-01
+time left:  0d  0h  0m 15s dt=  8.35E-04s t=  0.24E-01
+time left:  0d  0h  0m 13s dt=  1.02E-03s t=  0.29E-01
+time left:  0d  0h  0m 10s dt=  1.21E-03s t=  0.34E-01
+time left:  0d  0h  0m  9s dt=  1.36E-03s t=  0.41E-01
+time left:  0d  0h  0m  7s dt=  1.46E-03s t=  0.48E-01
 Saving. time=  5.0000E-02 vormax=  1.0009E+00 fname=000005                                                                          
-time left:  0d  0h  0m  5s dt=  1.51E-03s t=  0.55E-01
+time left:  0d  0h  0m  6s dt=  1.51E-03s t=  0.55E-01
 time left:  0d  0h  0m  5s dt=  1.54E-03s t=  0.62E-01
 time left:  0d  0h  0m  4s dt=  1.55E-03s t=  0.70E-01
 time left:  0d  0h  0m  3s dt=  1.56E-03s t=  0.78E-01
@@ -218,17 +221,17 @@ Reading from file p_000010.h5
 dsetname=p
 nx= 256 ny= 256 time=  0.1000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=  0.1010E-03 min= -0.2128E-03 mean= -0.3041E-16
+max=  0.1010E-03 min= -0.2128E-03 mean= -0.3028E-16
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 1.00000000E-01  1.00968231E-04 -2.12764047E-04 -3.04115533E-17  8.34806705E-11  2.80211508E-12
+ 1.00000000E-01  1.00968231E-04 -2.12764047E-04 -3.02765401E-17  8.34806705E-11  2.80211573E-12
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys p_000010.key ./sponge/p_000010.ref  %
-present  : time= 1.00000000E-01 max= 1.00968231E-04 min=-2.12764047E-04 sum=-3.04115533E-17 sum**2= 8.34806705E-11 q= 2.80211508E-12
+present  : time= 1.00000000E-01 max= 1.00968231E-04 min=-2.12764047E-04 sum=-3.02765401E-17 sum**2= 8.34806705E-11 q= 2.80211573E-12
 reference: time= 1.00000000E-01 max= 1.00968231E-04 min=-2.12764047E-04 sum=-3.10478111E-17 sum**2= 8.34806705E-11 q= 2.80211317E-12
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 6.36257800E-19 sum**2= 0.00000000E+00 q= 1.91000000E-18
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 7.71271000E-19 sum**2= 0.00000000E+00 q= 2.56000000E-18
  OKAY...
 :) Happy, this looks okay!  p_000010.key ./sponge/p_000010.ref
  
@@ -245,17 +248,17 @@ Reading from file p_000015.h5
 dsetname=p
 nx= 256 ny= 256 time=  0.1500     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=  0.4805E-06 min= -0.1037E-05 mean= -0.2283E-17
+max=  0.4805E-06 min= -0.1037E-05 mean= -0.2406E-17
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 1.50000000E-01  4.80495032E-07 -1.03685647E-06 -2.28303165E-18  2.35429832E-15  1.04130479E-16
+ 1.50000000E-01  4.80495032E-07 -1.03685647E-06 -2.40598710E-18  2.35429832E-15  1.04039219E-16
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys p_000015.key ./sponge/p_000015.ref  %
-present  : time= 1.50000000E-01 max= 4.80495032E-07 min=-1.03685647E-06 sum=-2.28303165E-18 sum**2= 2.35429832E-15 q= 1.04130479E-16
+present  : time= 1.50000000E-01 max= 4.80495032E-07 min=-1.03685647E-06 sum=-2.40598710E-18 sum**2= 2.35429832E-15 q= 1.04039219E-16
 reference: time= 1.50000000E-01 max= 4.80495032E-07 min=-1.03685647E-06 sum=-2.00315811E-18 sum**2= 2.35429831E-15 q= 1.05949834E-16
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 2.79873540E-19 sum**2= 1.00000000E-23 q= 1.81935500E-18
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 4.02828990E-19 sum**2= 1.00000000E-23 q= 1.91061500E-18
  OKAY...
 :) Happy, this looks okay!  p_000015.key ./sponge/p_000015.ref
  
@@ -353,17 +356,17 @@ Reading from file uy_000005.h5
 dsetname=uy
 nx= 256 ny= 256 time=  0.5000E-01 viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=  0.2249E-01 min= -0.2249E-01 mean=  0.5458E-19
+max=  0.2249E-01 min= -0.2249E-01 mean=  0.6808E-17
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 5.00000000E-02  2.24892348E-02 -2.24892348E-02  5.45806855E-20  1.62718922E-06 -5.51307655E-15
+ 5.00000000E-02  2.24892348E-02 -2.24892348E-02  6.80757733E-18  1.62718922E-06 -5.51375683E-15
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys uy_000005.key ./sponge/uy_000005.ref  %
-present  : time= 5.00000000E-02 max= 2.24892348E-02 min=-2.24892348E-02 sum= 5.45806855E-20 sum**2= 1.62718922E-06 q=-5.51307655E-15
+present  : time= 5.00000000E-02 max= 2.24892348E-02 min=-2.24892348E-02 sum= 6.80757733E-18 sum**2= 1.62718922E-06 q=-5.51375683E-15
 reference: time= 5.00000000E-02 max= 2.24892348E-02 min=-2.24892348E-02 sum=-7.30089461E-19 sum**2= 1.62718922E-06 q=-5.51541607E-15
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 7.84670147E-19 sum**2= 0.00000000E+00 q= 2.33952000E-18
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 7.53766679E-18 sum**2= 0.00000000E+00 q= 1.65924000E-18
  OKAY...
 :) Happy, this looks okay!  uy_000005.key ./sponge/uy_000005.ref
  
@@ -380,17 +383,17 @@ Reading from file uy_000010.h5
 dsetname=uy
 nx= 256 ny= 256 time=  0.1000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=  0.9591E-04 min= -0.9591E-04 mean=  0.3272E-18
+max=  0.9591E-04 min= -0.9591E-04 mean= -0.3563E-18
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 1.00000000E-01  9.59078898E-05 -9.59078898E-05  3.27249194E-19  3.75024881E-11  1.24779354E-16
+ 1.00000000E-01  9.59078898E-05 -9.59078898E-05 -3.56346099E-19  3.75024881E-11  1.22089836E-16
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys uy_000010.key ./sponge/uy_000010.ref  %
-present  : time= 1.00000000E-01 max= 9.59078898E-05 min=-9.59078898E-05 sum= 3.27249194E-19 sum**2= 3.75024881E-11 q= 1.24779354E-16
+present  : time= 1.00000000E-01 max= 9.59078898E-05 min=-9.59078898E-05 sum=-3.56346099E-19 sum**2= 3.75024881E-11 q= 1.22089836E-16
 reference: time= 1.00000000E-01 max= 9.59078898E-05 min=-9.59078898E-05 sum= 2.40676471E-20 sum**2= 3.75024881E-11 q= 1.23528646E-16
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 3.03181547E-19 sum**2= 0.00000000E+00 q= 1.25070800E-18
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 3.80413746E-19 sum**2= 0.00000000E+00 q= 1.43881000E-18
  OKAY...
 :) Happy, this looks okay!  uy_000010.key ./sponge/uy_000010.ref
  
@@ -407,17 +410,17 @@ Reading from file uy_000015.h5
 dsetname=uy
 nx= 256 ny= 256 time=  0.1500     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=  0.4527E-06 min= -0.4527E-06 mean= -0.2522E-19
+max=  0.4527E-06 min= -0.4527E-06 mean=  0.5513E-19
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 1.50000000E-01  4.52722560E-07 -4.52722560E-07 -2.52235932E-20  9.97456401E-16  9.98795110E-20
+ 1.50000000E-01  4.52722560E-07 -4.52722560E-07  5.51283696E-20  9.97456400E-16  3.38786530E-19
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys uy_000015.key ./sponge/uy_000015.ref  %
-present  : time= 1.50000000E-01 max= 4.52722560E-07 min=-4.52722560E-07 sum=-2.52235932E-20 sum**2= 9.97456401E-16 q= 9.98795110E-20
+present  : time= 1.50000000E-01 max= 4.52722560E-07 min=-4.52722560E-07 sum= 5.51283696E-20 sum**2= 9.97456400E-16 q= 3.38786530E-19
 reference: time= 1.50000000E-01 max= 4.52722560E-07 min=-4.52722560E-07 sum=-3.76780924E-19 sum**2= 9.97456399E-16 q=-1.39531776E-18
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 3.51557331E-19 sum**2= 2.00000004E-24 q= 1.49519727E-18
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 4.31909294E-19 sum**2= 1.00000012E-24 q= 1.73410429E-18
  OKAY...
 :) Happy, this looks okay!  uy_000015.key ./sponge/uy_000015.ref
  
@@ -434,17 +437,17 @@ Reading from file vor_000005.h5
 dsetname=vor
 nx= 256 ny= 256 time=  0.5000E-01 viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=   1.003     min=  -1.003     mean=  0.1962E-18
+max=   1.003     min=  -1.003     mean= -0.2169E-18
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 5.00000000E-02  1.00332582E+00 -1.00332582E+00  1.96214686E-19  1.44805703E-03  4.61955462E-12
+ 5.00000000E-02  1.00332582E+00 -1.00332582E+00 -2.16914519E-19  1.44805703E-03  4.61955407E-12
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys vor_000005.key ./sponge/vor_000005.ref  %
-present  : time= 5.00000000E-02 max= 1.00332582E+00 min=-1.00332582E+00 sum= 1.96214686E-19 sum**2= 1.44805703E-03 q= 4.61955462E-12
+present  : time= 5.00000000E-02 max= 1.00332582E+00 min=-1.00332582E+00 sum=-2.16914519E-19 sum**2= 1.44805703E-03 q= 4.61955407E-12
 reference: time= 5.00000000E-02 max= 1.00332582E+00 min=-1.00332582E+00 sum= 5.46306679E-19 sum**2= 1.44805703E-03 q= 4.61955192E-12
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 3.50091993E-19 sum**2= 0.00000000E+00 q= 2.70000000E-18
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 7.63221198E-19 sum**2= 0.00000000E+00 q= 2.15000000E-18
  OKAY...
 :) Happy, this looks okay!  vor_000005.key ./sponge/vor_000005.ref
  
@@ -461,17 +464,17 @@ Reading from file vor_000010.h5
 dsetname=vor
 nx= 256 ny= 256 time=  0.1000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=  0.3940E-02 min= -0.3940E-02 mean=  0.8638E-20
+max=  0.3940E-02 min= -0.3940E-02 mean=  0.1174E-19
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 1.00000000E-01  3.93976597E-03 -3.93976597E-03  8.63845393E-21  2.85421974E-08 -3.18152763E-15
+ 1.00000000E-01  3.93976597E-03 -3.93976597E-03  1.17351742E-20  2.85421974E-08 -3.18133362E-15
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys vor_000010.key ./sponge/vor_000010.ref  %
-present  : time= 1.00000000E-01 max= 3.93976597E-03 min=-3.93976597E-03 sum= 8.63845393E-21 sum**2= 2.85421974E-08 q=-3.18152763E-15
+present  : time= 1.00000000E-01 max= 3.93976597E-03 min=-3.93976597E-03 sum= 1.17351742E-20 sum**2= 2.85421974E-08 q=-3.18133362E-15
 reference: time= 1.00000000E-01 max= 3.93976597E-03 min=-3.93976597E-03 sum=-3.57537450E-21 sum**2= 2.85421974E-08 q=-3.18673715E-15
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 1.22138284E-20 sum**2= 0.00000000E+00 q= 5.20952000E-18
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 1.53105487E-20 sum**2= 0.00000000E+00 q= 5.40353000E-18
  OKAY...
 :) Happy, this looks okay!  vor_000010.key ./sponge/vor_000010.ref
  
@@ -488,17 +491,17 @@ Reading from file vor_000015.h5
 dsetname=vor
 nx= 256 ny= 256 time=  0.1500     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=  0.1727E-04 min= -0.1727E-04 mean= -0.8460E-17
+max=  0.1727E-04 min= -0.1727E-04 mean= -0.5596E-17
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 1.50000000E-01  1.72722375E-05 -1.72722375E-05 -8.46020341E-18  6.61089870E-13  5.55193834E-16
+ 1.50000000E-01  1.72722375E-05 -1.72722375E-05 -5.59564947E-18  6.61089870E-13  5.67195570E-16
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys vor_000015.key ./sponge/vor_000015.ref  %
-present  : time= 1.50000000E-01 max= 1.72722375E-05 min=-1.72722375E-05 sum=-8.46020341E-18 sum**2= 6.61089870E-13 q= 5.55193834E-16
+present  : time= 1.50000000E-01 max= 1.72722375E-05 min=-1.72722375E-05 sum=-5.59564947E-18 sum**2= 6.61089870E-13 q= 5.67195570E-16
 reference: time= 1.50000000E-01 max= 1.72722375E-05 min=-1.72722375E-05 sum=-1.01849346E-17 sum**2= 6.61089869E-13 q= 5.46198851E-16
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 1.72473119E-18 sum**2= 1.00000007E-21 q= 8.99498300E-18
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 4.58928513E-18 sum**2= 1.00000007E-21 q= 2.09967190E-17
  OKAY...
 :) Happy, this looks okay!  vor_000015.key ./sponge/vor_000015.ref
  

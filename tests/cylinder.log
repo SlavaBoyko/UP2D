@@ -13,6 +13,7 @@
  read InitialCondition::inicond = quiescent
  read Dealiasing::iDealias = 1        
  read Penalization::iMask = cylinder
+ read Penalization::iMake_free_hat_holes = 0 (THIS IS THE DEFAULT VALUE!)        
  read Penalization::position_x = 2.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::position_y = 2.00     (THIS IS THE DEFAULT VALUE!)  
  read Penalization::velocity_x = 0.00     (THIS IS THE DEFAULT VALUE!)  
@@ -30,6 +31,7 @@
  read Penalization::n_cell_smooth = 3 (THIS IS THE DEFAULT VALUE!)        
  read Penalization::bounding_container = no (THIS IS THE DEFAULT VALUE!)
  read Penalization::buffer = 0.100     (THIS IS THE DEFAULT VALUE!) 
+ read PenalizationParameter::C_k = 0.00     (THIS IS THE DEFAULT VALUE!)  
  read PenalizationParameter::eps = 0.100E-01 (THIS IS THE DEFAULT VALUE!) 
  read Geometry::xl = 4.00  
  read Geometry::yl = 4.00  
@@ -43,6 +45,7 @@
  read Saving::iSaveSponge = 1 (THIS IS THE DEFAULT VALUE!)        
  read Sponge::iSpongeType = none
  read Sponge::use_sponge = 0        
+ read Sponge::moving_sponge = 0 (THIS IS THE DEFAULT VALUE!)        
  read Sponge::eps_sponge = 0.100E-01 
  read Sponge::Sp_thickness = 10 (THIS IS THE DEFAULT VALUE!)       
  read MeanFlow::iMeanFlow = constant
@@ -51,7 +54,7 @@
  *** information: entering StartSimulation
  *** information: allocated memory
  fftw wrapper: nthreads=           2
- FFT testing error=  3.43600115176938700E-027
+ FFT testing error=  3.42150756059969637E-027
  FFT testing error=  1.52854850073455500E-014
  *** information: did fft_initialize
  dealiase_mask is set...
@@ -59,147 +62,147 @@
 inicond=quiescent max field divergence   0.0000E+00
 Initialization done, looping now.
 time=  0.0000E+00 Tmax=  5.0000E-01 it= 0 nt=  9999999
-time left:  0d  0h  0m 11s dt=  1.25E-03s t=  0.65E-02
-time left:  0d  0h  0m 11s dt=  1.05E-03s t=  0.12E-01
-time left:  0d  0h  0m 12s dt=  9.47E-04s t=  0.17E-01
-time left:  0d  0h  0m 12s dt=  8.82E-04s t=  0.22E-01
-time left:  0d  0h  0m 12s dt=  8.36E-04s t=  0.26E-01
-time left:  0d  0h  0m 13s dt=  8.04E-04s t=  0.30E-01
-time left:  0d  0h  0m 13s dt=  7.80E-04s t=  0.34E-01
-time left:  0d  0h  0m 13s dt=  7.60E-04s t=  0.38E-01
-time left:  0d  0h  0m 13s dt=  7.44E-04s t=  0.41E-01
-time left:  0d  0h  0m 14s dt=  7.32E-04s t=  0.45E-01
-time left:  0d  0h  0m 14s dt=  7.22E-04s t=  0.49E-01
-time left:  0d  0h  0m 14s dt=  7.14E-04s t=  0.52E-01
-time left:  0d  0h  0m 14s dt=  7.07E-04s t=  0.56E-01
-time left:  0d  0h  0m 14s dt=  7.01E-04s t=  0.59E-01
-time left:  0d  0h  0m 14s dt=  6.96E-04s t=  0.63E-01
-time left:  0d  0h  0m 14s dt=  6.92E-04s t=  0.66E-01
-time left:  0d  0h  0m 14s dt=  6.88E-04s t=  0.70E-01
-time left:  0d  0h  0m 14s dt=  6.85E-04s t=  0.73E-01
-time left:  0d  0h  0m 14s dt=  6.82E-04s t=  0.76E-01
-time left:  0d  0h  0m 14s dt=  6.80E-04s t=  0.80E-01
-time left:  0d  0h  0m 14s dt=  6.79E-04s t=  0.83E-01
-time left:  0d  0h  0m 14s dt=  6.77E-04s t=  0.87E-01
-time left:  0d  0h  0m 14s dt=  6.75E-04s t=  0.90E-01
-time left:  0d  0h  0m 14s dt=  6.74E-04s t=  0.93E-01
-time left:  0d  0h  0m 14s dt=  6.73E-04s t=  0.97E-01
-time left:  0d  0h  0m 14s dt=  5.29E-04s t=  0.10    
-time left:  0d  0h  0m 14s dt=  6.72E-04s t=  0.10    
-time left:  0d  0h  0m 14s dt=  6.71E-04s t=  0.11    
-time left:  0d  0h  0m 14s dt=  6.71E-04s t=  0.11    
-time left:  0d  0h  0m 14s dt=  6.70E-04s t=  0.11    
-time left:  0d  0h  0m 13s dt=  6.70E-04s t=  0.12    
-time left:  0d  0h  0m 13s dt=  6.69E-04s t=  0.12    
-time left:  0d  0h  0m 13s dt=  6.69E-04s t=  0.12    
-time left:  0d  0h  0m 13s dt=  6.69E-04s t=  0.13    
-time left:  0d  0h  0m 13s dt=  6.69E-04s t=  0.13    
-time left:  0d  0h  0m 13s dt=  6.69E-04s t=  0.13    
-time left:  0d  0h  0m 13s dt=  6.69E-04s t=  0.14    
-time left:  0d  0h  0m 13s dt=  6.68E-04s t=  0.14    
-time left:  0d  0h  0m 13s dt=  6.68E-04s t=  0.14    
-time left:  0d  0h  0m 13s dt=  6.69E-04s t=  0.15    
-time left:  0d  0h  0m 13s dt=  4.50E-04s t=  0.15    
-time left:  0d  0h  0m 12s dt=  6.69E-04s t=  0.15    
-time left:  0d  0h  0m 12s dt=  6.69E-04s t=  0.16    
-time left:  0d  0h  0m 12s dt=  6.69E-04s t=  0.16    
-time left:  0d  0h  0m 12s dt=  6.69E-04s t=  0.16    
-time left:  0d  0h  0m 12s dt=  6.69E-04s t=  0.17    
-time left:  0d  0h  0m 12s dt=  6.69E-04s t=  0.17    
-time left:  0d  0h  0m 12s dt=  6.69E-04s t=  0.17    
-time left:  0d  0h  0m 12s dt=  6.69E-04s t=  0.18    
-time left:  0d  0h  0m 12s dt=  6.69E-04s t=  0.18    
-time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.18    
-time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.19    
-time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.19    
-time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.19    
-time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.20    
+time left:  0d  0h  0m 12s dt=  1.25E-03s t=  0.65E-02
+time left:  0d  0h  0m 14s dt=  1.05E-03s t=  0.12E-01
+time left:  0d  0h  0m 15s dt=  9.47E-04s t=  0.17E-01
+time left:  0d  0h  0m 15s dt=  8.82E-04s t=  0.22E-01
+time left:  0d  0h  0m 15s dt=  8.36E-04s t=  0.26E-01
+time left:  0d  0h  0m 15s dt=  8.04E-04s t=  0.30E-01
+time left:  0d  0h  0m 16s dt=  7.80E-04s t=  0.34E-01
+time left:  0d  0h  0m 16s dt=  7.60E-04s t=  0.38E-01
+time left:  0d  0h  0m 16s dt=  7.44E-04s t=  0.41E-01
+time left:  0d  0h  0m 17s dt=  7.32E-04s t=  0.45E-01
+time left:  0d  0h  0m 17s dt=  7.22E-04s t=  0.49E-01
+time left:  0d  0h  0m 17s dt=  7.14E-04s t=  0.52E-01
+time left:  0d  0h  0m 17s dt=  7.07E-04s t=  0.56E-01
+time left:  0d  0h  0m 17s dt=  7.01E-04s t=  0.59E-01
+time left:  0d  0h  0m 17s dt=  6.96E-04s t=  0.63E-01
+time left:  0d  0h  0m 17s dt=  6.92E-04s t=  0.66E-01
+time left:  0d  0h  0m 17s dt=  6.88E-04s t=  0.70E-01
+time left:  0d  0h  0m 17s dt=  6.85E-04s t=  0.73E-01
+time left:  0d  0h  0m 17s dt=  6.82E-04s t=  0.76E-01
+time left:  0d  0h  0m 16s dt=  6.80E-04s t=  0.80E-01
+time left:  0d  0h  0m 17s dt=  6.79E-04s t=  0.83E-01
+time left:  0d  0h  0m 16s dt=  6.77E-04s t=  0.87E-01
+time left:  0d  0h  0m 16s dt=  6.75E-04s t=  0.90E-01
+time left:  0d  0h  0m 16s dt=  6.74E-04s t=  0.93E-01
+time left:  0d  0h  0m 16s dt=  6.73E-04s t=  0.97E-01
+time left:  0d  0h  0m 16s dt=  5.29E-04s t=  0.10    
+time left:  0d  0h  0m 16s dt=  6.72E-04s t=  0.10    
+time left:  0d  0h  0m 16s dt=  6.71E-04s t=  0.11    
+time left:  0d  0h  0m 16s dt=  6.71E-04s t=  0.11    
+time left:  0d  0h  0m 16s dt=  6.70E-04s t=  0.11    
+time left:  0d  0h  0m 16s dt=  6.70E-04s t=  0.12    
+time left:  0d  0h  0m 16s dt=  6.69E-04s t=  0.12    
+time left:  0d  0h  0m 15s dt=  6.69E-04s t=  0.12    
+time left:  0d  0h  0m 15s dt=  6.69E-04s t=  0.13    
+time left:  0d  0h  0m 15s dt=  6.69E-04s t=  0.13    
+time left:  0d  0h  0m 15s dt=  6.69E-04s t=  0.13    
+time left:  0d  0h  0m 15s dt=  6.69E-04s t=  0.14    
+time left:  0d  0h  0m 15s dt=  6.68E-04s t=  0.14    
+time left:  0d  0h  0m 15s dt=  6.68E-04s t=  0.14    
+time left:  0d  0h  0m 15s dt=  6.69E-04s t=  0.15    
+time left:  0d  0h  0m 15s dt=  4.50E-04s t=  0.15    
+time left:  0d  0h  0m 15s dt=  6.69E-04s t=  0.15    
+time left:  0d  0h  0m 14s dt=  6.69E-04s t=  0.16    
+time left:  0d  0h  0m 14s dt=  6.69E-04s t=  0.16    
+time left:  0d  0h  0m 14s dt=  6.69E-04s t=  0.16    
+time left:  0d  0h  0m 14s dt=  6.69E-04s t=  0.17    
+time left:  0d  0h  0m 14s dt=  6.69E-04s t=  0.17    
+time left:  0d  0h  0m 14s dt=  6.69E-04s t=  0.17    
+time left:  0d  0h  0m 14s dt=  6.69E-04s t=  0.18    
+time left:  0d  0h  0m 13s dt=  6.69E-04s t=  0.18    
+time left:  0d  0h  0m 13s dt=  6.70E-04s t=  0.18    
+time left:  0d  0h  0m 13s dt=  6.70E-04s t=  0.19    
+time left:  0d  0h  0m 13s dt=  6.70E-04s t=  0.19    
+time left:  0d  0h  0m 13s dt=  6.70E-04s t=  0.19    
+time left:  0d  0h  0m 13s dt=  6.70E-04s t=  0.20    
 Saving. time=  2.0000E-01 vormax=  2.2366E+01 fname=000020                                                                          
-time left:  0d  0h  0m 11s dt=  4.86E-04s t=  0.20    
-time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.20    
-time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.21    
-time left:  0d  0h  0m 11s dt=  6.70E-04s t=  0.21    
-time left:  0d  0h  0m 10s dt=  6.70E-04s t=  0.21    
-time left:  0d  0h  0m 10s dt=  6.70E-04s t=  0.22    
-time left:  0d  0h  0m 10s dt=  6.70E-04s t=  0.22    
-time left:  0d  0h  0m 10s dt=  6.71E-04s t=  0.22    
-time left:  0d  0h  0m 10s dt=  6.71E-04s t=  0.23    
-time left:  0d  0h  0m 10s dt=  6.71E-04s t=  0.23    
-time left:  0d  0h  0m 10s dt=  6.71E-04s t=  0.23    
-time left:  0d  0h  0m 10s dt=  6.71E-04s t=  0.24    
-time left:  0d  0h  0m  9s dt=  6.71E-04s t=  0.24    
-time left:  0d  0h  0m  9s dt=  6.71E-04s t=  0.24    
-time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.25    
-time left:  0d  0h  0m  9s dt=  3.69E-04s t=  0.25    
-time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.25    
-time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.26    
-time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.26    
-time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.26    
-time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.27    
-time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.27    
-time left:  0d  0h  0m  8s dt=  6.72E-04s t=  0.27    
-time left:  0d  0h  0m  8s dt=  6.72E-04s t=  0.28    
-time left:  0d  0h  0m  8s dt=  6.72E-04s t=  0.28    
-time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.28    
-time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.29    
-time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.29    
-time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.29    
+time left:  0d  0h  0m 13s dt=  4.86E-04s t=  0.20    
+time left:  0d  0h  0m 13s dt=  6.70E-04s t=  0.20    
+time left:  0d  0h  0m 13s dt=  6.70E-04s t=  0.21    
+time left:  0d  0h  0m 12s dt=  6.70E-04s t=  0.21    
+time left:  0d  0h  0m 12s dt=  6.70E-04s t=  0.21    
+time left:  0d  0h  0m 12s dt=  6.70E-04s t=  0.22    
+time left:  0d  0h  0m 12s dt=  6.70E-04s t=  0.22    
+time left:  0d  0h  0m 12s dt=  6.71E-04s t=  0.22    
+time left:  0d  0h  0m 12s dt=  6.71E-04s t=  0.23    
+time left:  0d  0h  0m 12s dt=  6.71E-04s t=  0.23    
+time left:  0d  0h  0m 11s dt=  6.71E-04s t=  0.23    
+time left:  0d  0h  0m 11s dt=  6.71E-04s t=  0.24    
+time left:  0d  0h  0m 11s dt=  6.71E-04s t=  0.24    
+time left:  0d  0h  0m 11s dt=  6.71E-04s t=  0.24    
+time left:  0d  0h  0m 11s dt=  6.72E-04s t=  0.25    
+time left:  0d  0h  0m 11s dt=  3.69E-04s t=  0.25    
+time left:  0d  0h  0m 11s dt=  6.72E-04s t=  0.25    
+time left:  0d  0h  0m 11s dt=  6.72E-04s t=  0.26    
+time left:  0d  0h  0m 10s dt=  6.72E-04s t=  0.26    
+time left:  0d  0h  0m 10s dt=  6.72E-04s t=  0.26    
+time left:  0d  0h  0m 10s dt=  6.72E-04s t=  0.27    
+time left:  0d  0h  0m 10s dt=  6.72E-04s t=  0.27    
+time left:  0d  0h  0m 10s dt=  6.72E-04s t=  0.27    
+time left:  0d  0h  0m 10s dt=  6.72E-04s t=  0.28    
+time left:  0d  0h  0m  9s dt=  6.72E-04s t=  0.28    
+time left:  0d  0h  0m  9s dt=  6.73E-04s t=  0.28    
+time left:  0d  0h  0m  9s dt=  6.73E-04s t=  0.29    
+time left:  0d  0h  0m  9s dt=  6.73E-04s t=  0.29    
+time left:  0d  0h  0m  9s dt=  6.73E-04s t=  0.29    
+time left:  0d  0h  0m  9s dt=  6.73E-04s t=  0.30    
+time left:  0d  0h  0m  9s dt=  2.56E-04s t=  0.30    
 time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.30    
-time left:  0d  0h  0m  7s dt=  2.56E-04s t=  0.30    
-time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.30    
-time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.31    
-time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.31    
-time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.31    
-time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.32    
-time left:  0d  0h  0m  7s dt=  6.73E-04s t=  0.32    
-time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.32    
-time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.33    
-time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.33    
-time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.33    
-time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.34    
-time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.34    
-time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.34    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.31    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.31    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.31    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.32    
+time left:  0d  0h  0m  8s dt=  6.73E-04s t=  0.32    
+time left:  0d  0h  0m  8s dt=  6.74E-04s t=  0.32    
+time left:  0d  0h  0m  7s dt=  6.74E-04s t=  0.33    
+time left:  0d  0h  0m  7s dt=  6.74E-04s t=  0.33    
+time left:  0d  0h  0m  7s dt=  6.74E-04s t=  0.33    
+time left:  0d  0h  0m  7s dt=  6.74E-04s t=  0.34    
+time left:  0d  0h  0m  7s dt=  6.74E-04s t=  0.34    
+time left:  0d  0h  0m  7s dt=  6.74E-04s t=  0.34    
 time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.35    
-time left:  0d  0h  0m  5s dt=  1.56E-04s t=  0.35    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.35    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.36    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.36    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.36    
-time left:  0d  0h  0m  5s dt=  6.74E-04s t=  0.37    
+time left:  0d  0h  0m  6s dt=  1.56E-04s t=  0.35    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.35    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.36    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.36    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.36    
+time left:  0d  0h  0m  6s dt=  6.74E-04s t=  0.37    
 time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.37    
 time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.37    
-time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.38    
-time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.38    
-time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.38    
-time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.39    
-time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.39    
+time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.38    
+time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.38    
+time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.38    
+time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.39    
+time left:  0d  0h  0m  5s dt=  6.75E-04s t=  0.39    
 time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.39    
 time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.40    
 Saving. time=  4.0000E-01 vormax=  1.8389E+01 fname=000040                                                                          
 time left:  0d  0h  0m  4s dt=  7.82E-05s t=  0.40    
-time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.40    
-time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.41    
-time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.41    
+time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.40    
+time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.41    
+time left:  0d  0h  0m  4s dt=  6.75E-04s t=  0.41    
 time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.41    
 time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.42    
 time left:  0d  0h  0m  3s dt=  6.75E-04s t=  0.42    
 time left:  0d  0h  0m  3s dt=  6.76E-04s t=  0.42    
-time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.43    
-time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.43    
-time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.43    
+time left:  0d  0h  0m  3s dt=  6.76E-04s t=  0.43    
+time left:  0d  0h  0m  3s dt=  6.76E-04s t=  0.43    
+time left:  0d  0h  0m  3s dt=  6.76E-04s t=  0.43    
 time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.44    
 time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.44    
 time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.44    
 time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.45    
 time left:  0d  0h  0m  2s dt=  1.15E-05s t=  0.45    
-time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.45    
+time left:  0d  0h  0m  2s dt=  6.76E-04s t=  0.45    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.46    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.46    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.46    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.47    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.47    
 time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.47    
-time left:  0d  0h  0m  0s dt=  6.76E-04s t=  0.48    
+time left:  0d  0h  0m  1s dt=  6.76E-04s t=  0.48    
 time left:  0d  0h  0m  0s dt=  6.76E-04s t=  0.48    
 time left:  0d  0h  0m  0s dt=  6.76E-04s t=  0.48    
 time left:  0d  0h  0m  0s dt=  6.76E-04s t=  0.49    
@@ -304,17 +307,17 @@ Reading from file p_000020.h5
 dsetname=p
 nx= 256 ny= 256 time=  0.2000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=   2.739     min= -0.7728     mean= -0.2178E-09
+max=   2.739     min= -0.7728     mean= -0.2176E-09
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 2.00000000E-01  2.73944259E+00 -7.72845089E-01 -2.17824536E-10  5.68437886E-01  1.95999858E-01
+ 2.00000000E-01  2.73944259E+00 -7.72845089E-01 -2.17587337E-10  5.68437886E-01  1.95999858E-01
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys p_000020.key ./cylinder/p_000020.ref  %
-present  : time= 2.00000000E-01 max= 2.73944259E+00 min=-7.72845089E-01 sum=-2.17824536E-10 sum**2= 5.68437886E-01 q= 1.95999858E-01
+present  : time= 2.00000000E-01 max= 2.73944259E+00 min=-7.72845089E-01 sum=-2.17587337E-10 sum**2= 5.68437886E-01 q= 1.95999858E-01
 reference: time= 2.00000000E-01 max= 2.73944259E+00 min=-7.72845089E-01 sum=-2.17824536E-10 sum**2= 5.68437886E-01 q= 1.95999858E-01
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 2.37199000E-13 sum**2= 0.00000000E+00 q= 0.00000000E+00
  OKAY...
 :) Happy, this looks okay!  p_000020.key ./cylinder/p_000020.ref
  
@@ -331,17 +334,17 @@ Reading from file p_000040.h5
 dsetname=p
 nx= 256 ny= 256 time=  0.4000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=   2.658     min= -0.6786     mean=  0.3066E-11
+max=   2.658     min= -0.6786     mean=  0.7351E-10
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 4.00000000E-01  2.65802598E+00 -6.78588688E-01  3.06621395E-12  5.87625101E-01  1.56600475E-01
+ 4.00000000E-01  2.65802598E+00 -6.78588688E-01  7.35149719E-11  5.87625101E-01  1.56600476E-01
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys p_000040.key ./cylinder/p_000040.ref  %
-present  : time= 4.00000000E-01 max= 2.65802598E+00 min=-6.78588688E-01 sum= 3.06621395E-12 sum**2= 5.87625101E-01 q= 1.56600475E-01
+present  : time= 4.00000000E-01 max= 2.65802598E+00 min=-6.78588688E-01 sum= 7.35149719E-11 sum**2= 5.87625101E-01 q= 1.56600476E-01
 reference: time= 4.00000000E-01 max= 2.65802598E+00 min=-6.78588688E-01 sum= 3.06621395E-12 sum**2= 5.87625101E-01 q= 1.56600475E-01
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 7.04487580E-11 sum**2= 0.00000000E+00 q= 6.38567667E-09
  OKAY...
 :) Happy, this looks okay!  p_000040.key ./cylinder/p_000040.ref
  
@@ -358,17 +361,17 @@ Reading from file p_000050.h5
 dsetname=p
 nx= 256 ny= 256 time=  0.5000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=   2.619     min= -0.7050     mean=  0.1806E-09
+max=   2.619     min= -0.7050     mean=  0.1021E-09
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 5.00000000E-01  2.61925030E+00 -7.05047488E-01  1.80558818E-10  6.04395669E-01  1.55340771E-01
+ 5.00000000E-01  2.61925030E+00 -7.05047488E-01  1.02056544E-10  6.04395669E-01  1.55340771E-01
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys p_000050.key ./cylinder/p_000050.ref  %
-present  : time= 5.00000000E-01 max= 2.61925030E+00 min=-7.05047488E-01 sum= 1.80558818E-10 sum**2= 6.04395669E-01 q= 1.55340771E-01
+present  : time= 5.00000000E-01 max= 2.61925030E+00 min=-7.05047488E-01 sum= 1.02056544E-10 sum**2= 6.04395669E-01 q= 1.55340771E-01
 reference: time= 5.00000000E-01 max= 2.61925030E+00 min=-7.05047488E-01 sum= 1.80558818E-10 sum**2= 6.04395669E-01 q= 1.55340771E-01
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 7.85022740E-11 sum**2= 0.00000000E+00 q= 0.00000000E+00
  OKAY...
 :) Happy, this looks okay!  p_000050.key ./cylinder/p_000050.ref
  
@@ -466,17 +469,17 @@ Reading from file uy_000020.h5
 dsetname=uy
 nx= 256 ny= 256 time=  0.2000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=  0.9221     min= -0.9221     mean=   0.000    
+max=  0.9221     min= -0.9221     mean= -0.4781E-12
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 2.00000000E-01  9.22112465E-01 -9.22112465E-01  0.00000000E+00  8.29362063E-02 -4.93694738E-11
+ 2.00000000E-01  9.22112465E-01 -9.22112465E-01 -4.78062034E-13  8.29362063E-02 -5.04361067E-11
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys uy_000020.key ./cylinder/uy_000020.ref  %
-present  : time= 2.00000000E-01 max= 9.22112465E-01 min=-9.22112465E-01 sum= 0.00000000E+00 sum**2= 8.29362063E-02 q=-4.93694738E-11
+present  : time= 2.00000000E-01 max= 9.22112465E-01 min=-9.22112465E-01 sum=-4.78062034E-13 sum**2= 8.29362063E-02 q=-5.04361067E-11
 reference: time= 2.00000000E-01 max= 9.22112465E-01 min=-9.22112465E-01 sum= 0.00000000E+00 sum**2= 8.29362063E-02 q=-4.93694738E-11
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 4.78062034E-13 sum**2= 0.00000000E+00 q= 1.06663290E-12
  OKAY...
 :) Happy, this looks okay!  uy_000020.key ./cylinder/uy_000020.ref
  
@@ -493,17 +496,17 @@ Reading from file uy_000040.h5
 dsetname=uy
 nx= 256 ny= 256 time=  0.4000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=  0.8869     min= -0.8869     mean=   0.000    
+max=  0.8869     min= -0.8869     mean= -0.1727E-11
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 4.00000000E-01  8.86890411E-01 -8.86890411E-01  0.00000000E+00  8.22233693E-02  7.89366921E-11
+ 4.00000000E-01  8.86890411E-01 -8.86890411E-01 -1.72711498E-12  8.22233694E-02  7.68612998E-11
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys uy_000040.key ./cylinder/uy_000040.ref  %
-present  : time= 4.00000000E-01 max= 8.86890411E-01 min=-8.86890411E-01 sum= 0.00000000E+00 sum**2= 8.22233693E-02 q= 7.89366921E-11
+present  : time= 4.00000000E-01 max= 8.86890411E-01 min=-8.86890411E-01 sum=-1.72711498E-12 sum**2= 8.22233694E-02 q= 7.68612998E-11
 reference: time= 4.00000000E-01 max= 8.86890411E-01 min=-8.86890411E-01 sum= 0.00000000E+00 sum**2= 8.22233693E-02 q= 7.89366921E-11
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 1.72711498E-12 sum**2= 1.21619918E-09 q= 2.07539230E-12
  OKAY...
 :) Happy, this looks okay!  uy_000040.key ./cylinder/uy_000040.ref
  
@@ -520,17 +523,17 @@ Reading from file uy_000050.h5
 dsetname=uy
 nx= 256 ny= 256 time=  0.5000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=  0.8765     min= -0.8765     mean=   0.000    
+max=  0.8765     min= -0.8765     mean= -0.9612E-11
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 5.00000000E-01  8.76514733E-01 -8.76514733E-01  0.00000000E+00  8.10546652E-02  4.02642086E-11
+ 5.00000000E-01  8.76514733E-01 -8.76514733E-01 -9.61185298E-12  8.10546652E-02  3.31950838E-11
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys uy_000050.key ./cylinder/uy_000050.ref  %
-present  : time= 5.00000000E-01 max= 8.76514733E-01 min=-8.76514733E-01 sum= 0.00000000E+00 sum**2= 8.10546652E-02 q= 4.02642086E-11
+present  : time= 5.00000000E-01 max= 8.76514733E-01 min=-8.76514733E-01 sum=-9.61185298E-12 sum**2= 8.10546652E-02 q= 3.31950838E-11
 reference: time= 5.00000000E-01 max= 8.76514733E-01 min=-8.76514733E-01 sum= 0.00000000E+00 sum**2= 8.10546652E-02 q= 4.02642086E-11
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 9.61185298E-12 sum**2= 0.00000000E+00 q= 7.06912480E-12
  OKAY...
 :) Happy, this looks okay!  uy_000050.key ./cylinder/uy_000050.ref
  
@@ -547,17 +550,17 @@ Reading from file vor_000020.h5
 dsetname=vor
 nx= 256 ny= 256 time=  0.2000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=   22.37     min=  -22.37     mean=  0.1728E-15
+max=   22.37     min=  -22.37     mean= -0.3469E-12
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 2.00000000E-01  2.23723183E+01 -2.23723183E+01  1.72821826E-16  7.17201186E+00 -5.68868348E-01
+ 2.00000000E-01  2.23723183E+01 -2.23723183E+01 -3.46886501E-13  7.17201186E+00 -5.68868348E-01
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys vor_000020.key ./cylinder/vor_000020.ref  %
-present  : time= 2.00000000E-01 max= 2.23723183E+01 min=-2.23723183E+01 sum= 1.72821826E-16 sum**2= 7.17201186E+00 q=-5.68868348E-01
+present  : time= 2.00000000E-01 max= 2.23723183E+01 min=-2.23723183E+01 sum=-3.46886501E-13 sum**2= 7.17201186E+00 q=-5.68868348E-01
 reference: time= 2.00000000E-01 max= 2.23723183E+01 min=-2.23723183E+01 sum= 1.72794721E-16 sum**2= 7.17201186E+00 q=-5.68868348E-01
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 2.71050000E-20 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 3.47059296E-13 sum**2= 0.00000000E+00 q= 0.00000000E+00
  OKAY...
 :) Happy, this looks okay!  vor_000020.key ./cylinder/vor_000020.ref
  
@@ -574,17 +577,17 @@ Reading from file vor_000040.h5
 dsetname=vor
 nx= 256 ny= 256 time=  0.4000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=   18.39     min=  -18.39     mean= -0.3482E-15
+max=   18.39     min=  -18.39     mean= -0.7915E-11
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 4.00000000E-01  1.83895168E+01 -1.83895168E+01 -3.48245738E-16  5.77386355E+00 -6.24444692E-01
+ 4.00000000E-01  1.83895168E+01 -1.83895168E+01 -7.91533852E-12  5.77386355E+00 -6.24444692E-01
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys vor_000040.key ./cylinder/vor_000040.ref  %
-present  : time= 4.00000000E-01 max= 1.83895168E+01 min=-1.83895168E+01 sum=-3.48245738E-16 sum**2= 5.77386355E+00 q=-6.24444692E-01
+present  : time= 4.00000000E-01 max= 1.83895168E+01 min=-1.83895168E+01 sum=-7.91533852E-12 sum**2= 5.77386355E+00 q=-6.24444692E-01
 reference: time= 4.00000000E-01 max= 1.83895168E+01 min=-1.83895168E+01 sum=-3.48245738E-16 sum**2= 5.77386355E+00 q=-6.24444692E-01
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 7.91499027E-12 sum**2= 0.00000000E+00 q= 0.00000000E+00
  OKAY...
 :) Happy, this looks okay!  vor_000040.key ./cylinder/vor_000040.ref
  
@@ -601,17 +604,17 @@ Reading from file vor_000050.h5
 dsetname=vor
 nx= 256 ny= 256 time=  0.5000     viscosity=      0.2500E-01
 xl=   4.000     yl=   4.000    
-max=   17.65     min=  -17.65     mean= -0.2038E-15
+max=   17.65     min=  -17.65     mean= -0.5200E-11
 Done reading file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 5.00000000E-01  1.76495152E+01 -1.76495152E+01 -2.03830008E-16  5.47767862E+00 -6.48583871E-01
+ 5.00000000E-01  1.76495152E+01 -1.76495152E+01 -5.19952918E-12  5.47767862E+00 -6.48583871E-01
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~ UP2D is running in postprocessing mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % CALL: ./UP2D  -p --compare-keys vor_000050.key ./cylinder/vor_000050.ref  %
-present  : time= 5.00000000E-01 max= 1.76495152E+01 min=-1.76495152E+01 sum=-2.03830008E-16 sum**2= 5.47767862E+00 q=-6.48583871E-01
+present  : time= 5.00000000E-01 max= 1.76495152E+01 min=-1.76495152E+01 sum=-5.19952918E-12 sum**2= 5.47767862E+00 q=-6.48583871E-01
 reference: time= 5.00000000E-01 max= 1.76495152E+01 min=-1.76495152E+01 sum=-2.03830008E-16 sum**2= 5.47767862E+00 q=-6.48583871E-01
-err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 0.00000000E+00 sum**2= 0.00000000E+00 q= 0.00000000E+00
+err(rel) : time= 0.00000000E+00 max= 0.00000000E+00 min= 0.00000000E+00 sum= 5.19932535E-12 sum**2= 0.00000000E+00 q= 0.00000000E+00
  OKAY...
 :) Happy, this looks okay!  vor_000050.key ./cylinder/vor_000050.ref
  

@@ -15,7 +15,7 @@ module vars
   character(len=strlen),save :: intelligent_dt = "yes"
   character(len=strlen),save :: inicond, iMask, iMeanFlow, iMethod, BC ! BC is the flag for use of a bounding container. Used by free_hat
 
-  integer, save :: iSaveVelocity, iSaveVorticity, iSaveMask, iSavePressure, iSaveSponge, Sp_thickness
+  integer, save :: iSaveVelocity, iSaveVorticity, iSaveMask, iSavePressure, iSaveSponge, Sp_thickness, iMake_free_hat_holes
 
   ! deliberately reduce code to second order FD?
   logical, save :: FD_2nd = .false.
@@ -23,7 +23,7 @@ module vars
   ! sponge term
   character (len=strlen), save :: iSpongeType
   real(kind=pr), save :: eps_sponge
-  integer, save :: use_sponge = 0
+  integer, save :: use_sponge, moving_sponge
 
   ! memory
   real(kind=pr), dimension(:,:), allocatable, save :: dealiase
@@ -67,6 +67,7 @@ module vars
 
   real(kind=pr), dimension(1:2,1:2,1:2) :: rotate_leg ! rotation matrix's to build the legs CS of the hat. "1" is for the leg_1
   real(kind=pr), dimension(1:2)         :: cg_rot_dist! distance (modulus) in CS(legs) to rotate around the center of gravity(cg) of the whole hat
+
 !!!!!!!!!!!!!
 contains
 !!!!!!!!!!!!!
