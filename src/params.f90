@@ -64,6 +64,7 @@ subroutine get_params(paramsfile,solid)
   call read_param(PARAMS,"Saving","iSavePressure",iSavePressure, 1)
   call read_param(PARAMS,"Saving","iSaveMask",iSaveMask, 1)
   call read_param(PARAMS,"Saving","iSaveSponge",iSaveSponge, 1)
+  call read_param(PARAMS,"Saving","iSaveSolidVelocity",iSaveSolidVelocity, 1)
 
   ! sponge
   call read_param(PARAMS,"Sponge","iSpongeType",iSpongeType, "none")

@@ -34,15 +34,34 @@ module statistic_module
 
     if (there) then
       open (14, file = 'hat_data.txt', status = 'unknown', access = 'append')
-        write (14,'(6(es15.8,1x))') time, solid%aeroForce(1), &
-                                          solid%aeroForce(2), &
-                                          solid%momentum    , &
-                                          solid%position(1) , &
-                                          solid%position(2)
+        write (14,'(13(es15.8,1x))') time, solid%aeroForce(1)    , &
+                                          solid%aeroForce(2)    , &
+                                          solid%momentum        , &
+                                          solid%position(1)     , &
+                                          solid%position(2)     , &
+                                          solid%velocity(1)     , &
+                                          solid%velocity(2)     , &
+                                          solid%acceleration(1) , &
+                                          solid%acceleration(2) , &
+                                          solid%ang_position    , &
+                                          solid%ang_velocity    , &
+                                          solid%ang_acceleration
+
       close (14)
     else
       open (14, file = 'hat_data.txt', status = 'new', access = 'append')
-        write(14,'(6(1x,a))') '# Time', 'Fx', 'Fy', 'Momentum', 'Postition_x', 'Position_y'
+        write(14,'(13(1x,a))') '# Time', 'Fx'         , &
+                                        'Fy'         , &
+                                        'Momentum'   , &
+                                        'Postition_x', &
+                                        'Position_y' , &
+                                        'Velocity_x' , &
+                                        'Velocity_y' , &
+                                        'Acceler_x'  , &
+                                        'Acceler_y'  , &
+                                        'Ang_pos'    , &
+                                        'Ang_velo'   , &
+                                        'Ang_acceler'
       close(14)
     endif
     ! open (14, file = 'momentum.txt', status = 'unknown', access = 'append')

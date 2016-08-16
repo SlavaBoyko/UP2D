@@ -15,7 +15,13 @@ module vars
   character(len=strlen),save :: intelligent_dt = "yes"
   character(len=strlen),save :: inicond, iMask, iMeanFlow, iMethod, BC ! BC is the flag for use of a bounding container. Used by free_hat
 
-  integer, save :: iSaveVelocity, iSaveVorticity, iSaveMask, iSavePressure, iSaveSponge, Sp_thickness
+  integer, save :: iSaveVelocity      ,&
+                   iSaveVorticity     ,&
+                   iSaveMask          ,&
+                   iSavePressure      ,&
+                   iSaveSponge        ,&
+                   iSaveSolidVelocity ,&
+                   Sp_thickness
 
   ! deliberately reduce code to second order FD?
   logical, save :: FD_2nd = .false.

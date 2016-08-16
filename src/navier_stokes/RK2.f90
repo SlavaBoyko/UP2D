@@ -17,15 +17,20 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   real(kind=pr),dimension(0:nx-1,0:ny-1,1:2), intent (inout) :: u, uk, nlk
   real(kind=pr),dimension(0:nx-1,0:ny-1,1:2), intent(inout) :: us
   real(kind=pr),dimension(:,:), allocatable :: workvis
-  real(kind=pr),dimension(:,:,:), allocatable :: nlk2, uk_tmp, u_tmp
+  real(kind=pr),dimension(:,:,:), allocatable :: nlk2, uk_tmp, u_tmp, us_tmp
 
   integer :: iy
   real(kind=pr) :: adjust_dt
 
   ! allocate memory for work arrays. note we should not use them from stack, but
   ! allocateable instead, to avoid issues with stack limitations.
-  allocate(nlk2(0:nx-1, 0:ny-1,1:2), uk_tmp(0:nx-1, 0:ny-1,1:2), u_tmp(0:nx-1, 0:ny-1,1:2))
+  allocate( nlk2(0:nx-1, 0:ny-1,1:2)   ,&
+            uk_tmp(0:nx-1, 0:ny-1,1:2) ,&
+            u_tmp(0:nx-1, 0:ny-1,1:2)  ,&
+            us_tmp(0:nx-1, 0:ny-1,1:2)  &
+          )
   allocate(workvis(0:nx-1, 0:ny-1))
+
 
   !-- determine time step
   dt = adjust_dt (time,it,u)
@@ -33,11 +38,13 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   !-- compute integrating factor
   call cal_vis (dt, workvis)
   !-- mask and us
-  call create_mask (time, mask, us, u, solid)
+
+  call create_mask (time, mask, us, u, solid)!Output: mask, us, solid.forces
   !-- calculate sponge_mask position. depend on solid pisition
-  if (moving_sponge == 1) then
-    call sponge_mask(time, mask_sponge, solid)
-  endif
+
+  !if (moving_sponge == 1) then
+  !  call sponge_mask(time, mask_sponge, solid)
+  !endif
   !-- RHS and pressure
   call cal_nlk (time, u, uk, vort, nlk, mask, us, mask_sponge)
   call add_pressure (nlk)
@@ -65,9 +72,11 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   ! do second RK2 step (RHS evaluation with the argument defined above)
   !---------------------------------------------------------------------------------
   !-- mask and us
-  call create_mask (time+dt, mask, us, u_tmp, solid_tmp)
+
+  call create_mask (time+dt, mask, us_tmp, u_tmp, solid_tmp) !Output: mask, us, solid.forces
   !-- RHS and pressure
-  call cal_nlk (time+dt, u_tmp, uk_tmp, vort, nlk2, mask, us, mask_sponge)
+
+  call cal_nlk (time+dt, u_tmp, uk_tmp, vort, nlk2, mask, us_tmp, mask_sponge)
   call add_pressure (nlk2)
   !-- Calculate forces
   !call calc_forces (solid,   mask, u_tmp, us) !<- the u_tmp is different
@@ -92,7 +101,7 @@ subroutine RK2 (time, dt,it, u, uk, p, vort, nlk, mask, us, mask_sponge, solid)
   call ifft (uk(:,:,1), u(:,:,1))
   call ifft (uk(:,:,2), u(:,:,2))
 
-  deallocate(nlk2, uk_tmp, u_tmp,workvis)
+  deallocate(nlk2, uk_tmp, us_tmp, u_tmp,workvis)
 
 !  at the end of the time step, we consistently return u and uk
 end subroutine RK2

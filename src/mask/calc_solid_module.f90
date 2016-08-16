@@ -15,6 +15,7 @@ module calc_solid_module
 
     solid%aeroForce(1)    = 0.d0
     solid%aeroForce(2)    = 0.d0
+    solid%momentum        = 0.d0
 
     ! if none J
     J = 1.d0;
@@ -110,6 +111,11 @@ module calc_solid_module
 
       !-cylinder END--------------------------------------------------------
 
+      !-mvigng_cylinder------------------------------------------------------------
+      case('moving_cylinder') ! <- need to be set here for the test unit
+
+      !-moving_cylinder END--------------------------------------------------------
+
       ! unknown step : error--------------------------------------------------------
       case default
         write (*,*) iMask
@@ -131,6 +137,7 @@ module calc_solid_module
   ! step 1 with "solid" is for the euler step
   ! step 2 with "solid_tmp for the second RK2 step (RHS evaluation with the
   ! argument defined above)
+  ! This function calculates the solid RHS as well.
   !-------------------------------------------------------------------------------
     use vars
     implicit none
@@ -138,55 +145,53 @@ module calc_solid_module
     type(solid_data_struct), intent(inout) :: solid_tmp
     real(kind=pr),intent(in) :: dt
     integer,intent(in) :: step
+    real(kind=pr),dimension(1:2) :: tmp1_acceleration, tmp2_acceleration
+    real(kind=pr)                :: tmp1_ang_acceleration, tmp2_ang_acceleration
 
+
+    ! Solid RHS -------------------------------------------|
+      tmp1_acceleration(1)  = 1.d0 * (solid%aeroForce(1) / Mass     )
+      tmp1_acceleration(2)  = 1.d0 * (solid%aeroForce(2) / Mass + g )
+      tmp1_ang_acceleration = 1.d0 * (solid%momentum / J )
+    !------------------------------------------------------|
 
     select case (step)
-      ! the euler step -------------------------------------------------------------
+      ! First step =============================================================
       case (1)
         ! momentum balance
-        solid%acceleration(1) = solid%aeroForce(1) / Mass
-        solid%acceleration(2) = solid%aeroForce(2) / Mass + g
-
         solid_tmp%position(1:2) = solid%position(1:2) + dt*solid%velocity(1:2)
-        solid_tmp%velocity(1:2) = solid%velocity(1:2) + dt*solid%acceleration(1:2)
-        solid_tmp%acceleration(1:2) = solid%acceleration(1:2)
+        solid_tmp%velocity(1:2) = solid%velocity(1:2) + dt*tmp1_acceleration(1:2)
         ! angular momentum balance
-        solid%ang_acceleration = solid%momentum / J
-
         solid_tmp%ang_position = solid%ang_position + dt*solid%ang_velocity
-        solid_tmp%ang_velocity = solid%ang_velocity + dt*solid%ang_acceleration
-        solid_tmp%ang_acceleration = solid%ang_acceleration
+        solid_tmp%ang_velocity = solid%ang_velocity + dt*tmp1_ang_acceleration
+
         ! Output: solid_tmp
-      ! the euler step END ---------------------------------------------------------
+      ! the euler step END =====================================================
 
-      ! the second RK2 step---------------------------------------------------------
+      ! the second RK2 step=====================================================
       case (2)
+        ! Solid RHS ----------------------------------------------|
+          tmp2_acceleration(1)  = 1.d0 * ( solid_tmp%aeroForce(1) / Mass   )
+          tmp2_acceleration(2)  = 1.d0 * ( solid_tmp%aeroForce(2) / Mass + g )
+          tmp2_ang_acceleration = 1.d0 * ( solid_tmp%momentum / J )
+        !---------------------------------------------------------|
+
         ! momentum balance
-        ! acceleration is constant in time. force the solid_tmp%acceleration
-        ! for the next RK step. Forcing not necessary.
-        solid%acceleration(1) = solid%aeroForce(1) / Mass
-        solid%acceleration(2) = solid%aeroForce(2) / Mass + g
-        !write(*,*) solid_tmp%acceleration(2)
-        solid%position(1:2) = solid%position(1:2) + 0.5d0*dt*(solid%velocity(1:2)     + solid_tmp%velocity(1:2)     )
-        solid%velocity(1:2) = solid%velocity(1:2) + 0.5d0*dt*(solid%acceleration(1:2) + solid_tmp%acceleration(1:2) )
-
+        solid%position(1:2) = solid%position(1:2) + 0.5d0*dt*(solid%velocity(1:2)   + solid_tmp%velocity(1:2) )
+        solid%velocity(1:2) = solid%velocity(1:2) + 0.5d0*dt*(tmp1_acceleration(1:2) + tmp2_acceleration(1:2)  )
         ! angular momentum balance
-        solid%ang_acceleration = solid%momentum / J
+        solid%ang_position = solid%ang_position + 0.5d0*dt*(solid%ang_velocity    + solid_tmp%ang_velocity    )
+        solid%ang_velocity = solid%ang_velocity + 0.5d0*dt*(tmp1_ang_acceleration + tmp2_ang_acceleration     )
 
-        solid%ang_position = solid%ang_position + 0.5d0*dt*(solid%ang_velocity     + solid_tmp%ang_velocity     )
-        solid%ang_velocity = solid%ang_velocity + 0.5d0*dt*(solid%ang_acceleration + solid_tmp%ang_acceleration )
-
-        !write (*,*) 'This is ang velocity'
-        !write (*,*) solid%ang_velocity
         ! Output: solid at the time t+1 with RK2
-      ! the second RK2 step END-----------------------------------------------------
+      ! the second RK2 step END==================================================
 
-      ! unknown step : error--------------------------------------------------------
+      ! unknown step : error=====================================================
       case default
         write (*,*) step
         write (*,*) '??? ERROR: Invalid initial condition'
         stop
-      ! unknown step : error END ---------------------------------------------------
+      ! unknown step : error END ===============================================
     end select
 
   end subroutine RK2_rhs_solid

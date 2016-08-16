@@ -96,7 +96,6 @@ subroutine ellipse(mask, us)
 end subroutine ellipse
 
 !===============================================================================
-! NO SMOOTHING FUNKTION !
 subroutine free_ellipse(time, mask, us, u, solid)
   use vars
   use calc_solid_module
@@ -106,7 +105,7 @@ subroutine free_ellipse(time, mask, us, u, solid)
   real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
   real(kind=pr),dimension(0:nx-1,0:ny-1,1:2),intent(inout) :: us, u
   integer :: ix,iy, lb, rb, bb, tb
-  real(kind=pr)::R,R0,x,y
+  real(kind=pr)::R,R0,x,y,smooth
   real(kind=pr)::x_tmp,y_tmp
   real(kind=pr) :: Fx, Fy, cross_p, u_diff_x, u_diff_y ! used for the Forces
 
@@ -115,17 +114,18 @@ subroutine free_ellipse(time, mask, us, u, solid)
   cross_p = 0.d0
   Fx = 0.d0
   Fy = 0.d0
+  smooth = 2.d0*max(dx,dy)
+  R0 = 0.5d0
 
   call periodize_solid_cog (solid)
 
   x0 = solid%position(1)
   y0 = solid%position(2)
-
   !Bounding container speed up
-  ix_start = ceiling( (x0 - (a + 0.1d0) )/dx )
-  ix_end   = ceiling( (x0 + (a + 0.1d0) )/dx )
-  iy_start = ceiling( (y0 - (a + 0.1d0) )/dy )
-  iy_end   = ceiling( (y0 + (a + 0.1d0) )/dy )
+  ix_start = ceiling( (x0 - (R0+smooth + 0.2d0) )/dx )
+  ix_end   = ceiling( (x0 + (R0+smooth + 0.2d0) )/dx )
+  iy_start = ceiling( (y0 - (R0+smooth + 0.2d0) )/dy )
+  iy_end   = ceiling( (y0 + (R0+smooth + 0.2d0) )/dy )
 
   if (iy_end >= ny-1) then; iy_end = ny-1; iy_start = 0;  endif;
   if (iy_start <= 0 ) then; iy_end = ny-1; iy_start = 0;  endif;
@@ -142,12 +142,21 @@ subroutine free_ellipse(time, mask, us, u, solid)
 
       call periodize_solid_coordinate (x,y)
 
-      x_tmp = cos(solid%ang_position)*x - sin(solid%ang_position)*y
-      y_tmp = sin(solid%ang_position)*x + cos(solid%ang_position)*y
+      x_tmp = cos(solid%ang_position)*x + sin(solid%ang_position)*y
+      y_tmp = -sin(solid%ang_position)*x + cos(solid%ang_position)*y
 
-      R = (x_tmp/a)**2  +  (y_tmp/b)**2
-      if (R<= 1.d0) then
+      R = (x_tmp)**2  +  (y_tmp)**2
+
+      if (R<=R0-smooth) then
         mask(ix,iy) = 1.d0
+      elseif (((R0-smooth)<R).and.(R<(R0+smooth))) then
+        mask(ix,iy) = 0.5d0*(1.0d0+cos((R-R0+smooth)*pi/(2.d0*smooth)) )
+      else
+        mask(ix,iy) = 0.0d0
+      endif
+
+      if (mask(ix,iy) > 0.d0) then
+        !mask(ix,iy) = 1.d0
         ! update the solid velocity
         ! this ist the solid velocity
         us(ix,iy,1) = solid%velocity(1) - solid%ang_velocity * y
@@ -158,16 +167,10 @@ subroutine free_ellipse(time, mask, us, u, solid)
         u_diff_x = u(ix,iy,1)- us(ix,iy,1)
         u_diff_y = u(ix,iy,2)- us(ix,iy,2)
 
-          !Fx = Fx + mask(ix,iy)*( u_diff_x )
-          !Fy = Fy + mask(ix,iy)*( u_diff_y )
+        Fx = Fx + u_diff_x * mask(ix,iy)
+        Fy = Fy + u_diff_y * mask(ix,iy)
 
-          !Cross product: r x u
-          !cross_p = cross_p + mask(ix,iy) * (x * u_diff_y - y * u_diff_x)
-
-        Fx = Fx + u_diff_x
-        Fy = Fy + u_diff_y
-
-        cross_p = cross_p + (x * u_diff_y - y * u_diff_x)
+        cross_p = cross_p + (x * u_diff_y - y * u_diff_x) * mask(ix,iy)
       endif
     enddo
   enddo
@@ -230,7 +233,7 @@ subroutine free_hat(time, mask, us, u, solid)
         call build_smooth_hat (CS_leg_1, CS_leg_2, mask, ix, iy) !Output: mask
 
         !  calc forces only if the mask is not zero
-        if ( mask(ix,iy) /= 0 )then
+        if ( mask(ix,iy) > 0.d0 )then
           us(ix,iy,1) = ( solid%velocity(1) - solid%ang_velocity * ( CS_hat(2,1) + cg_shift ) ) * mask(ix,iy)
           us(ix,iy,2) = ( solid%velocity(2) + solid%ang_velocity *   CS_hat(1,1)              ) * mask(ix,iy)
 
@@ -256,7 +259,7 @@ end subroutine free_hat
 
 !===============================================================================
 
-subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the mask into the routine ?
+subroutine free_triangle(time, mask, us, u, solid)
   use vars
   use calc_solid_module
   use bound_container_module
@@ -273,8 +276,6 @@ subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the m
                                     CS_leg_2,    & ! leg_2
                                     CS_hat,      & ! the global coordinate system
                                     CS_r
-  us = 0.d0   ! <- imprtant ?
-  mask = 0.d0
   cross_p = 0.d0
   Fx = 0.d0
   Fy = 0.d0
@@ -318,7 +319,6 @@ subroutine free_triangle(time, mask, us, u, solid) ! <- do we need to pass the m
         Fy = Fy + u_diff_y
 
         cross_p = cross_p + (  CS_r(1,1) * u_diff_y   -  (CS_r(2,1) ) * u_diff_x  )
-        !cross_p = cross_p + (  CS_hat(1,1) * u_diff_y   -  (CS_hat(2,1)+cg_shift) * u_diff_x  )
 
     enddo
   enddo
@@ -389,6 +389,7 @@ subroutine build_smooth_hat (CS_1, CS_2, mask, ix, iy)
   real(kind=pr),dimension(0:nx-1,0:ny-1),intent(inout) :: mask
   real(kind=pr),dimension(1:2,1),intent(in) :: CS_1,    & ! coordinate system of the leg_1. If the hat points up, leg_1 is the left one.
                                                CS_2       ! leg_2
+
 
   R = sqrt( CS_1(1,1)**2 + CS_1(2,1)**2 )
   if (R <= leg_h / 2.d0) then

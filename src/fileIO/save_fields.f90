@@ -33,7 +33,12 @@ subroutine save_fields(time, it, u, uk, vort, mask, us, mask_sponge)
     call SaveField (time, "mask_"//trim(timestring), mask)
   endif
 
-  if (use_sponge == 1) then ! <- this operation follows the main program structure. 
+  if ( iSaveSolidVelocity == 1) then
+    call SaveField (time, "usx_"//trim(timestring), us(:,:,1) )
+    call SaveField (time, "usy_"//trim(timestring), us(:,:,2) )
+  endif
+
+  if (use_sponge == 1) then ! <- this operation follows the main program structure.
     if ( iSaveSponge == 1) then
       call SaveField (time, "sponge_"//trim(timestring), mask_sponge)
     endif
